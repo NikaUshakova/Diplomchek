@@ -1,0 +1,482 @@
+﻿@model BeautySaloon.Models.OrderService
+@{
+    Layout = null;
+}
+
+<!--//banner bottom-->
+<div id="about" class="feature all_pad wthree">
+    <div class="container">
+        <h3 class="title">About Us<span></span></h3>
+        <p class="para">
+            Cras in risus vitae leo feugiat lobortis euismod quis dui. Integer tempor
+            urna quis quam volutpat, non consequat augue iaculis. Proin malesuada sem
+            sagittis imperdiet rutrum.
+        </p>
+        <div class="about-grids">
+            <div class="col-md-6 feature-grid-one wow bounceInUp" data-wow-duration="1.5s" data-wow-delay="0s">
+                <div class="port-8 effect-3">
+                    <div class="image-box">
+                        <img src="images/p8.jpg" alt="Image-3">
+                    </div>
+                    <div class="text-desc">
+                        <h4>Hair Styles</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 feature-grid wow bounceInUp" data-wow-duration="1.5s" data-wow-delay="0s">
+                <h4>BRIDAL<span>Makeup & Hair Designs</span></h4>
+                <p>
+                    Etiam vitae dui quis mi pharetra facilisis. Aenean volutpat nisi dui,
+                    vel tempus metus euismod in. Quisque vitae volutpat nulla. Curabitur cursus leo lacus,
+                    a ullamcorper augue iaculis vel.
+                </p>
+                <p>
+                    Cras in risus vitae leo feugiat lobortis euismod quis dui. Integer tempor
+                    urna quis quam volutpat, non consequat augue iaculis.
+                </p>
+                <a href="#small-dialog" class="play-icon popup-with-zoom-anim hvr-rectangle-out button">BOOK AN APPOINTMENT</a>
+                <a href="#treatments" class="hvr-rectangle-in button red scroll">OUR TREATMENTS</a>
+                <!-- pop-up-box -->
+                <script type="text/javascript" src="js/modernizr.custom.min.js"></script>
+                <script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
+                <!--//pop-up-box -->
+                <div id="small-dialog" class="mfp-hide">
+                    <div class="appoint reg">
+                        <form action="#" method="post">
+                            <ul>
+                                <li class="text-info">Select Date: </li>
+                                <li><input class="date" id="datepicker" type="text" value="19/10/2016" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '19/10/2016';}" required=""></li>
+                            </ul>
+                            <ul>
+                                <li class="text-info">Select Service: </li>
+                                <li>
+                                    <div class="section_room">
+                                        <select id="country" onchange="change_country(this.value)" class="frm-field required sect">
+                                            <option value="null">Facials</option>
+                                            <option value="null">Hair cut</option>
+                                            <option value="null">Spa</option>
+                                            <option value="null">Pedicure</option>
+                                            <option value="null">Manicure</option>
+                                        </select>
+                                    </div>
+                                </li>
+                            </ul>
+                            <ul>
+                                <li class="text-info">Your Name: </li>
+                                <li><input type="text" name="John Smith" placeholder="John Smith" required=""></li>
+                            </ul>
+                            <ul>
+                                <li class="text-info">Email: </li>
+                                <li><input type="email" name="info@example.com" placeholder="info@example.com" required=""></li>
+                            </ul>
+                            <ul>
+                                <li class="text-info">Mobile Number:</li>
+                                <li><input type="text" name="1234567890" placeholder="1234567890" required=""></li>
+                            </ul>
+                            <input type="submit" value="BOOK NOW">
+                        </form>
+                    </div>
+                </div>
+                <script>
+						$(document).ready(function() {
+						$('.popup-with-zoom-anim').magnificPopup({
+							type: 'inline',
+							fixedContentPos: false,
+							fixedBgPos: true,
+							overflowY: 'auto',
+							closeBtnInside: true,
+							preloader: false,
+							midClick: true,
+							removalDelay: 300,
+							mainClass: 'my-mfp-zoom-in'
+						});
+
+						});
+                </script>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+<!-- our prices -->
+<div id="prices" class="prices all_pad agile wow zoomIn" data-wow-duration="1.5s" data-wow-delay="0.1s">
+    <div class="container">
+        <h3 class="title">Our Best Prices <span></span></h3>
+        <div class="prices-grids">
+            <div class="col-md-4 prices-grd">
+                <div class="price-back">
+                    <div class="price-head hexagon_box">
+                        <h4>Face Packs</h4>
+                    </div>
+                    <div class="price-pad">
+                        <ul>
+                            <li><a href="#"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Carrot mask</a></li>
+                            <li><a href="#"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Avocado mask</a></li>
+                            <li><a href="#"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>potato mask</a></li>
+                            <li><a href="#"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>oatmeal mask</a></li>
+                        </ul>
+                        <p>$30</p>
+                        <div class="price-book">
+                            <a href="#small-dialog" class="play-icon popup-with-zoom-anim">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 prices-grd">
+                <div class="price-back">
+                    <div class="price-head hexagon_box">
+                        <h4>Body Massages</h4>
+                    </div>
+                    <div class="price-pad">
+                        <ul>
+                            <li><a href="#"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Reflexology </a></li>
+                            <li><a href="#"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Swedish </a></li>
+                            <li><a href="#"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Sports </a></li>
+                            <li><a href="#"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Deep tissue </a></li>
+                        </ul>
+                        <p>$100</p>
+                        <div class="price-book">
+                            <a href="#small-dialog" class="play-icon popup-with-zoom-anim">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 prices-grd">
+                <div class="price-back">
+                    <div class="price-head hexagon_box">
+                        <h4>Nail Art Designs</h4>
+                    </div>
+                    <div class="price-pad">
+                        <ul>
+                            <li><a href="#"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Floral stamped </a></li>
+                            <li><a href="#"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Water decal </a></li>
+                            <li><a href="#"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Spring stampede </a></li>
+                            <li><a href="#"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Sunset sponge</a></li>
+                        </ul>
+                        <p>$80</p>
+                        <div class="price-book">
+                            <a href="#small-dialog" class="play-icon popup-with-zoom-anim">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+<!-- //our prices -->
+<!-- team -->
+<div id="team" class="team-content all_pad agileits wow fadeInUp animated" data-wow-delay=".5s">
+    <div class="container">
+        <h3 class="title">Our Team <span></span></h3>
+        <p class="para">
+            Cras in risus vitae leo feugiat lobortis euismod quis dui. Integer tempor
+            urna quis quam volutpat, non consequat augue iaculis. Proin malesuada sem
+            sagittis imperdiet rutrum.
+        </p>
+        <div class="team-grids">
+            <div class="col-md-4 team-gd">
+                <div class="team-left">
+                    <div class="team-top">
+
+                    </div>
+                    <div class="team-bottom">
+                        <h4>Jessica</h4>
+                        <p>Beautician</p>
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <div class="morph pic fb_icon1">
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div class="morph pic fb_icon2">
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div class="morph pic fb_icon3">
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="t-img">
+                        <img src="~/Index/images/team1.jpg" alt=" " />
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 team-gd">
+                <div class="team-left">
+                    <div class="team-top">
+
+                    </div>
+                    <div class="team-bottom">
+                        <h4>Victoria</h4>
+                        <p>Specialist</p>
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <div class="morph pic fb_icon1">
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div class="morph pic fb_icon2">
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div class="morph pic fb_icon3">
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="t-img">
+                        <img src="~/Index/images/team4.jpg" alt=" " />
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 team-gd">
+                <div class="team-left">
+                    <div class="team-top">
+
+                    </div>
+                    <div class="team-bottom">
+                        <h4>Federica</h4>
+                        <p>Therapist</p>
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <div class="morph pic fb_icon1">
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div class="morph pic fb_icon2">
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div class="morph pic fb_icon3">
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="t-img">
+                        <img src="~/Index/images/team3.jpg" alt=" " />
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+<!-- //team -->
+<div id="treatments" class="treatments all_pad w3 wow zoomIn" data-wow-duration="1.5s" data-wow-delay="0.3s">
+    <div class="container">
+        <h3 class="title">Our Treatments <span></span></h3>
+        <p class="para">
+            Cras in risus vitae leo feugiat lobortis euismod quis dui. Integer tempor
+            urna quis quam volutpat, non consequat augue iaculis. Proin malesuada sem
+            sagittis imperdiet rutrum.
+        </p>
+    </div>
+    <div class="treat-grids">
+        <div class="flex-slider wow fadeInDown animated" data-wow-delay=".5s">
+            <ul id="flexiselDemo1">
+                <li>
+                    <div class="laptop">
+                        <a class="example-image-link" href="images/g1.jpg" data-lightbox="example-1" data-title="Angel Spa">
+
+                            <div class="pets-effect ver_line zoom">
+                                <div class="img-box"><img class="img-responsive zoom-img" src="images/g1.jpg" alt=" " /></div>
+                                <div class="pets-info">
+                                    <div class="pets-info-slid">
+                                        <h4>Angel Spa</h4>
+                                        <span class="strip_line"></span>
+                                        <p>Sit accusamus, vel blanditiis iure minima ipsa molestias minus laborum velit, nulla nisi hic quasi enim.</p>
+                                        <span class="strip_line"></span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </a>
+                        <div class="pets-effect-btm">
+                            <h5>Molestias Minus</h5>
+                            <p>Sit accusamus, vel blanditiis iure minima ipsa molestias minus laborum velit, nulla nisi hic quasi enim.</p>
+                        </div>
+
+                    </div>
+                </li>
+                <li>
+                    <div class="laptop">
+                        <a class="example-image-link" href="images/g2.jpg" data-lightbox="example-1" data-title="Angel Spa">
+                            <div class="pets-effect ver_line zoom">
+                                <div class="img-box"><img class="img-responsive zoom-img" src="images/g2.jpg" alt=" " /></div>
+                                <div class="pets-info">
+                                    <div class="pets-info-slid">
+                                        <h4>Angel Spa</h4>
+                                        <span class="strip_line"></span>
+                                        <p>Sit accusamus, vel blanditiis iure minima ipsa molestias minus laborum velit, nulla nisi hic quasi enim.</p>
+                                        <span class="strip_line"></span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </a>
+                        <div class="pets-effect-btm">
+                            <h5>Molestias Minus</h5>
+                            <p>Sit accusamus, vel blanditiis iure minima ipsa molestias minus laborum velit, nulla nisi hic quasi enim.</p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="laptop">
+                        <a class="example-image-link" href="images/g3.jpg" data-lightbox="example-1" data-title="Angel Spa">
+                            <div class="pets-effect ver_line zoom">
+                                <div class="img-box"><img class="img-responsive zoom-img" src="images/g3.jpg" alt=" " /></div>
+                                <div class="pets-info">
+                                    <div class="pets-info-slid">
+                                        <h4>Angel Spa</h4>
+                                        <span class="strip_line"></span>
+                                        <p>Sit accusamus, vel blanditiis iure minima ipsa molestias minus laborum velit, nulla nisi hic quasi enim.</p>
+                                        <span class="strip_line"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="pets-effect-btm">
+                            <h5>Molestias Minus</h5>
+                            <p>Sit accusamus, vel blanditiis iure minima ipsa molestias minus laborum velit, nulla nisi hic quasi enim.</p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="laptop">
+                        <a class="example-image-link" href="images/g4.jpg" data-lightbox="example-1" data-title="Angel Spa">
+                            <div class="pets-effect ver_line zoom">
+                                <div class="img-box"><img class="img-responsive zoom-img" src="images/g4.jpg" alt=" " /></div>
+                                <div class="pets-info">
+                                    <div class="pets-info-slid">
+                                        <h4>Angel Spa</h4>
+                                        <span class="strip_line"></span>
+                                        <p>Sit accusamus, vel blanditiis iure minima ipsa molestias minus laborum velit, nulla nisi hic quasi enim.</p>
+                                        <span class="strip_line"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="pets-effect-btm">
+                            <h5>Molestias Minus</h5>
+                            <p>Sit accusamus, vel blanditiis iure minima ipsa molestias minus laborum velit, nulla nisi hic quasi enim.</p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <script src="js/lightbox.js"></script>
+
+        </div>
+    </div>
+</div>
+<!-- contact -->
+<div id="contact" class="contact all_pad w3agile wow bounceInDown" data-wow-duration="1s" data-wow-delay="0s">
+    <div class="container">
+        <h3 class="title">Contact<span></span></h3>
+        <p class="para">
+            Cras in risus vitae leo feugiat lobortis euismod quis dui. Integer tempor
+            urna quis quam volutpat, non consequat augue iaculis. Proin malesuada sem
+            sagittis imperdiet rutrum.
+        </p>
+        <div class="col-md-7 contact-left">
+            <h4>Keep In Touch</h4>
+            <form action="#" method="post">
+                <div class="form-left">
+                    <input type="text" value="Name" name="Name" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='Name';}">
+                </div>
+                <div class="form-right">
+                    <input type="email" value="Email" name="Email" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='Email';}">
+                </div>
+                <div class="clearfix"></div>
+                <input type="text" value="Subject" name="Subject" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='Subject';}">
+                <textarea name="Message" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message';}" required="">Message</textarea>
+                <input type="submit" value="Send">
+            </form>
+            <div class="footer-grids">
+                <div class="col-sm-4 footer-one">
+                    <i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>
+                    <p>+1234 567 890<span>+1234 567 890</span></p>
+
+                </div>
+                <div class="col-sm-4 footer-one">
+                    <i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>
+                    <p><a href="mailto:info@example.com">info@example1.com</a><span><a href="mailto:info@example.com">info@example2.com</a></span></p>
+                </div>
+                <div class="col-sm-4 footer-one">
+                    <i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>
+                    <p>12K Street, 45 Building Road <span>New York City.</span></p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <div class="col-md-5 contact-right">
+            <div class="map-grid">
+                <h4>View On Map</h4>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d2482.432383990807!2d0.028213999961443994!3d51.52362882484525!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1423469959819" style="border:0"></iframe>
+            </div>
+            <div class="map-grid">
+                <h6>Connect With Us</h6>
+                <div class="footer-bottom">
+                    <a class="fb" href="#"></a>
+                    <a class="twi" href="#"></a>
+                    <a class="pin" href="#"></a>
+                    <div class="footer-icons">
+                        <a class="beh" href="#"></a>
+                        <a class="you" href="#"></a>
+                        <a class="vim" href="#"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="map-grid">
+                <h2>Our Main Branch</h2>
+                <h5>Angel Spa</h5>
+                <p>4116 Oak Avenue<span>Chicago, IL 60607</span></p>
+                <p>Phone : 123-456-7890</p>
+                <p>Fax : 123-456-7890</p>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="clearfix"></div>
+        <p class="copy-right agileinfo">&copy; 2016 Angel Spa . All rights reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p>
+    </div>
+</div>
+<!-- //contact -->
+<!-- smooth scrolling -->
+<script type="text/javascript">
+		$(document).ready(function() {
+		/*
+			var defaults = {
+			containerID: 'toTop', // fading element id
+			containerHoverID: 'toTopHover', // fading element hover id
+			scrollSpeed: 1200,
+			easingType: 'linear'
+			};
+		*/
+		$().UItoTop({ easingType: 'easeOutQuart' });
+		});
+</script>
+<a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+<!-- //smooth scrolling -->
+<!-- for bootstrap working -->
+<script src="js/bootstrap.js"></script>
+<!-- //for bootstrap working -->

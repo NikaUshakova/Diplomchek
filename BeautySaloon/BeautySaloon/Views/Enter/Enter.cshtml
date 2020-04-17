@@ -1,13 +1,10 @@
-﻿
-@model BeautySaloon.ViewModels.LoginModel
-@{
+﻿@{
     Layout = null;
 }
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Login</title>
+    <title>Welcome</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
@@ -40,43 +37,22 @@
         <div class="container-login100">
 
             <div class="wrap-login100">
-                <form asp-action="Login" asp-controller="Account" asp-anti-forgery="true" class="Login100-form validate-form">
+                <form asp-action="Enter" asp-controller="Enter" asp-anti-forgery="true" class="Login100-form validate-form">
                     <span class="login100-form-title p-b-58">
-                        Login to continue
+                        Welcome
                     </span>
 
-                    <div class="wrap-input100 validate-input" data-validate="Введите Email в формате: email@abc.xyz">
-                        <input asp-for="Email" class="input100"  maxlength="100">
-                        <span class="focus-input100"></span>
-                        <span asp-validation-for="Email" class="label-input100">Email</span>
-                    </div>
-
-                    <div class="wrap-input100 validate-input" data-validate="Password is required">
-                        <input asp-for="Password" class="input100" type="password" maxlength="100">
-                        <span class="focus-input100"></span>
-                        <span asp-validation-for="Password" class="label-input100">Password</span>
-                    </div>
-
-                   <div class="container-login100-form-btn">
-                        <input type="submit" class="login100-form-btn" value="LOGIN" />
+                    <div class="container-welcome-form-btn">
+                        <input asp-action="Login" type="submit" class="login100-form-btn" value="Login" />
 
                     </div>
 
-                    @*<div class="text-center p-t-46 p-b-20">
-                            <span class="txt2">
-                                or sign up using
-                            </span>
-                        </div>
+                    <div class="container-welcome-form-btn">
+                        <input asp-action="Register" type="submit" class="login100-form-btn" value="Registration" />
 
-                        <div class="login100-form-social flex-c-m">
-                            <a href="#" class="login100-form-social-item flex-c-m bg1 m-r-5">
-                                <i class="fa fa-facebook-f" aria-hidden="true"></i>
-                            </a>
+                    </div>
 
-                            <a href="#" class="login100-form-social-item flex-c-m bg2 m-r-5">
-                                <i class="fa fa-twitter" aria-hidden="true"></i>
-                            </a>
-                        </div>*@
+                  
                 </form>
 
                 <div class="login100-more">

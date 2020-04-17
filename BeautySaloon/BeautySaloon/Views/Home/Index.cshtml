@@ -1,8 +1,218 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model BeautySaloon.Models.User
+@{
+    Layout = null;
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Angel Spa a Beauty and Spa Category Flat Bootstrap Responsive Web Template| Home :: w3layouts</title>
+    <!-- for-mobile-apps -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Angel Spa Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <script type="application/x-javascript">
+         addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+        function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- //for-mobile-apps -->
+    <link href="~/Index/css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <!-- Custom Theme files -->
+    <link rel="stylesheet" href="~/Index/css/jquery-ui.css" />
+    <link rel="stylesheet" href="~/Index/css/lightbox.css" type="text/css" media="all" />
+    <link href="~/Index/css/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/Index/css/style.css" rel='stylesheet' type='text/css' />
+    <!-- js -->
+    <script src="~/Index/js/jquery-1.11.1.min.js"></script>
+    <!-- //js -->
+    <!-- Custom Theme files -->
+    <!--webfont-->
+    <link href='//fonts.googleapis.com/css?family=Gabriela' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <!-- start-smoth-scrolling -->
+    <script type="text/javascript" src="~/Index/js/move-top.js"></script>
+    <script type="text/javascript" src="~/Index/js/easing.js"></script>
+    <script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$(".scroll").click(function(event){
+			event.preventDefault();
+			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+		});
+	});
+    </script>
+    <!-- start-smoth-scrolling -->
+    <script src="~/Index/js/responsiveslides.min.js"></script>
+    <script>
+						// You can also use "$(window).load(function() {"
+						$(function () {
+						 // Slideshow 4
+						$("#slider3").responsiveSlides({
+							auto: true,
+							pager: false,
+							nav: false,
+							speed: 500,
+							namespace: "callbacks",
+							before: function () {
+						$('.events').append("<li>before event fired.</li>");
+						},
+						after: function () {
+							$('.events').append("<li>after event fired.</li>");
+							}
+							});
+						});
+    </script>
+    <script type="text/javascript">
+							$(window).load(function() {
+								$("#flexiselDemo1").flexisel({
+									visibleItems: 3,
+									animationSpeed: 1000,
+									autoPlay: true,
+									autoPlaySpeed: 3000,
+									pauseOnHover: true,
+									enableResponsiveBreakpoints: true,
+									responsiveBreakpoints: {
+										portrait: {
+											changePoint:480,
+											visibleItems: 1
+										},
+										landscape: {
+											changePoint:640,
+											visibleItems: 1
+										},
+										tablet: {
+											changePoint:1080,
+											visibleItems: 2
+										}
+									}
+								});
+
+							});
+    </script>
+    <script type="text/javascript" src="~/Index/js/jquery.flexisel.js"></script>
+    <!---start-date-piker---->
+    <script src="~/Index/js/jquery-ui.js"></script>
+    <script>
+		$(function() {
+			$( "#datepicker,#datepicker1" ).datepicker();
+		});
+    </script>
+    <!---/End-date-piker---->
+    <!--animate-->
+    <link href="~/Index/css/animate.css" rel="stylesheet" type="text/css" media="all">
+    <script src="~/Index/js/wow.min.js"></script>
+    <script>
+			 new WOW().init();
+    </script>
+    <!--//end-animate-->
+</head>
+<body>
+    <div class="banner w3l">
+        <div class="navigation wow zoomIn" data-wow-duration="1.5s" data-wow-delay="0.3s">
+            <div class="container">
+                <nav class="navbar navbar-default">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <div class="logo">
+                            <div class="grid__item color-3">
+                                <h1><a class="link link--nukun" href="index.html"><span>N</span>ika <i>Beauty Center</i></a></h1>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
+                        <nav class="menu menu--horatio">
+                            <ul class="nav navbar-nav menu__list">
+                                <li class="menu__item menu__item--current"><a href="index.html" class="menu__link">Home</a></li>
+                                <li class="menu__item"><a href="#about" class="menu__link scroll">About</a></li>
+                                <li class="menu__item"><a href="#services" class="menu__link scroll">Services</a></li>
+                                <li class="menu__item"><a href="#treatments" class="menu__link scroll">Treatments</a></li>
+                                <li class="menu__item"><a href="#prices" class="menu__link scroll">Prices</a></li>
+                                <li class="menu__item"><a href="#team" class="menu__link scroll">Team</a></li>
+                                <li class="menu__item"><a href="#contact" class="menu__link scroll">Contact</a></li>
+
+                            </ul>
+                        </nav>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <div class="banner-info wow bounceInDown" data-wow-duration="1s" data-wow-delay="0s">
+            <div class="container">
+                <div class="callbacks_container">
+                    <ul class="rslides" id="slider3">
+                        <li>
+                            <div class="banner-text">
+                                <h3>Beauty Center "Nika"</h3>
+                                <h4>Парикмахерские услуги, вечерние и свадебные прически, косметические комплексы, маникюр/педикюр</h4>
+                                <p>
+                                   Лёлики таполики
+                                </p>
+                                <div class="clearfix"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="banner-text">
+                                <h3>Beauty Center "Nika"</h3>
+                                <h4>Hairdressing, evening and wedding hairstyles, cosmetic complexes, manicure/pedicure</h4>
+                                <p>
+                                    Юные алкоголики
+                                </p>
+                                <div class="clearfix"></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+
+    <!--banner bottom-->
+    <div id="services" class="services all_pad w3ls">
+        <div class="container">
+            <h3 class="title">Services<span></span></h3>
+            <div class="ser-top-grids">
+                <div class="col-md-4 ser-grid wow flipInY" data-wow-duration="1.5s" data-wow-delay="0s">
+                    <div class="con-left text-center">
+                        <div class="spa-ico"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></div>
+                        <h5>Парикмахерские услуги </h5>
+                        <p>
+                            стрижки к армии
+                        </p>
+
+                    </div>
+                </div>
+                <div class="col-md-4 ser-grid wow flipInY" data-wow-duration="1.5s" data-wow-delay="0s">
+                    <div class="con-left text-center">
+                        <div class="spa-ico"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></div>
+                        <h5>Прически</h5>
+                        <p>
+                            списочек причесочек
+                        </p>
+
+                    </div>
+                </div>
+                <div class="col-md-4 ser-grid wow flipInY" data-wow-duration="1.5s" data-wow-delay="0s">
+                    <div class="con-left text-center">
+                        <div class="spa-ico"><span class="glyphicon glyphicon-leaf" aria-hidden="true"></span></div>
+                        <h5>Маникюр</h5>
+                        <p>
+                            Коготочки
+                        </p>
+
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+   
+</body>
+</html>

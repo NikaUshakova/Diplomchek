@@ -18,6 +18,10 @@ namespace BeautySaloon.Controllers
             _logger = logger;
         }
 
+        public IActionResult AdminIndex()
+        {
+            return View();
+        }
         public IActionResult Index()
         {
             return View();

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
+using System.Security.Cryptography;
+using System.Text;
 using System.Threading.Tasks;
 using BeautySaloon.Models;
 using BeautySaloon.ViewModels;
@@ -29,16 +31,25 @@ namespace BeautySaloon.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginModel model)
         {
+            var login = "Admin";
+            var pass = "Admin";
             if (ModelState.IsValid)
             {
-                User user = await db.Users.FirstOrDefaultAsync(cl => cl.Email == model.Email && cl.Password == model.Password);
-                if (user != null)
+                if (model.Email == login && model.Password == pass)
                 {
-                    await Authenticate(model.Email); // аутентификация
-
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("AdminIndex", "Home");
                 }
-                ModelState.AddModelError("", "Некорректные логин и(или) пароль");
+                else
+                {
+                    User user = await db.Users.FirstOrDefaultAsync(cl => cl.Email == model.Email && cl.Password == GetHashString(model.Password));
+                    if (user != null)
+                    {
+                        await Authenticate(model.Email); // аутентификация
+
+                        return RedirectToAction("Index", "Home");
+                    }
+                    ModelState.AddModelError("", "Некорректные логин и(или) пароль");
+                }
             }
             return View(model);
         }
@@ -65,18 +76,40 @@ namespace BeautySaloon.Controllers
                         Date = model.Date,
                         Phone = model.Phone,
                         Email = model.Email,
-                        Password = model.Password
+                        Password = GetHashString(model.Password)
                     });
                     await db.SaveChangesAsync();
 
                     await Authenticate(model.Email); // аутентификация
 
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Login", "Account");
                 }
                 else
+                    
                     ModelState.AddModelError("", "Некорректные логин и(или) пароль");
             }
             return View(model);
+        }
+
+        string GetHashString(string s)
+        {
+            //переводим строку в байт-массив  
+            byte[] bytes = Encoding.Unicode.GetBytes(s);
+
+            //создаем объект для получения средст шифрования  
+            MD5CryptoServiceProvider CSP =
+                new MD5CryptoServiceProvider();
+
+            //вычисляем хеш-представление в байтах  
+            byte[] byteHash = CSP.ComputeHash(bytes);
+
+            string hash = string.Empty;
+
+            //формируем одну цельную строку из массива  
+            foreach (byte b in byteHash)
+                hash += string.Format("{0:x2}", b);
+
+            return hash;
         }
 
         private async Task Authenticate(string userName)
