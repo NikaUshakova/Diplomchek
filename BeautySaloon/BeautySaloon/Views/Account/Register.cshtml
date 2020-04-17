@@ -33,17 +33,19 @@
 </head>
 <body style="background-color: #666666;">
     @*<a asp-action="Register" asp-controller="Account">Регистрация</a>*@
-
+    
     <div class="limiter">
+
         <div class="container-login100">
-            <div class="wrap-login100" >
+           
+            <div class="wrap-login100">
                 <form asp-action="Register" asp-controller="Account" asp-anti-forgery="true" class="login100-form validate-form">
                     <span class="login100-form-title p-b-58">
                         Register to continue
                     </span>
 
                     <div class="wrap-input100 validate-input" data-validate="Введите имя">
-                        <input asp-for="Name" maxlength="50" class="input100" >
+                        <input asp-for="Name" maxlength="50" class="input100">
                         <span class="focus-input100"></span>
                         <span asp-validation-for="Name" class="label-input100">Name</span>
                     </div>
@@ -61,13 +63,13 @@
                     </div>
 
                     <div class="wrap-input100 validate-input" data-validate="Введите дату рождения">
-                        <input asp-for="Date" type="Date" class="input100">
-                        <span class="focus-input100"></span>
-                        <span asp-validation-for="Date" class="label-input100">Date of birthday</span>
+                        <input asp-for="Date" class="input100 ">
+                        
+                        <span asp-validation-for="Date" class="label-date">Date of birthday</span>
                     </div>
 
                     <div class="wrap-input100 validate-input" data-validate="Введите номер телефона в формате +375ХХ1112233">
-                        <input asp-for="Phone" maxlength="13" class="input100">
+                        <input asp-for="Phone" onkeyup="this.value = this.value.replace(/[^0-9+]/g, '')" maxlength="13" class="input100">
                         <span class="focus-input100"></span>
                         <span asp-validation-for="Phone" class="label-input100">Контактный номер</span>
                     </div>
@@ -89,34 +91,35 @@
                         <span class="focus-input100"></span>
                         <span asp-validation-for="ConfirmPassword" class="label-input100">Confirm Password</span>
                     </div>
-                                       
-                    
+
+
                     <div class="container-login100-form-btn">
-                        <input type="submit" class="login100-form-btn" value="REGISTER"/>
-                            
-                        
+                        <input type="submit" class="login100-form-btn" value="REGISTER" />
+
+
                     </div>
 
                     @*<div class="text-center p-t-46 p-b-20">
-                        <span class="txt2">
-                            or sign up using
-                        </span>
-                    </div>
+                <span class="txt2">
+                    or sign up using
+                </span>
+            </div>
 
-                    <div class="login100-form-social flex-c-m">
-                        <a href="#" class="login100-form-social-item flex-c-m bg1 m-r-5">
-                            <i class="fa fa-facebook-f" aria-hidden="true"></i>
-                        </a>
+            <div class="login100-form-social flex-c-m">
+                <a href="#" class="login100-form-social-item flex-c-m bg1 m-r-5">
+                    <i class="fa fa-facebook-f" aria-hidden="true"></i>
+                </a>
 
-                        <a href="#" class="login100-form-social-item flex-c-m bg2 m-r-5">
-                            <i class="fa fa-twitter" aria-hidden="true"></i>
-                        </a>
-                    </div>*@
+                <a href="#" class="login100-form-social-item flex-c-m bg2 m-r-5">
+                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                </a>
+            </div>*@
                 </form>
 
-                <div class="login100-more" >
-                    <img src="~/Login/images/logo.jpg">
+                <div class="login100-more">
+                   
                 </div>
+
             </div>
         </div>
     </div>

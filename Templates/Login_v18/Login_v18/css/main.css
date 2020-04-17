@@ -454,7 +454,7 @@ input.input100 {
 }
 
 .has-val {
-    height: 48px !important;
+    height: 32px !important;
 }
 
 .has-val+.focus-input100+.label-input100 {
