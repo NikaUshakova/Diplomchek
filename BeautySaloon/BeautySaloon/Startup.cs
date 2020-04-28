@@ -64,7 +64,7 @@ namespace BeautySaloon
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Enter}/{action=Enter}/{id?}");
+                    pattern: "{controller=Home}/{action=Home}/{id?}");
             });
         }
     }
