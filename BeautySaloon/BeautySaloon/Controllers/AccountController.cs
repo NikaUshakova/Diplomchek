@@ -37,7 +37,7 @@ namespace BeautySaloon.Controllers
             {
                 if (model.Email == login && model.Password == pass)
                 {
-                    return RedirectToAction("AdminIndex", "Home");
+                    return RedirectToAction("Index", "OrderService");
                 }
                 else
                 {
@@ -46,7 +46,7 @@ namespace BeautySaloon.Controllers
                     {
                         await Authenticate(model.Email); // аутентификация
 
-                        return RedirectToAction("Index", "Home");
+                        return RedirectToAction("Home", "Home");
                     }
                     ModelState.AddModelError("", "Некорректные логин и(или) пароль");
                 }

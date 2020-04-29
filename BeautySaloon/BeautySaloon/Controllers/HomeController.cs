@@ -25,18 +25,23 @@ namespace BeautySaloon.Controllers
             ViewBag.Services1 = db.Services.Where(s => s.Category.Equals("Парикмахерские услуги")).Select(n => n.Name);
             ViewBag.Services2 = db.Services.Where(s => s.Category.Equals("Прически")).Select(n => n.Name);
             ViewBag.Services3 = db.Services.Where(s => s.Category.Equals("Ногтевой сервис")).Select(n => n.Name);
-            ViewBag.Masters = db.Masters;
-            var users = db.Users.ToList();
-            ViewBag.Users = users.Select(i => (
-               i.Name,
-               i.Surname
+            ViewBag.Services = db.Services.Select(n => n.Name);
+            ViewBag.Masters = db.Masters.Select(i => (
+               i.Surname + " " +
+               i.Name + " " +
+               i.Patronymic
+            ));
+            //ViewBag.Users = new SelectList(db.Users, "ID", "Name");
+            ViewBag.Users = db.Users.ToList().Select(i => (
+               i.Surname + " " +
+               i.Name+ " " +               
+               i.Patronymic
             ));
 
             return View();
         }
         public IActionResult AdminIndex()
         {
-
             return View();
         }
 
@@ -65,8 +70,8 @@ namespace BeautySaloon.Controllers
             //    if (order == null)
             //    {
             // добавляем заказ
-            db.Orders.Add(order);
-            await db.SaveChangesAsync();
+          /////////////////////////  db.Orders.Add(order);  //////////////////////////////
+           ////////////////////////// await db.SaveChangesAsync(); ///////////////////////////////
 
 
             return RedirectToAction("Home", "Home");
