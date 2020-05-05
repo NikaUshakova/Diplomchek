@@ -13,11 +13,8 @@ namespace BeautySaloon.Models
         public Master Master { get; set; }
         public int? UserID { get; set; }
         public User User { get; set; }
+        public int? ServiceID { get; set; }
+        public Service Service { get; set; }
 
-        public ICollection<OrderService> OrderServices { get; set; }
-        public Order()
-        {
-            OrderServices = new List<OrderService>();
-        }
     }
 }

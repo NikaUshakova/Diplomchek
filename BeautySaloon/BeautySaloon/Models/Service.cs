@@ -12,10 +12,10 @@ namespace BeautySaloon.Models
         public int Price { get; set; }
         public string Category { get; set; }
 
-        public ICollection<OrderService> OrderServices { get; set; }
+        public IList<Order> Orders { get; set; }
         public Service()
         {
-            OrderServices = new List<OrderService>();
+            Orders = new List<Order>();
         }
     }
 }

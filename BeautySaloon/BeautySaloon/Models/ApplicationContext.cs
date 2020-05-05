@@ -10,8 +10,7 @@ namespace BeautySaloon.Models
     {
         public DbSet<User> Users { get; set; }
         public DbSet<Master> Masters { get; set; }
-        public DbSet<Order> Orders { get; set; }
-        public DbSet<OrderService> OrderServices { get; set; }
+        public DbSet<Order> Orders { get; set; }        
         public DbSet<Service> Services { get; set; }
         public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options)
         {

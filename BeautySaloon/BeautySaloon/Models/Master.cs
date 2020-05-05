@@ -16,7 +16,7 @@ namespace BeautySaloon.Models
         public DateTime Date { get; set; }
         public string Phone { get; set; }
 
-        public ICollection<Order> Orders { get; set; }
+        public IList<Order> Orders { get; set; }
         public Master()
         {
             Orders = new List<Order>();

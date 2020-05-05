@@ -25,19 +25,20 @@ namespace BeautySaloon.Controllers
             ViewBag.Services1 = db.Services.Where(s => s.Category.Equals("Парикмахерские услуги")).Select(n => n.Name);
             ViewBag.Services2 = db.Services.Where(s => s.Category.Equals("Прически")).Select(n => n.Name);
             ViewBag.Services3 = db.Services.Where(s => s.Category.Equals("Ногтевой сервис")).Select(n => n.Name);
-            ViewBag.Services = db.Services.Select(n => n.Name);
-            ViewBag.Masters = db.Masters.Select(i => (
-               i.Surname + " " +
-               i.Name + " " +
-               i.Patronymic
-            ));
-            //ViewBag.Users = new SelectList(db.Users, "ID", "Name");
-            ViewBag.Users = db.Users.ToList().Select(i => (
-               i.Surname + " " +
-               i.Name+ " " +               
-               i.Patronymic
-            ));
+            ViewBag.Masters = db.Masters.Select(a =>
+                                  new SelectListItem
+                                  {
+                                      Value = a.ID.ToString(),
+                                      Text = a.Surname + " " + a.Name +" " + a.Patronymic
+                                  }).ToList();
+            //var masters = db.Masters.Select(m => (
+            //   m.Surname + " " +
+            //   m.Name + " " +
+            //   m.Patronymic
+            //));            
+           // ViewBag.Masters = new SelectList(masters);
 
+            ViewBag.Services = new SelectList(db.Services, "ID", "Name");
             return View();
         }
         public IActionResult AdminIndex()
@@ -50,11 +51,6 @@ namespace BeautySaloon.Controllers
         // GET: Clients/Create
         public IActionResult CreateOrder()
         {
-            // var users = db.Users.ToList();
-            // ViewBag.Masters =  new SelectList(masters, "ID", "Name");
-            //ViewBag.Users = new SelectList(users, "ID", "Name");
-            //SelectList users = new SelectList(db.Users, "ID", "Name");
-            //ViewBag.Users = users;
             return View();
         }
 
@@ -62,24 +58,29 @@ namespace BeautySaloon.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateOrder(Order order)
+        public async Task<IActionResult> CreateOrder(Order modelorder)
         {
-            //if (ModelState.IsValid)
-            //{                
-            //    // string InsertOrder = "INSERT INTO orders VALUES (0,concat_ws('-', " + day.Year + ", " + day.Month + "," + day.Day + ")," + IdMaster + ")";
-            //    if (order == null)
-            //    {
-            // добавляем заказ
-          /////////////////////////  db.Orders.Add(order);  //////////////////////////////
-           ////////////////////////// await db.SaveChangesAsync(); ///////////////////////////////
+            if (ModelState.IsValid)
+            {
+                // добавляем заказ в бд
+                db.Orders.Add(new Order
+                {
+                    Date = modelorder.Date,
+                    MasterID = modelorder.MasterID,
+                    ServiceID = modelorder.ServiceID,
+                    UserID = modelorder.UserID
+                });
+                await db.SaveChangesAsync();
 
 
-            return RedirectToAction("Home", "Home");
-            //    }
-            //    else
-            //        ModelState.AddModelError("", "Некорректные логин и(или) пароль");
-            //}
-            //return View(order);
+                return RedirectToAction("Home", "Home");
+            }
+            else
+            {
+                ModelState.AddModelError("", "Некорректные данные");
+            }
+            //return RedirectToAction("Home", "Home");
+            return Ok(modelorder);
         }
 
 

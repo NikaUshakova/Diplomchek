@@ -41,7 +41,7 @@ namespace BeautySaloon.Controllers
                 }
                 else
                 {
-                    User user = await db.Users.FirstOrDefaultAsync(cl => cl.Email == model.Email && cl.Password == GetHashString(model.Password));
+                    User user = await db.Users.FirstOrDefaultAsync(u => u.Email == model.Email && u.Password == GetHashString(model.Password));
                     if (user != null)
                     {
                         await Authenticate(model.Email); // аутентификация

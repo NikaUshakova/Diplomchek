@@ -1,0 +1,41 @@
+h3.title {
+    color: #000000;
+    font-size: 50px;
+    text-align: center;
+    text-transform: none;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-bottom: 30px;
+}
+
+h3.text {
+    color: #08538c;
+    font-size: 24px;
+    margin-left: 30px;
+}
+
+select.view {
+    width: 500px;
+    height: 40px;
+    font-size: 16px;
+    margin-top: 3px;
+    margin-bottom: 10px;
+    margin-left: 30px;
+    border-radius: 8px;
+    padding-left: 12px;
+}
+
+input.border {
+    position: relative;
+    right: -325px;
+    width: 175px;
+    height: 40px;
+    font-size: 24px;
+    font-weight: 500;
+    font-family: 'Gabriela';
+    color: #000000;
+    margin-top: 3px;
+    margin-bottom: 10px;
+    margin-left: 30px;
+    border-radius: 8px;
+}
