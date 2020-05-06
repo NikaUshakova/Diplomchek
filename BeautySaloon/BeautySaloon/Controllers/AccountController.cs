@@ -17,6 +17,9 @@ namespace BeautySaloon.Controllers
     public class AccountController : Controller
     {
         private ApplicationContext db;
+        private User user;                    
+        /// ///////////////////////////////////////////////
+     
         public AccountController(ApplicationContext context)
         {
             db = context;
@@ -24,7 +27,6 @@ namespace BeautySaloon.Controllers
         [HttpGet]
         public IActionResult Login()
         {
-            //return Content("<a href = Login");
             return View();
         }
         [HttpPost]
@@ -41,13 +43,14 @@ namespace BeautySaloon.Controllers
                 }
                 else
                 {
-                    User user = await db.Users.FirstOrDefaultAsync(u => u.Email == model.Email && u.Password == GetHashString(model.Password));
+                    user = await db.Users.FirstOrDefaultAsync(u => u.Email == model.Email && u.Password == GetHashString(model.Password));
                     if (user != null)
                     {
                         await Authenticate(model.Email); // аутентификация
 
-                        return RedirectToAction("Home", "Home");
+                        return RedirectToAction("Main", "Menu");
                     }
+                    else
                     ModelState.AddModelError("", "Некорректные логин и(или) пароль");
                 }
             }

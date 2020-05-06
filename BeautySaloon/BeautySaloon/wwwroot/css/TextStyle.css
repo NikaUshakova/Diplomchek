@@ -24,8 +24,28 @@ h3.title span {
     width: 14px;
     height: 14px;
     border-radius: 100%;
-    margin: .5em auto 0em;
+    margin: .3em auto 0em;
     position: relative;
+}
+
+h3.title span:after {
+    content: ' ';
+    width: 72px;
+    height: 2px;
+    left: 251%;
+    background: #ccc;
+    position: absolute;
+    top: 45%;
+}
+
+h3.title span:before {
+    content: ' ';
+    width: 72px;
+    height: 2px;
+    right: 251%;
+    background: #ccc;
+    position: absolute;
+    top: 45%;
 }
 
 h3.text {
@@ -34,28 +54,21 @@ h3.text {
     margin-left: 30px;
 }
 
-select.view {
-    width: 500px;
-    height: 40px;
-    font-size: 16px;
-    margin-top: 3px;
-    margin-bottom: 10px;
-    margin-left: 30px;
-    border-radius: 8px;
-    padding-left: 12px;
-}
-
 input.border {
     position: relative;
-    right: -325px;
+    right: -355px;
     width: 175px;
-    height: 40px;
-    font-size: 24px;
     font-weight: 500;
-    font-family: 'Gabriela';
     color: #000000;
-    margin-top: 3px;
-    margin-bottom: 10px;
-    margin-left: 30px;
     border-radius: 8px;
+}
+
+input.button {
+    background: #4CAF50;
+    font-size: 16px;
+    border: none;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 25px;
+    padding-right: 25px;
 }

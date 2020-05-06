@@ -1,4 +1,4 @@
-﻿// /* When the user scrolls down, hide the navbar. When the user scrolls up, show the navbar */
+// /* When the user scrolls down, hide the navbar. When the user scrolls up, show the navbar */
 // var prevScrollpos = window.pageYOffset;
 // window.onscroll = function() {
 //     var currentScrollPos = window.pageYOffset;
@@ -27,14 +27,4 @@
 //     } else {
 //         navbar.classList.remove("sticky");
 //     }
-function myFunction() {
-    var x = document.getElementById("Pass");
-
-    if (x.type === "password") {
-        x.type = "text";
-
-    } else {
-        x.type = "password";
-
-    }
-}
+// }

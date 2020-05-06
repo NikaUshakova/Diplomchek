@@ -33,6 +33,7 @@
   <ItemGroup>
     <Folder Include="Controllers\Admin\" />
     <Folder Include="Views\Admin\" />
+    <Folder Include="wwwroot\Login\js\" />
   </ItemGroup>
 
 </Project>

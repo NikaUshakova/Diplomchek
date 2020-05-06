@@ -1,3 +1,5 @@
+/* Page content */
+
 body {
     margin: 0;
     padding: 0;
@@ -695,17 +697,17 @@ li.menu__item.menu__item--current a.menu__link {
 
 .spa-ico {
     background: #A0A0A0;
-    width: 62px;
-    height: 62px;
+    width: 66px;
+    height: 66px;
     transform: rotate(45deg);
-    margin: -32px auto 0;
+    margin: -33px auto 0;
 }
 
 .con-left span {
-    font-size: 2em;
     color: #fff;
     transform: rotate(-45deg);
     line-height: 2.15em;
+    padding-right: 6px;
 }
 
 .con-left h5 {
@@ -722,36 +724,6 @@ li.menu__item.menu__item--current a.menu__link {
     font-size: 1em;
     padding: 1em 2em;
     text-transform: uppercase;
-}
-
-h3.title span {
-    display: block;
-    border: 2px solid #ccc;
-    width: 14px;
-    height: 14px;
-    border-radius: 100%;
-    margin: .5em auto 0em;
-    position: relative;
-}
-
-h3.title span:after {
-    content: ' ';
-    width: 72px;
-    height: 2px;
-    left: 251%;
-    background: #ccc;
-    position: absolute;
-    top: 45%;
-}
-
-h3.title span:before {
-    content: ' ';
-    width: 72px;
-    height: 2px;
-    right: 251%;
-    background: #ccc;
-    position: absolute;
-    top: 45%;
 }
 
 .ser-top-grids {

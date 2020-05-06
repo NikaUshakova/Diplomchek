@@ -64,7 +64,7 @@
 
                     <div class="wrap-input100 validate-input" data-validate="Введите дату рождения">
                         <input asp-for="Date" class="input100 ">
-                        
+
                         <span asp-validation-for="Date" class="label-date">Date of birthday</span>
                     </div>
 
@@ -81,25 +81,33 @@
                     </div>
 
                     <div class="wrap-input100 validate-input" data-validate="Password is required">
-                        <input asp-for="Password" class="input100" type="password" maxlength="100">
+                        <input asp-for="Password" class="input100" id="Pass" type="password" maxlength="100">
                         <span class="focus-input100"></span>
-                        <span asp-validation-for="Password" class="label-input100">Password</span>
+                        <span asp-validation-for="Password" class="label-input100">Пароль</span>
                     </div>
 
                     <div class="wrap-input100 validate-input" data-validate="Повторите пароль">
-                        <input asp-for="ConfirmPassword" class="input100" type="password" maxlength="100">
+                        <input asp-for="ConfirmPassword" class="input100" id="ConfirmPass" type="password" maxlength="100">
                         <span class="focus-input100"></span>
-                        <span asp-validation-for="ConfirmPassword" class="label-input100">Confirm Password</span>
-                    </div>
-
-
-                    <div class="container-login100-form-btn">
-                        <input type="submit" class="login100-form-btn" value="REGISTRATION" />
-                       
+                        <span asp-validation-for="ConfirmPassword" class="label-input100">Подтвердите пароль</span>
 
                     </div>
 
-                    @*<div class="text-center p-t-46 p-b-20">
+                    <div class="flex-sb-m w-full p-t-3 p-b-32">
+                        <div>
+                            <input type="checkbox" style="transform: scale(1.4);" onclick="myFunction()" >
+                            <span class="Pass">     Показать пароль        </span>
+                        </div>
+                    </div>
+
+
+                        <div class="container-login100-form-btn">
+                            <input type="submit" class="login100-form-btn" value="REGISTRATION" />
+
+
+                        </div>
+
+                        @*<div class="text-center p-t-46 p-b-20">
                 <span class="txt2">
                     or sign up using
                 </span>

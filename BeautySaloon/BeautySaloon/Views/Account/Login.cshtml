@@ -28,65 +28,57 @@
     <link rel="stylesheet" type="text/css" href="~/Login/vendor/select2/select2.min.css">
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="~/Login/vendor/daterangepicker/daterangepicker.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="~/Login/css/util.css">
+    <!--===CSS========================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/css/TextStyle.css">
     <link rel="stylesheet" type="text/css" href="~/Login/css/main.css">
+    <link rel="stylesheet" type="text/css" href="~/css/popup.css">
+    <link rel="stylesheet" type="text/css" href="~/css/site.css">
+    
+    <script>
+        window.onload = function () {
+            document.getElementById('login').style.display = 'block'
+        }
+    </script>
+  
     <!--===============================================================================================-->
 </head>
-<body style="background-color: #666666;">
+<body>
+    <!-- POPUP -->
+    <div id="login" class="modalLogin">
 
-    <div class="limiter">
+        <form class="modal-content animate" asp-action="Login">
+            <div class="imgcontainer">
+                <img src="~/Index/images/login.png" class="avatar">
+            </div>
 
-        <div class="container-login100">
+            <div class="containerLogin">
+                
+                <label>Email</label>
+                <input  asp-for="Email" type="email"  maxlength="100"  placeholder="Введите email" required>
+               
+                <label>Password</label>
+                <input asp-for="Password"  type="password" id="Pass" maxlength="100" placeholder="Введите пароль" required>
+                                              
+                <input type="checkbox" onclick="myFunction()" style="transform: scale(1.4);">
+                <span class="Pass">Показать пароль</span>               
 
-            <div class="wrap-login100">
-                <form asp-action="Login" asp-controller="Account" asp-anti-forgery="true" class="Login100-form validate-form">
-                    <span class="login100-form-title p-b-58">
-                        Login to continue
-                    </span>
-
-                    <div class="wrap-input100 validate-input" data-validate="Введите Email в формате: email@abc.xyz">
-                        <input asp-for="Email" class="input100"  maxlength="100">
-                        <span class="focus-input100"></span>
-                        <span asp-validation-for="Email" class="label-input100">Email</span>
-                    </div>
-
-                    <div class="wrap-input100 validate-input" data-validate="Password is required">
-                        <input asp-for="Password" class="input100" type="password" maxlength="100">
-                        <span class="focus-input100"></span>
-                        <span asp-validation-for="Password" class="label-input100">Password</span>
-                    </div>
-
-                   <div class="container-login100-form-btn">
-                        <input type="submit" class="login100-form-btn" value="LOGIN" />
-
-                    </div>
-
-                    @*<div class="text-center p-t-46 p-b-20">
-                            <span class="txt2">
-                                or sign up using
-                            </span>
-                        </div>
-
-                        <div class="login100-form-social flex-c-m">
-                            <a href="#" class="login100-form-social-item flex-c-m bg1 m-r-5">
-                                <i class="fa fa-facebook-f" aria-hidden="true"></i>
-                            </a>
-
-                            <a href="#" class="login100-form-social-item flex-c-m bg2 m-r-5">
-                                <i class="fa fa-twitter" aria-hidden="true"></i>
-                            </a>
-                        </div>*@
-                </form>
-
-                <div class="login100-more">
-
-                </div>
+                <button type="submit">Login</button>
 
             </div>
-        </div>
+
+            <div class="containerLogin" style="background-color:#f1f1f1">
+                <a class="cancelbtn" asp-controller="Menu" asp-action="Main">Cancel</a>
+                <span class="psw"> <a  >Регистрация</a></span>
+                <span class="psw">Forgot <a href="#" >password?</a></span>
+
+            </div>
+        </form>
     </div>
 
+    <!--===JS===========================================================================-->
+    <script src="~/js/site.js"></script>
+    <!--===JS===========================================================================-->
+    
     <!--===============================================================================================-->
     <script src="~/Login/vendor/jquery/jquery-3.2.1.min.js"></script>
     <!--===============================================================================================-->
@@ -102,7 +94,7 @@
     <!--===============================================================================================-->
     <script src="~/Login/vendor/countdowntime/countdowntime.js"></script>
     <!--===============================================================================================-->
-    <script src="~/Login/js/main.js"></script>
+
 
 </body>
 </html>
