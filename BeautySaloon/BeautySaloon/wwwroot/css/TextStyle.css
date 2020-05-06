@@ -1,11 +1,31 @@
 h3.title {
-    color: #000000;
+    font-size: 50px;
+    color: #08538c;
+    text-align: center;
+    text-transform: none;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-bottom: 30px;
+}
+
+h3.title-popup {
+    color: #08538c;
     font-size: 50px;
     text-align: center;
     text-transform: none;
     margin-top: 10px;
     margin-left: 20px;
     margin-bottom: 30px;
+}
+
+h3.title span {
+    display: block;
+    border: 2px solid #ccc;
+    width: 14px;
+    height: 14px;
+    border-radius: 100%;
+    margin: .5em auto 0em;
+    position: relative;
 }
 
 h3.text {
