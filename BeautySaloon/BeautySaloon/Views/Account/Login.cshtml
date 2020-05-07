@@ -1,6 +1,6 @@
 ﻿
 @model BeautySaloon.ViewModels.LoginModel
-@{
+@{    
     Layout = null;
 }
 
@@ -33,18 +33,19 @@
     <link rel="stylesheet" type="text/css" href="~/Login/css/main.css">
     <link rel="stylesheet" type="text/css" href="~/css/popup.css">
     <link rel="stylesheet" type="text/css" href="~/css/site.css">
-    
+
+
     <script>
         window.onload = function () {
             document.getElementById('login').style.display = 'block'
         }
     </script>
-  
+
     <!--===============================================================================================-->
 </head>
 <body>
     <!-- POPUP -->
-    <div id="login" class="modalLogin">
+    <div id="login" class="modalLogin" style="height: 100%;">
 
         <form class="modal-content animate" asp-action="Login">
             <div class="imgcontainer">
@@ -52,24 +53,24 @@
             </div>
 
             <div class="containerLogin">
-                
-                <label>Email</label>
-                <input  asp-for="Email" type="email"  maxlength="100"  placeholder="Введите email" required>
-               
-                <label>Password</label>
-                <input asp-for="Password"  type="password" id="Pass" maxlength="100" placeholder="Введите пароль" required>
-                                              
-                <input type="checkbox" onclick="myFunction()" style="transform: scale(1.4);">
-                <span class="Pass">Показать пароль</span>               
 
-                <button type="submit">Login</button>
+                <label>Email</label>
+                <input asp-for="Email"  maxlength="100" placeholder="Введите email" required>
+
+                <label>Password</label>
+                <input asp-for="Password" type="password" id="Pass" maxlength="100" placeholder="Введите пароль" required>
+
+                <input type="checkbox" onclick="myFunction()" style="transform: scale(1.4);">
+                <span class="Pass">Показать пароль</span>
+
+                <button class="OK" type="submit">Login</button>
 
             </div>
 
             <div class="containerLogin" style="background-color:#f1f1f1">
                 <a class="cancelbtn" asp-controller="Menu" asp-action="Main">Cancel</a>
-                <span class="psw"> <a  >Регистрация</a></span>
-                <span class="psw">Forgot <a href="#" >password?</a></span>
+                <span class="psw"> <a asp-controller="Account" asp-action="Register">Регистрация</a></span>
+                <span class="psw">Forgot <a href="#">password?</a></span>
 
             </div>
         </form>
@@ -78,7 +79,6 @@
     <!--===JS===========================================================================-->
     <script src="~/js/site.js"></script>
     <!--===JS===========================================================================-->
-    
     <!--===============================================================================================-->
     <script src="~/Login/vendor/jquery/jquery-3.2.1.min.js"></script>
     <!--===============================================================================================-->

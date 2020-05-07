@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Register</title>
+    <title>Login</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
@@ -26,114 +26,71 @@
     <link rel="stylesheet" type="text/css" href="~/Login/vendor/select2/select2.min.css">
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="~/Login/vendor/daterangepicker/daterangepicker.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="~/Login/css/util.css">
+    <!--===CSS========================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/css/TextStyle.css">
     <link rel="stylesheet" type="text/css" href="~/Login/css/main.css">
+    <link rel="stylesheet" type="text/css" href="~/css/popup.css">
+    <link rel="stylesheet" type="text/css" href="~/css/site.css">
+
+
+    <script>
+        window.onload = function () {
+            document.getElementById('login').style.display = 'block'
+        }
+    </script>
+
     <!--===============================================================================================-->
 </head>
-<body style="background-color: #666666;">
-    @*<a asp-action="Register" asp-controller="Account">Регистрация</a>*@
-    
-    <div class="limiter">
-
-        <div class="container-login100">
-           
-            <div class="wrap-login100">
-                <form asp-action="Register" asp-controller="Account" asp-anti-forgery="true" class="Register100-form validate-form">
-                    <span class="login100-form-title p-b-58">
-                        Register to continue
-                    </span>
-
-                    <div class="wrap-input100 validate-input" data-validate="Введите имя">
-                        <input asp-for="Name" maxlength="50" class="input100">
-                        <span class="focus-input100"></span>
-                        <span asp-validation-for="Name" class="label-input100">Name</span>
-                    </div>
-
-                    <div class="wrap-input100 validate-input" data-validate="Введите фамилию">
-                        <input asp-for="Surname" maxlength="50" class="input100">
-                        <span class="focus-input100"></span>
-                        <span asp-validation-for="Surname" class="label-input100">Surname</span>
-                    </div>
-
-                    <div class="wrap-input100 validate-input" data-validate="Введите отчество">
-                        <input asp-for="Patronymic" maxlength="50" class="input100">
-                        <span class="focus-input100"></span>
-                        <span asp-validation-for="Patronymic" class="label-input100">Patronymic</span>
-                    </div>
-
-                    <div class="wrap-input100 validate-input" data-validate="Введите дату рождения">
-                        <input asp-for="Date" class="input100 ">
-
-                        <span asp-validation-for="Date" class="label-date">Date of birthday</span>
-                    </div>
-
-                    <div class="wrap-input100 validate-input" data-validate="Введите номер телефона в формате +375ХХ1112233">
-                        <input asp-for="Phone" onkeyup="this.value = this.value.replace(/[^0-9+]/g, '')" maxlength="13" class="input100">
-                        <span class="focus-input100"></span>
-                        <span asp-validation-for="Phone" class="label-input100">Контактный номер</span>
-                    </div>
-
-                    <div class="wrap-input100 validate-input" data-validate="Введите Email в формате: email@abc.xyz">
-                        <input asp-for="Email" class="input100" type="email" maxlength="100">
-                        <span class="focus-input100"></span>
-                        <span asp-validation-for="Email" class="label-input100">Email</span>
-                    </div>
-
-                    <div class="wrap-input100 validate-input" data-validate="Password is required">
-                        <input asp-for="Password" class="input100" id="Pass" type="password" maxlength="100">
-                        <span class="focus-input100"></span>
-                        <span asp-validation-for="Password" class="label-input100">Пароль</span>
-                    </div>
-
-                    <div class="wrap-input100 validate-input" data-validate="Повторите пароль">
-                        <input asp-for="ConfirmPassword" class="input100" id="ConfirmPass" type="password" maxlength="100">
-                        <span class="focus-input100"></span>
-                        <span asp-validation-for="ConfirmPassword" class="label-input100">Подтвердите пароль</span>
-
-                    </div>
-
-                    <div class="flex-sb-m w-full p-t-3 p-b-32">
-                        <div>
-                            <input type="checkbox" style="transform: scale(1.4);" onclick="myFunction()" >
-                            <span class="Pass">     Показать пароль        </span>
-                        </div>
-                    </div>
-
-
-                        <div class="container-login100-form-btn">
-                            <input type="submit" class="login100-form-btn" value="REGISTRATION" />
-
-
-                        </div>
-
-                        @*<div class="text-center p-t-46 p-b-20">
-                <span class="txt2">
-                    or sign up using
-                </span>
-            </div>
-
-            <div class="login100-form-social flex-c-m">
-                <a href="#" class="login100-form-social-item flex-c-m bg1 m-r-5">
-                    <i class="fa fa-facebook-f" aria-hidden="true"></i>
-                </a>
-
-                <a href="#" class="login100-form-social-item flex-c-m bg2 m-r-5">
-                    <i class="fa fa-twitter" aria-hidden="true"></i>
-                </a>
-            </div>*@
-                </form>
-
-                <div class="login100-more">
-                   
+<body>
+    <!-- POPUP -->
+    <div id="login" class="modalRegister">
+        <form asp-action="Register"  class="modal-content animate">
+            
+                <div class="imgcontainer">
+                    <img src="~/Index/images/Nika.png" class="logo">
                 </div>
 
-            </div>
-        </div>
+                <div class="containerLogin">
+                    <label>Фамилия</label>
+                    <input asp-for="Surname" type="text" maxlength="50" placeholder="Введите фамилию" required>
+
+                    <label>Имя</label>
+                    <input asp-for="Name" type="text" maxlength="50" placeholder="Введите имя" required>
+
+                    <label>Отчество</label>
+                    <input asp-for="Patronymic" type="text" maxlength="50" placeholder="Введите отчество" required>
+
+                    <label>Дата рождения</label>
+                    <input asp-for="Date" type="date" placeholder="Введите дату рождения" required>
+
+                    <label>Телефон</label>
+                    <input asp-for="Phone" onkeyup="this.value = this.value.replace(/[^0-9+]/g, '')" maxlength="13" placeholder="Введите номер телефона" required>
+
+                    <label>Email</label>
+                    <input asp-for="Email" type="email" maxlength="100" placeholder="Введите email" required>
+
+                    <label>Пароль</label>
+                    <input asp-for="Password" type="password" id="Pass" maxlength="100" placeholder="Введите пароль" required>
+
+                    <label>Повторите пароль</label>
+                    <input asp-for="ConfirmPassword" type="password" id="ConfirmPass" maxlength="100" placeholder="Повторите пароль" required>
+
+                    <input type="checkbox" onclick="myFunction()" style="transform: scale(1.4);">
+                    <span class="Pass">Показать пароль</span>
+
+                    <button class="OK" type="submit">Зарегистрироваться</button>
+
+                </div>
+
+                <div class="containerLogin" style="background-color:#f1f1f1">
+                    <a class="cancelbtn" asp-controller="Account" asp-action="Login">Cancel</a>             
+                </div>
+            </form>
     </div>
 
-
-
+    <!--===JS===========================================================================-->
+    <script src="~/js/site.js"></script>
+    <!--===JS===========================================================================-->
     <!--===============================================================================================-->
     <script src="~/Login/vendor/jquery/jquery-3.2.1.min.js"></script>
     <!--===============================================================================================-->
@@ -149,7 +106,8 @@
     <!--===============================================================================================-->
     <script src="~/Login/vendor/countdowntime/countdowntime.js"></script>
     <!--===============================================================================================-->
-    <script src="~/Login/js/main.js"></script>
+
 
 </body>
 </html>
+

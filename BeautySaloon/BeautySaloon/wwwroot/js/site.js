@@ -29,12 +29,12 @@
 //     }
 function myFunction() {
     var x = document.getElementById("Pass");
-
-    if (x.type === "password") {
+    var y = document.getElementById("ConfirmPass");
+    if (x.type === "password" || y.type === "password") {
         x.type = "text";
-
+        y.type = "text";
     } else {
         x.type = "password";
-
+        y.type = "password";
     }
 }

@@ -26,11 +26,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link rel="stylesheet" type="text/css" href="~/Login/css/main.css">
     <link rel="stylesheet" type="text/css" href="~/css/popup.css">
     <link rel="stylesheet" type="text/css" href="~/css/site.css">
-    <!-- js -->
+   
+   
+    <!-- //js -->
+    <!--===JS===========================================================================-->
     <script src="~/Index/js/jquery-1.11.1.min.js"></script>
     <script src="~/js/site.js"></script>
-    <script src="~/js/main.js"></script>
-    <!-- //js -->
+    <script src="~/Login/js/main.js"></script>
+    <script src="~/Login/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===JS===========================================================================-->
     <!-- Custom Theme files -->
     <!--webfont-->
     <link href='//fonts.googleapis.com/css?family=Gabriela' rel='stylesheet' type='text/css'>
@@ -67,41 +71,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             });
         });
     </script>
-    <script type="text/javascript">
-        $(window).load(function () {
-            $("#flexiselDemo1").flexisel({
-                visibleItems: 3,
-                animationSpeed: 1000,
-                autoPlay: true,
-                autoPlaySpeed: 3000,
-                pauseOnHover: true,
-                enableResponsiveBreakpoints: true,
-                responsiveBreakpoints: {
-                    portrait: {
-                        changePoint: 480,
-                        visibleItems: 1
-                    },
-                    landscape: {
-                        changePoint: 640,
-                        visibleItems: 1
-                    },
-                    tablet: {
-                        changePoint: 1080,
-                        visibleItems: 2
-                    }
-                }
-            });
 
-        });
-    </script>
     <script type="text/javascript" src="~/Index/js/jquery.flexisel.js"></script>
     <!---start-date-piker---->
     <script src="~/Index/js/jquery-ui.js"></script>
-    <script>
-        $(function () {
-            $("#datepicker,#datepicker1").datepicker();
-        });
-    </script>
+
     <!---/End-date-piker---->
     <!--animate-->
     <link href="~/Index/css/animate.css" rel="stylesheet" type="text/css" media="all">
@@ -110,18 +84,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         new WOW().init();
     </script>
     <!--//end-animate-->
-    <style>
-    </style>
+
 </head>
 <body>
     <div class="banner w3l">
         <div class="navigation wow zoomIn" data-wow-duration="1.5s" data-wow-delay="0.3s">
-            @*id="navbar"*@
             <div class="container">
                 <nav class="navbar navbar-default">
                     <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <button type="button" class="navbar-toggle collapsed" data-target="#bs-example-navbar-collapse-1" data-toggle="collapse">
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
@@ -141,10 +113,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <li class="menu__item menu__item--current"><a asp-action="Main" class="menu__link">Home</a></li>
                                 <li class="menu__item"><a href="#about" class="menu__link scroll">О салоне красоты</a></li>
                                 <li class="menu__item"><a href="#services" class="menu__link scroll">Услуги</a></li>
-                                <li class="menu__item"><a  onclick="document.getElementById('online').style.display='block'">Онлайн запись</a></li>
-                                <li class="menu__item"><a asp-controller="Account" asp-action="Login">Личный кабинет</a></li>
+                                <li class="menu__item"><a onclick="document.getElementById('online').style.display='block'" class="menu__link scroll">Онлайн запись</a></li>
+                                <li class="menu__item"><a asp-controller="Account" asp-action="Login">Войти(Личный кабинет)</a></li>
+                                <li class="menu__item"><a asp-controller="Account" asp-action="Logout">ВЫЙТИ</a></li>
                                 @*  <li class="menu__item"><a href="#team" class="menu__link scroll">Team</a></li>
-                                    <li class="menu__item"><a href="#contact" class="menu__link scroll">Contact</a></li>*@
+        <li class="menu__item"><a href="#contact" class="menu__link scroll">Contact</a></li>*@
 
                             </ul>
                         </nav>
@@ -183,7 +156,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </div>
     </div>
     <!-- POPUP -->
-    <div id="online" class="modalLogin">
+    <div id="online" class="modalLogin" style="height: 100%;">
         <!-- Modal Content -->
         <form class="modal-content animate" asp-action="CreateOrder" method="post">
             <div class="containerLogin">
@@ -201,7 +174,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <select class="view" asp-for="ServiceID" asp-items="ViewBag.Services"></select>
                 </div>
 
-                <button type="submit">Записаться</button>
+                <button class="OK" type="submit">Записаться</button>
             </div>
 
             <div class="containerLogin" style="background-color:#f1f1f1">
@@ -214,7 +187,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- POPUP -->
     <!-- POPUP -->
     <!-- The Modal -->
-   
+
 
     <script>
         // Get the modal
@@ -306,7 +279,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </div>
     </div>
 
-
-
+   
 </body>
 </html>

@@ -2277,7 +2277,7 @@ select option {
     }
 }
 
-@media (max-width: 736px) {
+@media (max-width: 600px) {
     .link--nukun {
         font-size: 30px !important;
     }

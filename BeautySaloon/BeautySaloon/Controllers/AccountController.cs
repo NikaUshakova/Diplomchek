@@ -39,7 +39,7 @@ namespace BeautySaloon.Controllers
             {
                 if (model.Email == login && model.Password == pass)
                 {
-                    return RedirectToAction("Index", "OrderService");
+                    return RedirectToAction("DoneWorks", "Order");
                 }
                 else
                 {
