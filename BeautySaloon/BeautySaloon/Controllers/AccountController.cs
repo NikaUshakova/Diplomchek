@@ -31,6 +31,7 @@ namespace BeautySaloon.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
+        
         public async Task<IActionResult> Login(LoginModel model)
         {
             var login = "Admin";
@@ -39,7 +40,7 @@ namespace BeautySaloon.Controllers
             {
                 if (model.Email == login && model.Password == pass)
                 {
-                    return RedirectToAction("DoneWorks", "Order");
+                    return Redirect("/Admin/Order/DoneWorks");
                 }
                 else
                 {
@@ -48,7 +49,7 @@ namespace BeautySaloon.Controllers
                     {
                         await Authenticate(model.Email); // аутентификация
 
-                        return RedirectToAction("Main", "Menu");
+                        return RedirectToAction("Home", "Menu");
                     }
                     else
                     ModelState.AddModelError("", "Некорректные логин и(или) пароль");
@@ -131,7 +132,7 @@ namespace BeautySaloon.Controllers
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-            return RedirectToAction("Login", "Account");
+            return RedirectToAction("Home", "Menu");
         }
     }
 }

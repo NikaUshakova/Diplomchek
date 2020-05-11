@@ -18,6 +18,7 @@ using Microsoft.EntityFrameworkCore;
 namespace BeautySaloon.Controllers
 {
     [Authorize]
+  
     public class MenuController : Controller
     {
         private readonly ApplicationContext db;
@@ -28,7 +29,7 @@ namespace BeautySaloon.Controllers
         }
 
         [AllowAnonymous]
-        public IActionResult Main()
+        public IActionResult Home()
         {            
             ViewBag.Services1 = db.Services.Where(s => s.Category.Equals("Парикмахерские услуги")).Select(n => n.Name);
             ViewBag.Services2 = db.Services.Where(s => s.Category.Equals("Прически")).Select(n => n.Name);
@@ -78,7 +79,7 @@ namespace BeautySaloon.Controllers
                     await db.SaveChangesAsync();
 
 
-                    return RedirectToAction("Main", "Menu");
+                    return RedirectToAction("Home", "Menu");
                 }
                 else
                 {

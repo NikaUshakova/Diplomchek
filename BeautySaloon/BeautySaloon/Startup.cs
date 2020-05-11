@@ -62,9 +62,14 @@ namespace BeautySaloon
    *Авторизация отвечает на вопрос, какие права в системе имеет пользователь, позволяет разграничить доступ к ресурсам приложения.*/
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapAreaControllerRoute(
+                     name: "admin_area",
+                     areaName: "Admin",
+                     pattern: "Admin/{controller=Order}/{action=DoneWorks}/{id?}");
+
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Menu}/{action=Main}/{id?}");
+                    pattern: "{controller=Menu}/{action=Home}/{id?}");
             });
         }
     }

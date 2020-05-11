@@ -27,14 +27,27 @@
 //     } else {
 //         navbar.classList.remove("sticky");
 //     }
-function myFunction() {
+function checkLogin() {
+    var x = document.getElementById("Pass");
+    var y = document.getElementById("ConfirmPass");
+    if (x.type === "password") {
+        x.type = "text";       
+    }
+    else {
+        x.type = "password";       
+    } 
+}
+
+function checkRegister() {
     var x = document.getElementById("Pass");
     var y = document.getElementById("ConfirmPass");
     if (x.type === "password" || y.type === "password") {
         x.type = "text";
         y.type = "text";
-    } else {
+    }
+    else {
         x.type = "password";
         y.type = "password";
     }
+   
 }

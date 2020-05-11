@@ -60,7 +60,7 @@
                 <label>Password</label>
                 <input asp-for="Password" type="password" id="Pass" maxlength="100" placeholder="Введите пароль" required>
 
-                <input type="checkbox" onclick="myFunction()" style="transform: scale(1.4);">
+                <input type="checkbox" onclick="checkLogin()" style="transform: scale(1.4);">
                 <span class="Pass">Показать пароль</span>
 
                 <button class="OK" type="submit">Login</button>
@@ -68,7 +68,7 @@
             </div>
 
             <div class="containerLogin" style="background-color:#f1f1f1">
-                <a class="cancelbtn" asp-controller="Menu" asp-action="Main">Cancel</a>
+                <a class="cancelbtn" asp-controller="Menu" asp-action="Home">Cancel</a>
                 <span class="psw"> <a asp-controller="Account" asp-action="Register">Регистрация</a></span>
                 <span class="psw">Forgot <a href="#">password?</a></span>
 

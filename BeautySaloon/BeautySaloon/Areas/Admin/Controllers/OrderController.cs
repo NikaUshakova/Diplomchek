@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BeautySaloon.Models;
+using Microsoft.AspNetCore.Components;
 
 namespace BeautySaloon.Controllers.Admin
 {
+    [Area("Admin")]
     public class OrderController : Controller
     {
         private readonly ApplicationContext db;
@@ -19,7 +21,7 @@ namespace BeautySaloon.Controllers.Admin
         }
 
         // GET: Order
-      //[Route("Admin/Order/DoneWorks")]
+     //   [Route("Admin/[controller]/[action]")]
         public async Task<IActionResult> DoneWorks()
         {
             var orders = db.Orders.Include(o => o.Master).Include(o => o.Service).Include(o => o.User);
@@ -47,26 +49,26 @@ namespace BeautySaloon.Controllers.Admin
             return View(order);
         }
 
-       
 
-        // GET: Order/Edit/5
-        //public async Task<IActionResult> Edit(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return NotFound();
-        //    }
 
-        //    var order = await db.Orders.FindAsync(id);
-        //    if (order == null)
-        //    {
-        //        return NotFound();
-        //    }
-        //    ViewData["MasterID"] = new SelectList(db.Masters, "ID", "ID", order.MasterID);
-        //    ViewData["ServiceID"] = new SelectList(db.Services, "ID", "ID", order.ServiceID);
-        //    ViewData["UserID"] = new SelectList(db.Users, "ID", "ID", order.UserID);
-        //    return View(order);
-        //}
+        //GET: Order/Edit/5
+        public async Task<IActionResult> Edit(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var order = await db.Orders.FindAsync(id);
+            if (order == null)
+            {
+                return NotFound();
+            }
+            ViewData["MasterID"] = new SelectList(db.Masters, "ID", "ID", order.MasterID);
+            ViewData["ServiceID"] = new SelectList(db.Services, "ID", "ID", order.ServiceID);
+            ViewData["UserID"] = new SelectList(db.Users, "ID", "ID", order.UserID);
+            return View(order);
+        }
 
         //// POST: Order/Edit/5
         //// To protect from overposting attacks, enable the specific properties you want to bind to, for 
