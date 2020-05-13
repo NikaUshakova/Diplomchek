@@ -69,7 +69,7 @@ namespace BeautySaloon
 
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Menu}/{action=Home}/{id?}");
+                    pattern: "{controller=Account}/{action=Login}/{id?}");
             });
         }
     }

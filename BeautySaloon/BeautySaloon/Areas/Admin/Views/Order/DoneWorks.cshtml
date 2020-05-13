@@ -1,4 +1,4 @@
-﻿@model IEnumerable<BeautySaloon.Models.Order>
+﻿@model BeautySaloon.ViewModels.doneWorks
 
 @{
     Layout = null;
@@ -11,57 +11,90 @@
     <meta name="viewport" content="width=device-width" />
     <title>Выполненные работы</title>
     <link rel="stylesheet" type="text/css" href="~/css/table.css">
- 
+    <link rel="stylesheet" type="text/css" href="~/css/navbar.css">
+    <!-- Load an icon library to show a hamburger menu (bars) on small screens -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--===JS===========================================================================-->
+    <script src="~/js/site.js"></script>
 </head>
 <body>
-    
-    <table>
-        <caption>Выполненные работы</caption>
-        <tr>
-            <th>ID</th>
-            <th>ФИО мастера</th>
-            <th>Услуга</th>
-            <th>Стоимость</th>
-            <th>Дата</th>
-            <th>Время</th>
-            <th>ФИО клиента</th>
-            <th></th>
-        </tr>
+    <div class="topnav" id="myTopnav">
+        <a href="#home" class="active">Выполненные работы</a>
+        <a href="#news">Мастера</a>
+        <a href="#contact">Услуги</a>
+        <a href="#about">Клиенты</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
 
-        <tbody>
-            @foreach (var item in Model)
-            {
-                <tr style="padding-top: 8px;  border-bottom-width: 6px;">
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ID)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Master.Surname) @Html.DisplayFor(modelItem => item.Master.Name) @Html.DisplayFor(modelItem => item.Master.Patronymic)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Service.Name)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Service.Price) BYN
-                    </td>
-                    <td>
-                        @string.Format("{0}.{1}.{2}", item.Date.Day, item.Date.Month, item.Date.Year)
-                    </td>
-                    <td>
-                        @string.Format("{0}:{1}", item.Date.Hour, item.Date.Minute)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.User.Surname) @Html.DisplayFor(modelItem => item.User.Name) @Html.DisplayFor(modelItem => item.User.Patronymic)
-                    </td>
+    <div>
+        <form method="get">
+            <div class="form-inline">
+                <label class="text">Выберите мастера: </label>
+                @Html.DropDownList("master", Model.Masters as SelectList,
+               htmlAttributes: new { @class = "form-control" })
 
-                    <td>
-                        <a asp-action="Edit" asp-route-id="@item.ID">Редактирование</a> |
-                        <a asp-action="Details" asp-route-id="@item.ID">Подробности</a> |
-                        <a asp-action="Delete" asp-route-id="@item.ID">Удаление</a>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
+                <label class="text">Выберите услугу: </label>
+                @*<select  asp-items="Model.Services" class="view form-control"></select>*@
+                @Html.DropDownList("service", Model.Services as SelectList,
+                   htmlAttributes: new { @class = "form-control" })
+                @*<input type="submit" value="Фильтр" class="btn btn-default" />*@
+                <button class="OK" type="submit">Применить фильтр</button>
+            </div>
+        </form>
+    </div>
+
+    <div style="overflow-x:auto;">
+        <table>
+            @*<caption>Выполненные работы</caption>*@
+            <tr>
+                <th>ID</th>
+                <th>ФИО мастера</th>
+                <th>Услуга</th>
+                <th>Стоимость</th>
+                <th>Дата</th>
+                <th>Время</th>
+                <th>ФИО клиента</th>
+                <th></th>
+            </tr>
+
+            <tbody>
+                @foreach (var item in Model.Orders)
+                {
+                    <tr style="padding-top: 8px;  border-bottom-width: 6px;">
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ID)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Master.Surname) @Html.DisplayFor(modelItem => item.Master.Name) @Html.DisplayFor(modelItem => item.Master.Patronymic)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Service.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Service.Price) BYN
+                        </td>
+                        <td>
+                            @string.Format("{0}.{1}.{2}", item.Date.Day, item.Date.Month, item.Date.Year)
+                            @*@Html.DisplayFor(modelItem => item.Date.ToString("D"))*@
+                        </td>
+                        <td>
+                            @string.Format("{0}:{1}", item.Date.Hour, item.Date.Minute)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.User.Surname) @Html.DisplayFor(modelItem => item.User.Name) @Html.DisplayFor(modelItem => item.User.Patronymic)
+                        </td>
+
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.ID">Редактирование</a><br />
+                            @*<a asp-action="Details" asp-route-id="@item.ID">Подробности</a> | <br />*@
+                            <a asp-action="Delete" asp-route-id="@item.ID">Удаление</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>

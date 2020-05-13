@@ -1,15 +1,12 @@
-﻿// /* When the user scrolls down, hide the navbar. When the user scrolls up, show the navbar */
-// var prevScrollpos = window.pageYOffset;
-// window.onscroll = function() {
-//     var currentScrollPos = window.pageYOffset;
-//     if (prevScrollpos > currentScrollPos) {
-//         document.getElementById("navbar").style.top = "150px";
-//     } else {
-//         document.getElementById("navbar").style.top = "0px";
-//     }
-//     prevScrollpos = currentScrollPos;
-// }
-
+﻿/* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
+function myFunction() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+        x.className += " responsive";
+    } else {
+        x.className = "topnav";
+    }
+}
 
 // // When the user scrolls the page, execute myFunction
 // window.onscroll = function() { myFunction() };
@@ -31,11 +28,10 @@ function checkLogin() {
     var x = document.getElementById("Pass");
     var y = document.getElementById("ConfirmPass");
     if (x.type === "password") {
-        x.type = "text";       
+        x.type = "text";
+    } else {
+        x.type = "password";
     }
-    else {
-        x.type = "password";       
-    } 
 }
 
 function checkRegister() {
@@ -44,10 +40,9 @@ function checkRegister() {
     if (x.type === "password" || y.type === "password") {
         x.type = "text";
         y.type = "text";
-    }
-    else {
+    } else {
         x.type = "password";
         y.type = "password";
     }
-   
+
 }

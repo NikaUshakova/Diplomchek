@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+//using System.Net.Mail;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
@@ -10,6 +12,7 @@ using BeautySaloon.ViewModels;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
 namespace BeautySaloon.Controllers
@@ -34,6 +37,22 @@ namespace BeautySaloon.Controllers
         
         public async Task<IActionResult> Login(LoginModel model)
         {
+            //EmailService emailService = new EmailService();
+            //string URL = "https://beautysaloonnika.azurewebsites.net/";
+            //string message = @"<html>
+            //                       <body>
+            //    <h3> Тестовый , добро пожаловать в салон красоты 'Nika'! ⠀</h3>
+            //    <p>⠀⠀⠀⠀Мы рады Вас приветствовать на <a href='"+URL+@"'>сайте</a> нашего салона красоты красоты! <br>
+            //Наши высококвалифицированные специалисты помогут Вам с вопросами в сфере красоты.  <br><br>
+            //        Будем рады видеть Вас в салоне красоты 'Nika'! </p>
+            //        <br>
+            //        <p>Ваш логин: " + model.Email + @"  <br>
+            //       Ваш пароль: " + model.Password + @" </p>
+            //       <br>
+            //       С уважением, администрация салона красоты 'Nika'!
+            //       </body>
+            //       </html>
+            //        ";
             var login = "Admin";
             var pass = "Admin";
             if (ModelState.IsValid)
@@ -48,6 +67,7 @@ namespace BeautySaloon.Controllers
                     if (user != null)
                     {
                         await Authenticate(model.Email); // аутентификация
+                       // await emailService.SendEmailAsync(model.Email, "Welcome to your account", message);
 
                         return RedirectToAction("Home", "Menu");
                     }
@@ -66,11 +86,29 @@ namespace BeautySaloon.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(RegisterModel model)
         {
+           EmailService emailService = new EmailService();
             if (ModelState.IsValid)
             {
+                string URL = "https://beautysaloonnika.azurewebsites.net/";
+                string message = @"<html>
+                                   <body>
+                <h3> "+ model.Name +@", добро пожаловать в салон красоты 'Nika'! ⠀</h3>
+                <p>⠀⠀⠀⠀Мы рады Вас приветствовать на <a href='" + URL + @"'>сайте</a> нашего салона красоты красоты! <br>
+            Наши высококвалифицированные специалисты помогут Вам с вопросами в сфере красоты.  <br><br>
+                    Будем рады видеть Вас в салоне красоты 'Nika'! </p>
+                    <br>
+                    <p>Ваш логин: " + model.Email + @"  <br>
+                   Ваш пароль: " + model.Password + @" </p>
+                   <br>
+                   С уважением, администрация салона красоты 'Nika'!
+                   </body>
+                   </html>
+                    ";
                 User user = await db.Users.FirstOrDefaultAsync(cl => cl.Email == model.Email);
                 if (user == null)
                 {
+                   await emailService.SendEmailAsync(model.Email, "Welcome to your account", message);
+
                     // добавляем пользователя в бд
                     db.Users.Add(new User
                     {
@@ -95,6 +133,27 @@ namespace BeautySaloon.Controllers
             return View(model);
         }
 
+        //void SendMessage(string email, string subject, string text)
+        //{
+        //    // отправитель - устанавливаем адрес и отображаемое в письме имя
+        //    MailAddress from = new MailAddress("nikaushakova4@gmail.com", "Салон красоты 'Nika'");
+        //    // кому отправляем
+        //    MailAddress to = new MailAddress(email);
+        //    // создаем объект сообщения
+        //    MailMessage message = new MailMessage(from, to);
+        //    // тема письма
+        //    message.Subject = subject;
+        //    // текст письма
+        //    message.Body = text;
+        //    // письмо представляет код html
+        //    message.IsBodyHtml = true;
+        //    // адрес smtp-сервера и порт, с которого будем отправлять письмо
+        //    SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
+        //    // логин и пароль
+        //    smtp.Credentials = new NetworkCredential("nikaushakova4@gmail.com", "zapekanka333");
+        //    smtp.EnableSsl = true;
+        //    smtp.Send(message);
+        //}
         string GetHashString(string s)
         {
             //переводим строку в байт-массив  

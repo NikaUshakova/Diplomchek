@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BeautySaloon.Models;
 using Microsoft.AspNetCore.Components;
+using BeautySaloon.ViewModels;
 
 namespace BeautySaloon.Controllers.Admin
 {
@@ -22,11 +23,40 @@ namespace BeautySaloon.Controllers.Admin
 
         // GET: Order
      //   [Route("Admin/[controller]/[action]")]
-        public async Task<IActionResult> DoneWorks()
+        public IActionResult DoneWorks(int? service, string master)
         {
-            var orders = db.Orders.Include(o => o.Master).Include(o => o.Service).Include(o => o.User);
-            return View(await orders.ToListAsync());
+            IQueryable<Order> orders = db.Orders.Include(o => o.Master).Include(o => o.Service).Include(o => o.User);
+            if (service != null && service != 0)
+            {
+                orders = orders.Where(o => o.ServiceID == service);
+            }
+            if (!String.IsNullOrEmpty(master) && !master.Equals("Все"))
+            {
+                orders = orders.Where(o => o.Master.Surname.Contains(master) /*+ " " + o.Master.Name + " " + o.Master.Patronymic).Contains(master)*/);
+            }
+            List<Service> services = db.Services.ToList();
+            List<Master> masters = db.Masters.ToList();
+            // устанавливаем начальный элемент, который позволит выбрать всех
+            services.Insert(0, new Service { Name = "Все", ID = 0 });
+            masters.Insert(0, new Master { Surname = "Все", ID = 0 });
+
+            doneWorks DW = new doneWorks
+            {
+                Orders = orders.ToList(),
+                Masters = new SelectList(masters, "Surname", "Surname" ),
+                Services = new SelectList(services, "ID", "Name")
+        };
+            //ViewBag.Masters = db.Masters.Select(a =>
+            //                     new SelectListItem
+            //                     {
+            //                         Value = a.ID.ToString(),
+            //                         Text = a.Surname + " " + a.Name + " " + a.Patronymic
+            //                     }).ToList();
+
+            //ViewBag.Services = new SelectList(db.Services, "ID", "Name");
+            return View(DW);
         }
+
 
         // GET: Order/Details/5
         public async Task<IActionResult> Details(int? id)
