@@ -1,0 +1,54 @@
+div.modalFilter {
+    width: 531px;
+    float: left;
+    outline: 1px solid #666;
+}
+
+div.filter {
+    width: 511px;
+    border-top: 15px;
+}
+
+select {
+    width: 500px;
+    padding: 6px 15px;
+    margin: 2px 0 5px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+label {
+    display: block;
+    margin-top: 20px;
+    font-size: 16px;
+    font-family: Poppins-Regular, sans-serif;
+    font-weight: bold;
+}
+
+h3.title {
+    font-size: 50px;
+    color: #08538c;
+    text-align: center;
+    text-transform: none;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-bottom: 30px;
+}
+
+button.OK {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 191px;
+    font-size: 16px;
+    font-family: Poppins-Regular, sans-serif;
+}
+
+button.OK:hover {
+    opacity: 0.8;
+}

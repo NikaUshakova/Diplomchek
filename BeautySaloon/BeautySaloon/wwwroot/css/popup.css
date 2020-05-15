@@ -74,6 +74,7 @@
                 display: inline-block;
                 border: 1px solid #ccc;
                 box-sizing: border-box;
+                font-size: 16px;
             }
             
             .focus {
@@ -110,6 +111,7 @@
                 padding: 10px 18px;
                 background-color: #fd9f3e;
                 color: #000;
+                font-size: 15px;
             }
             /* Center the image and position the close button */
             

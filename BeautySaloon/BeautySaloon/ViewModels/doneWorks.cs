@@ -9,9 +9,10 @@ namespace BeautySaloon.ViewModels
 {
     public class doneWorks
     {
-        public IEnumerable<Order> Orders { get; set; }
-        public SelectList Masters { get; set; }
+        public IEnumerable<Order> Orders { get; set; }       
         public SelectList Services { get; set; }
-       
+        public List<SelectListItem> Masters { get; set; }
+        public List<SelectListItem> Users { get; set; }
+
     }
 }

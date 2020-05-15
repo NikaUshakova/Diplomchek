@@ -110,12 +110,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
                         <nav class="menu menu--horatio">
                             <ul class="nav navbar-nav menu__list">
-                                <li class="menu__item menu__item--current"><a asp-action="Home" class="menu__link">Home</a></li>
-                                <li class="menu__item"><a href="#about" class="menu__link scroll">О салоне красоты</a></li>
-                                <li class="menu__item"><a href="#services" class="menu__link scroll">Услуги</a></li>
-                                <li class="menu__item"><a onclick="document.getElementById('online').style.display='block'" class="menu__link scroll">Онлайн запись</a></li>
-                                @if (User.Identity.IsAuthenticated)
-                                {                                           @*заменить на ссылку в ЛК*@
+                                <li class="menu__item menu__item--current"><a asp-action="Home" class="menu__link">Главная</a></li>
+                                <li class="menu__item"><a href="#about" class="menu__link scroll">О салоне</a></li>
+                                <li class="menu__item"><a href="#services" class="menu__link scroll">Каталог услуг</a></li>
+                                 <li class="menu__item"><a href="#team" class="menu__link scroll">Наша команда</a></li>
+        <li class="menu__item"><a onclick="document.getElementById('online').style.display='block'" class="menu__link scroll">Онлайн запись</a></li>
+        @if (User.Identity.IsAuthenticated)
+        {                                           @*заменить на ссылку в ЛК*@
                                 <li class="menu__item"><a asp-controller="Account" asp-action="Login">Личный кабинет</a></li>
                                 <li class="menu__item"><a asp-controller="Account" asp-action="Logout">ВЫЙТИ</a></li>
                                 }
