@@ -13,16 +13,19 @@
     <link rel="stylesheet" type="text/css" href="~/css/table.css">
     <link rel="stylesheet" type="text/css" href="~/css/navbar.css">
     <link rel="stylesheet" type="text/css" href="~/css/filter.css">
-  
+    <link rel="stylesheet" type="text/css" href="~/css/search.css">
+    
     <!-- Load an icon library to show a hamburger menu (bars) on small screens -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!--===JS===========================================================================-->
     <script src="~/js/site.js"></script>
+
 </head>
 <body>
     <div class="topnav" id="myTopnav">
-        <a href="#home" class="active">Выполненные работы</a>
-        <a href="#news">Мастера</a>
+        <a asp-action="DoneWorks" class="active">Выполненные работы</a>
+        <a asp-controller="Masters" asp-action="Index">Мастера</a>
         <a href="#contact">Услуги</a>
         <a href="#about">Клиенты</a>
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
@@ -43,14 +46,19 @@
                     @Html.DropDownList("service", Model.Services as SelectList,
                        htmlAttributes: new { @class = "view" })
                     @*<input type="submit" value="Фильтр" class="btn btn-default" />*@
-                    <label class="text">Выберите мастера: </label>
+                    <label class="text">Выберите клиента: </label>
                     @Html.DropDownList("user", Model.Users as List<SelectListItem>,
                    htmlAttributes: new { @class = "view" })
                     <button class="OK" type="submit">Применить фильтр</button>
                 </div>
             </form>
         </div>
-
+        @*<div class="wrapper">
+            <div class="container">
+                <input type="text" class="input" placeholder="Search">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </div>
+        </div>*@
         <div style="overflow-x:auto;">
             <table>
                 @*<caption>Выполненные работы</caption>*@
@@ -60,7 +68,6 @@
                     <th>Услуга</th>
                     <th>Стоимость</th>
                     <th>Дата</th>
-                    <th>Время</th>
                     <th>ФИО клиента</th>
                     <th></th>
                 </tr>
@@ -82,13 +89,11 @@
                                 @Html.DisplayFor(modelItem => item.Service.Price) BYN
                             </td>
                             <td>
-                                @string.Format("{0}.{1}.{2}", item.Date.Day, item.Date.Month, item.Date.Year)
+                                @Html.DisplayFor(modelItem => item.Date)
                                 @*@Html.DisplayFor(modelItem => item.Date.ToString("D"))*@
                             </td>
                             <td>
-                                @string.Format("{0}:{1}", item.Date.Hour, item.Date.Minute)
-                            </td>
-                            <td>
+
                                 @Html.DisplayFor(modelItem => item.User.Surname) @Html.DisplayFor(modelItem => item.User.Name) @Html.DisplayFor(modelItem => item.User.Patronymic)
                             </td>
 
@@ -100,6 +105,7 @@
                         </tr>
                     }
                 </tbody>
+                
             </table>
         </div>
     </div>

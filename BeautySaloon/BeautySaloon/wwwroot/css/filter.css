@@ -7,6 +7,7 @@ div.modalFilter {
 div.filter {
     width: 511px;
     border-top: 15px;
+    margin-left: 10px;
 }
 
 select {

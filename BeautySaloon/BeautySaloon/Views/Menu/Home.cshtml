@@ -42,13 +42,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- start-smoth-scrolling -->
     <script type="text/javascript" src="~/Index/js/move-top.js"></script>
     <script type="text/javascript" src="~/Index/js/easing.js"></script>
-    <script type="text/javascript">
-        jQuery(document).ready(function ($) {
-            $(".scroll").click(function (event) {
-                event.preventDefault();
-                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+    @*<script>
+            jQuery(document).ready(function ($) {
+                $(".scroll").click(function (event) {
+                    event.preventDefault();
+                    $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+                });
             });
-        });
+        </script>
+    *@
+    <script>
+        $('#datePicker').datepicker({
+            // Можно выбрать тольо даты, идущие за сегодняшним днем, включая сегодня
+            minDate: new Date.now()
+        })
     </script>
     <!-- start-smoth-scrolling -->
     <script src="~/Index/js/responsiveslides.min.js"></script>
@@ -113,19 +120,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <li class="menu__item menu__item--current"><a asp-action="Home" class="menu__link">Главная</a></li>
                                 <li class="menu__item"><a href="#about" class="menu__link scroll">О салоне</a></li>
                                 <li class="menu__item"><a href="#services" class="menu__link scroll">Каталог услуг</a></li>
-                                 <li class="menu__item"><a href="#team" class="menu__link scroll">Наша команда</a></li>
-        <li class="menu__item"><a onclick="document.getElementById('online').style.display='block'" class="menu__link scroll">Онлайн запись</a></li>
-        @if (User.Identity.IsAuthenticated)
-        {                                           @*заменить на ссылку в ЛК*@
+                                <li class="menu__item"><a href="#team" class="menu__link scroll">Наша команда</a></li>
+                                <li class="menu__item"><a onclick="document.getElementById('online').style.display='block'" class="menu__link scroll">Онлайн запись</a></li>
+                                @if (User.Identity.IsAuthenticated)
+                                {@*заменить на ссылку в ЛК*@
                                 <li class="menu__item"><a asp-controller="Account" asp-action="Login">Личный кабинет</a></li>
                                 <li class="menu__item"><a asp-controller="Account" asp-action="Logout">ВЫЙТИ</a></li>
-                                }
-                                else
-                                {
+                            }
+                            else
+                            {
                                 <li class="menu__item"><a asp-controller="Account" asp-action="Login">Войти</a></li>
-                                }
+                            }
                                 @*  <li class="menu__item"><a href="#team" class="menu__link scroll">Team</a></li>
-        <li class="menu__item"><a href="#contact" class="menu__link scroll">Contact</a></li>*@
+                                    <li class="menu__item"><a href="#contact" class="menu__link scroll">Contact</a></li>*@
 
                             </ul>
                         </nav>
@@ -170,7 +177,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="containerLogin">
                 <h3 class="title">Онлайн запись<span></span></h3>
                 <label class="text">Выберите дату: </label>
-                <p><input asp-for="Date" type="date" required=""></p>
+                <p><input id="datePicker" asp-for="Date" type="date" required=""></p>
 
                 <label class="text">Выберите мастера: </label>
                 <div>
@@ -195,19 +202,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- POPUP -->
     <!-- POPUP -->
     <!-- The Modal -->
+    
+    @*<script>
+            // Get the modal
+            var modal = document.getElementById('login');
 
-
-    <script>
-        // Get the modal
-        var modal = document.getElementById('login');
-
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function (event) {
-            if (event.target == modal) {
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function (event) {
+                if (event.target == modal) {
                 modal.style.display = "none";
+                }
             }
-        }
-    </script>
+    </script>*@
     <!-- POPUP -->
     <!--//banner bottom-->
     <div id="about" class="feature all_pad wthree">

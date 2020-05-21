@@ -1,0 +1,65 @@
+﻿@model BeautySaloon.Models.Master
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+    <link rel="stylesheet" type="text/css" href="~/css/table.css">
+    <link rel="stylesheet" type="text/css" href="~/css/navbar.css">
+    <link rel="stylesheet" type="text/css" href="~/css/popup.css">
+    <link rel="stylesheet" type="text/css" href="~/css/TextStyle.css">
+    <link rel="stylesheet" type="text/css" href="~/Login/css/main.css">
+
+    <script>
+        window.onload = function () {
+            document.getElementById('editpopup').style.display = 'block'
+        }
+    </script>
+</head>
+<body>
+    <div id="editpopup" class="modalLogin" style="height: 100%;padding-top: 100px;">
+
+        <!-- Modal Content -->
+        <form class="modal-content animate" asp-action="Edit" method="post">
+            <div class="containerLogin">
+               
+                    <h3 class="title">Редактирование информации о мастере<span></span></h3>
+                    <input type="hidden" asp-for="ID" />
+                    <label class="text">Фамилия: </label>
+                    <input asp-for="Surname" maxlength="50" type="text" placeholder="Введите фамилию" required>
+
+                    <label class="text">Имя: </label>
+                    <input asp-for="Name" maxlength="50" type="text" placeholder="Введите имя" required>
+
+                    <label class="text">Отчество: </label>
+                    <input asp-for="Patronymic" maxlength="50" type="text" placeholder="Введите отчество" required>
+
+                    <label class="text">Дата рождения: </label>
+                    <p><input asp-for="Date" id="datePicker" type="date" placeholder="Введите дату рождения" required=""></p>
+
+                    <label>Телефон:</label>
+                    <input asp-for="Phone" type="text" onkeyup="this.value = this.value.replace(/[^0-9+]/g, '')" maxlength="13" placeholder="Введите номер телефона" required>
+                
+                <button class="OK" type="submit">Изменить данные</button>
+            </div>
+            <div class="containerLogin" style="background-color:#f1f1f1">
+                <a class="cancelbtn" asp-action="Index">Cancel</a>
+            </div>
+        </form>
+
+    </div>
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }
+</body>
+</html>

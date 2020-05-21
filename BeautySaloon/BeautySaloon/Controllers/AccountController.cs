@@ -54,7 +54,7 @@ namespace BeautySaloon.Controllers
             //       </html>
             //        ";
             var login = "Admin";
-            var pass = "Admin";
+            var pass = "123qwe";
             if (ModelState.IsValid)
             {
                 if (model.Email == login && model.Password == pass)

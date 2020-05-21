@@ -9,6 +9,8 @@ namespace BeautySaloon.Models
     public class Order
     {
         public int ID { get; set; }
+        [DataType(DataType.DateTime)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy hh:mm}")]
         public DateTime Date { get; set; }
         public int? MasterID { get; set; }
         public Master Master { get; set; }

@@ -46,3 +46,17 @@ function checkRegister() {
     }
 
 }
+
+function setMin() {
+    document.getElementById('datePicker').setAttribute("min", Date.Now());
+}
+
+
+// (function() {
+
+//     $(".fa-search").click(function() {
+//         $(".container, .input").toggleClass("active");
+//         $("input[type='text']").focus();
+//     });
+
+// });
