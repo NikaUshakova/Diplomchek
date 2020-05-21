@@ -20,13 +20,13 @@ namespace BeautySaloon.Areas.Admin.Controllers
         }
 
         // GET: Admin/Masters
-        public IActionResult Index(int? id)
+        [Route("Admin/Masters")]
+        public async Task<IActionResult> Allmasters()
         {
-            IEnumerable<Master> masters = db.Masters;
-            ViewBag.Masters = masters;
-            //var master =  db.Masters.Find(id);
-            ViewBag.masterid = db.Masters.Find(id);
-            return View();
+            //IEnumerable<Master> masters = db.Masters;
+            //ViewBag.Masters = masters;
+           
+            return View(await db.Masters.ToListAsync());
         }
 
         // GET: Admin/Masters/Details/5
@@ -83,7 +83,7 @@ namespace BeautySaloon.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-            return View();
+            return View(master);
         }
 
         // POST: Admin/Masters/Edit/5
@@ -116,7 +116,7 @@ namespace BeautySaloon.Areas.Admin.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Allmasters));
             }
             return View(master);
         }

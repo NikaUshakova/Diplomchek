@@ -12,7 +12,7 @@ namespace BeautySaloon.Models
         public string Name { get; set; }
         public string Surname { get; set; }
         public string Patronymic { get; set; }
-        [DataType(DataType.Date)]
+        [DataType(DataType.Date)]       
         public DateTime Date { get; set; }
         public string Phone { get; set; }
 

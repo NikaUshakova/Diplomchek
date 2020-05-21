@@ -16,6 +16,11 @@
     <link rel="stylesheet" type="text/css" href="~/css/TextStyle.css">
     <link rel="stylesheet" type="text/css" href="~/Login/css/main.css">
 
+    <!-- Load an icon library to show a hamburger menu (bars) on small screens -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
     <script>
         window.onload = function () {
             document.getElementById('editpopup').style.display = 'block'
@@ -23,8 +28,7 @@
     </script>
 </head>
 <body>
-    <div id="editpopup" class="modalLogin" style="height: 100%;padding-top: 100px;">
-
+    <div id="editpopup" class="modalRegister" >
         <!-- Modal Content -->
         <form class="modal-content animate" asp-action="Edit" method="post">
             <div class="containerLogin">
@@ -49,14 +53,10 @@
                 <button class="OK" type="submit">Изменить данные</button>
             </div>
             <div class="containerLogin" style="background-color:#f1f1f1">
-                <a class="cancelbtn" asp-action="Index">Cancel</a>
+                <a class="cancelbtn" asp-action="Allmasters">Cancel</a>
             </div>
         </form>
-
-    </div>
-    <div>
-        <a asp-action="Index">Back to List</a>
-    </div>
+    </div>  
 
     @section Scripts {
         @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

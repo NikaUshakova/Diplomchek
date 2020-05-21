@@ -1,0 +1,85 @@
+﻿@model IEnumerable<BeautySaloon.Models.Master>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link rel="stylesheet" type="text/css" href="~/css/table.css">
+    <link rel="stylesheet" type="text/css" href="~/css/navbar.css">
+    <link rel="stylesheet" type="text/css" href="~/css/popup.css">
+    <link rel="stylesheet" type="text/css" href="~/css/TextStyle.css">
+
+    <!-- Load an icon library to show a hamburger menu (bars) on small screens -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--===JS===========================================================================-->
+    <script src="~/js/site.js"></script>
+</head>
+<body>
+    <div class="topnav" id="myTopnav">
+        <a asp-action="Allmasters" class="active">Мастера</a>
+        <a asp-controller="Order" asp-action="DoneWorks">Выполненные работы</a>        
+        <a href="#contact">Услуги</a>
+        <a href="#about">Клиенты</a>
+        <a asp-controller="Account" asp-action="Login">Вход</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+    <div style="overflow-x:auto;">
+        <table  >
+            
+            <tr>
+                <th>ID</th>
+                <th>Фамилия </th>
+                <th>Имя </th>
+                <th>Отчество</th>
+                <th>Дата рождения</th>
+                <th>Контактный телефон</th>
+                <th></th>
+            </tr>
+
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ID)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Surname)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Patronymic)
+                        </td>
+                        <td style="text-align:center;">
+                            @Html.DisplayFor(modelItem => item.Date)
+                        </td>
+                        <td  style="text-align:center;">
+                            @Html.DisplayFor(modelItem => item.Phone)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.ID">Редактирование</a> |
+                            @*<a asp-action="Details" asp-route-id="@item.ID">Details</a> |*@
+                            <a asp-action="Delete" asp-route-id="@item.ID">Удаление</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+  
+</body>
+</html>

@@ -59,7 +59,7 @@ namespace BeautySaloon.Controllers
             {
                 if (model.Email == login && model.Password == pass)
                 {
-                    return Redirect("/Admin/Order/DoneWorks");
+                    return Redirect("/Admin/Doneworks");
                 }
                 else
                 {

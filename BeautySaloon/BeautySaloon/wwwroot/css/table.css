@@ -2,9 +2,10 @@ table {
     border-collapse: collapse;
     line-height: 1.1;
     font-family: "Gabriela", sans-serif;
-    background: radial-gradient(farthest-corner at 50% 50%, white, rgb(242, 255, 242));
+    /* background: radial-gradient(farthest-corner at 50% 50%, white, rgb(242, 255, 242)); */
     color: #0C213B;
     margin-top: 20px;
+    margin-left: 20px;
     /*float: right;*/
 }
 
@@ -25,13 +26,22 @@ caption:after {
     margin: 0 10px;
 } */
 
-th {
+tr {
     padding: 10px;
-    border: 2.2px solid rgb(97, 97, 97);
+    border-bottom: 2px solid rgb(150, 150, 150);
+}
+
+th {
+    font-size: 18px;
+    padding: 5px 25px 15px 25px;
+    text-align: left;
+    /*  border-right: 2px solid rgb(150, 150, 150);*/
 }
 
 td {
-    font-size: 15px;
-    padding: 5px 7px;
-    border: 2px solid rgb(150, 150, 150);
+    font-size: 16px;
+    padding: 10px 7px;
+    /* border: 2px solid rgb(150, 150, 150);*/
 }
+
+@media screen and (max)

@@ -20,20 +20,33 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!--===JS===========================================================================-->
     <script src="~/js/site.js"></script>
-
+    
 </head>
 <body>
+    <script>
+        var prevScrollpos = window.pageYOffset;
+        window.onscroll = function () {
+            var currentScrollPos = window.pageYOffset;
+            if (prevScrollpos > currentScrollPos) {
+                document.getElementById("myTopnav").style.top = "0";
+            } else {
+                document.getElementById("myTopnav").style.top = "-50px";
+            }
+            prevScrollpos = currentScrollPos;
+        }
+    </script>
     <div class="topnav" id="myTopnav">
         <a asp-action="DoneWorks" class="active">Выполненные работы</a>
-        <a asp-controller="Masters" asp-action="Index">Мастера</a>
+        <a asp-controller="Masters" asp-action="Allmasters">Мастера</a>
         <a href="#contact">Услуги</a>
         <a href="#about">Клиенты</a>
+        <a asp-area="" asp-controller="Account" asp-action="Login">Вход</a>
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
             <i class="fa fa-bars"></i>
         </a>
     </div>
-    <div>
-        <div class="modalFilter">
+   
+        <div id="filter" class="modalFilter" style="display:none;">
             <form method="get">
                 <div class="filter">
                     <h3 class="title">Фильтры</h3>
@@ -59,6 +72,7 @@
                 <i class="fa fa-search" aria-hidden="true"></i>
             </div>
         </div>*@
+    <button class="OK" onclick="document.getElementById('filter').style.display='block'">Фильтр</button>
         <div style="overflow-x:auto;">
             <table>
                 @*<caption>Выполненные работы</caption>*@
@@ -75,7 +89,7 @@
                 <tbody>
                     @foreach (var item in Model.Orders)
                     {
-                        <tr style="padding-top: 8px;  border-bottom-width: 6px;">
+                        <tr style="padding-top: 8px; ">
                             <td>
                                 @Html.DisplayFor(modelItem => item.ID)
                             </td>
@@ -105,9 +119,9 @@
                         </tr>
                     }
                 </tbody>
-                
+
             </table>
         </div>
-    </div>
+
 </body>
 </html>

@@ -17,8 +17,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BeautySaloon.Controllers
 {
-    [Authorize]
-  
+    [Authorize]  
     public class MenuController : Controller
     {
         private readonly ApplicationContext db;
@@ -43,12 +42,7 @@ namespace BeautySaloon.Controllers
           
             ViewBag.Services = new SelectList(db.Services, "ID", "Name");
             return View();
-        }
-        //public IActionResult AdminIndex()
-        //{
-        //    return View();
-        //}
-       
+        }    
 
         // GET: Clients/Create
         public IActionResult CreateOrder()

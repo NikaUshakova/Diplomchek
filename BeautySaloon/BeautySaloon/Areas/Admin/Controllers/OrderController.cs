@@ -23,7 +23,7 @@ namespace BeautySaloon.Controllers.Admin
         }
 
         // GET: Order
-     //   [Route("Admin/[controller]/[action]")]
+        [Microsoft.AspNetCore.Mvc.Route("Admin/Doneworks")]
         public IActionResult DoneWorks(int? service, string master, string user)
         {
             IQueryable<Order> orders = db.Orders.Include(o => o.Master).Include(o => o.Service).Include(o => o.User);

@@ -5,7 +5,9 @@ h3.title {
     text-transform: none;
     margin-top: 10px;
     margin-left: 20px;
+    margin-right: 20px;
     margin-bottom: 30px;
+    font-family: 'Gabriela', serif;
 }
 
 h3.title-popup {
@@ -16,6 +18,7 @@ h3.title-popup {
     margin-top: 10px;
     margin-left: 20px;
     margin-bottom: 30px;
+    font-family: 'Gabriela', serif;
 }
 
 h3.title span {
@@ -71,4 +74,32 @@ input.button {
     padding-bottom: 15px;
     padding-left: 25px;
     padding-right: 25px;
+}
+
+@media (max-width: 450px) {
+    h3.title {
+        font-size: 38px;
+        color: #08538c;
+        text-align: center;
+        text-transform: none;
+        margin-top: 10px;
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-bottom: 30px;
+        font-family: 'Gabriela', serif;
+    }
+}
+
+@media screen and (max-width: 370px) {
+    h3.title {
+        font-size: 32px;
+        color: #08538c;
+        text-align: center;
+        text-transform: none;
+        margin-top: 10px;
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-bottom: 30px;
+        font-family: 'Gabriela', serif;
+    }
 }
