@@ -26,7 +26,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link rel="stylesheet" type="text/css" href="~/Login/css/main.css">
     <link rel="stylesheet" type="text/css" href="~/css/popup.css">
     <link rel="stylesheet" type="text/css" href="~/css/site.css">
-
+    <link rel="stylesheet" type="text/css" href="~/css/servicelist.css">
 
     <!-- //js -->
     <!--===JS===========================================================================-->
@@ -118,18 +118,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <nav class="menu menu--horatio">
                             <ul class="nav navbar-nav menu__list">
                                 <li class="menu__item menu__item--current"><a asp-action="Home" class="menu__link">Главная</a></li>
-                                <li class="menu__item"><a href="#about" class="menu__link scroll">О салоне</a></li>
+                                <li class="menu__item"><a href="#about" class="menu__link scroll">О салоне</a></li> 
                                 <li class="menu__item"><a href="#services" class="menu__link scroll">Каталог услуг</a></li>
                                 <li class="menu__item"><a href="#team" class="menu__link scroll">Наша команда</a></li>
                                 <li class="menu__item"><a onclick="document.getElementById('online').style.display='block'" class="menu__link scroll">Онлайн запись</a></li>
-                                @if (User.Identity.IsAuthenticated)
+                           @if (User.Identity.IsAuthenticated)
                                 {@*заменить на ссылку в ЛК*@
-                                <li class="menu__item"><a asp-controller="Account" asp-action="Login">Личный кабинет</a></li>
-                                <li class="menu__item"><a asp-controller="Account" asp-action="Logout">ВЫЙТИ</a></li>
+                                <li class="menu__item"><a asp-controller="Account" asp-action="Login" style="padding: 2px 10px !important;"><img src="~/images/lock.png" title="Личный кабинет"></a></li>
+                                <li class="menu__item"><a asp-controller="Account" asp-action="Logout" style="padding: 2px 10px !important;"><img src="~/images/logout.png" title="Logout"></a></li>
                             }
                             else
                             {
-                                <li class="menu__item"><a asp-controller="Account" asp-action="Login">Войти</a></li>
+                                <li class="menu__item"><a asp-controller="Account" asp-action="Login" style="padding: 2px 10px !important;"><img src="~/images/lock.png" title="Login"></a></li>
                             }
                                 @*  <li class="menu__item"><a href="#team" class="menu__link scroll">Team</a></li>
                                     <li class="menu__item"><a href="#contact" class="menu__link scroll">Contact</a></li>*@
@@ -202,18 +202,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- POPUP -->
     <!-- POPUP -->
     <!-- The Modal -->
-    
     @*<script>
-            // Get the modal
-            var modal = document.getElementById('login');
+                // Get the modal
+                var modal = document.getElementById('login');
 
-            // When the user clicks anywhere outside of the modal, close it
-            window.onclick = function (event) {
-                if (event.target == modal) {
-                modal.style.display = "none";
+                // When the user clicks anywhere outside of the modal, close it
+                window.onclick = function (event) {
+                    if (event.target == modal) {
+                    modal.style.display = "none";
+                    }
                 }
-            }
-    </script>*@
+        </script>*@
     <!-- POPUP -->
     <!--//banner bottom-->
     <div id="about" class="feature all_pad wthree">
@@ -251,48 +250,104 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
         </div>
     </div>
+    <!-------------------------------------------------------------------->
+    <div id="services">
+        <h3 class="title">Услуги в салоне красоты<span></span></h3>
 
+        <div class="portfolio-wrap">
+            <div class="portfolio-item">
+                <div class="portfolio-item-wrap">
+                    <img src="~/images/bg-01.jpg">
+                    <div class="portfolio-item-inner">
+                        <div class="portfolio-heading">
+                            <h3>Парикмахерские услуги</h3>
+                        </div>
+                        <ul>
+                            @foreach (var service in ViewBag.Services1)
+                            {
+                                <li>@service</li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
 
-    <!--banner bottom-->
-    <div id="services" class="services all_pad w3ls">
-        <div class="container">
-            <h3 class="title">Услуги в салоне красоты<span></span></h3>
-            <div class="ser-top-grids">
-                <div class="col-md-4 ser-grid wow flipInY" data-wow-duration="1.5s" data-wow-delay="0s">
-                    <div class="con-left text-center">
-                        <div class="spa-ico"><span class="glyphicon glyphicon-parik" style="padding-top: 8px;" aria-hidden="true"></span></div>
-                        <h5>Парикмахерские услуги</h5>
-                        @foreach (var service in ViewBag.Services1)
-                        {
-                            <p>@service</p>
-                        }
+            <div class="portfolio-item">
+                <div class="portfolio-item-wrap">
+                    <img src="~/images/bg-01.jpg">
+                    <div class="portfolio-item-inner">
+                        <div class="portfolio-heading">
+                            <h3>Прически</h3>
+                        </div>
+                        <ul>
+                            @foreach (var service in ViewBag.Services2)
+                            {
+                                <li>@service</li>
+                            }
+                        </ul>
                     </div>
                 </div>
-                <div class="col-md-4 ser-grid wow flipInY" data-wow-duration="1.5s" data-wow-delay="0s">
-                    <div class="con-left text-center">
-                        <div class="spa-ico"><span class="glyphicon glyphicon-hairstyle" aria-hidden="true"></span></div>
-                        <h5>Прически</h5>
-                        @foreach (var service in ViewBag.Services2)
-                        {
-                            <p>@service</p>
-                        }
+            </div>
+
+            <div class="portfolio-item">
+                <div class="portfolio-item-wrap">
+                    <img src="~/images/bg-01.jpg">
+                    <div class="portfolio-item-inner">
+                        <div class="portfolio-heading">
+                            <h3>Ногтевой сервис</h3>
+                        </div>
+                        <ul>
+                            @foreach (var service in ViewBag.Services3)
+                            {
+                                <li>@service</li>
+                            }
+                        </ul>
                     </div>
                 </div>
-                <div class="col-md-4 ser-grid wow flipInY" data-wow-duration="1.5s" data-wow-delay="0s">
-                    <div class="con-left text-center">
-                        <div class="spa-ico"><span class="glyphicon glyphicon-nail" aria-hidden="true"></span></div>
-                        <h5>Ногтевой сервис</h5>
-                        @foreach (var service in ViewBag.Services3)
-                        {
-                            <p>@service</p>
-                        }
-                    </div>
-                </div>
-                <div class="clearfix"></div>
             </div>
         </div>
     </div>
-
+    <!-------------------------------------------------------------------->
+    <!--banner bottom-->
+    @*<div id="services" class="services all_pad w3ls">
+            <div class="container">
+                <h3 class="title">Услуги в салоне красоты<span></span></h3>
+                <div class="ser-top-grids">
+                    <div class="col-md-4 ser-grid wow flipInY" data-wow-duration="1.5s" data-wow-delay="0s">
+                        <div class="con-left text-center">
+                            <div class="spa-ico"><span class="glyphicon glyphicon-parik" style="padding-top: 8px;" aria-hidden="true"></span></div>
+                            <h5>Парикмахерские услуги</h5>
+                            @foreach (var service in ViewBag.Services1)
+                            {
+                                <p>@service</p>
+                            }
+                        </div>
+                    </div>
+                    <div class="col-md-4 ser-grid wow flipInY" data-wow-duration="1.5s" data-wow-delay="0s">
+                        <div class="con-left text-center">
+                            <div class="spa-ico"><span class="glyphicon glyphicon-hairstyle" aria-hidden="true"></span></div>
+                            <h5>Прически</h5>
+                            @foreach (var service in ViewBag.Services2)
+                            {
+                                <p>@service</p>
+                            }
+                        </div>
+                    </div>
+                    <div class="col-md-4 ser-grid wow flipInY" data-wow-duration="1.5s" data-wow-delay="0s">
+                        <div class="con-left text-center">
+                            <div class="spa-ico"><span class="glyphicon glyphicon-nail" aria-hidden="true"></span></div>
+                            <h5>Ногтевой сервис</h5>
+                            @foreach (var service in ViewBag.Services3)
+                            {
+                                <p>@service</p>
+                            }
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>*@
+   
 
 </body>
 </html>

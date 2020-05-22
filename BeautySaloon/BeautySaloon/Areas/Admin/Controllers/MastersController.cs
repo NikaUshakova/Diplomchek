@@ -20,7 +20,7 @@ namespace BeautySaloon.Areas.Admin.Controllers
         }
 
         // GET: Admin/Masters
-        [Route("Admin/Masters")]
+        [Route("admin/masters")]
         public async Task<IActionResult> Allmasters()
         {
             //IEnumerable<Master> masters = db.Masters;

@@ -41,87 +41,88 @@
         <a href="#contact">Услуги</a>
         <a href="#about">Клиенты</a>
         <a asp-area="" asp-controller="Account" asp-action="Login">Вход</a>
-        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <a href="javascript:void(0);" class="icon" onclick="topnavHamburger()">
             <i class="fa fa-bars"></i>
         </a>
     </div>
-   
-        <div id="filter" class="modalFilter" style="display:none;">
-            <form method="get">
-                <div class="filter">
-                    <h3 class="title">Фильтры</h3>
+
+    <div id="filter" class="modalFilter">
+        <form method="get">
+            <div class="filter">               
+                    @*<h3 class="title">Фильтры</h3>*@
                     <label class="text">Выберите мастера: </label>
                     @Html.DropDownList("master", Model.Masters as List<SelectListItem>,
-                   htmlAttributes: new { @class = "view" })
+                   htmlAttributes: new { @class = "view" })                    
 
                     <label class="text">Выберите услугу: </label>
                     @*<select  asp-items="Model.Services" class="view form-control"></select>*@
                     @Html.DropDownList("service", Model.Services as SelectList,
-                       htmlAttributes: new { @class = "view" })
-                    @*<input type="submit" value="Фильтр" class="btn btn-default" />*@
+                       htmlAttributes: new { @class = "view" })                   
+                
                     <label class="text">Выберите клиента: </label>
                     @Html.DropDownList("user", Model.Users as List<SelectListItem>,
-                   htmlAttributes: new { @class = "view" })
-                    <button class="OK" type="submit">Применить фильтр</button>
-                </div>
-            </form>
-        </div>
-        @*<div class="wrapper">
+                   htmlAttributes: new { @class = "view" })               
+                <button class="OK" type="submit">Применить фильтр</button>
+            </div>
+        </form>
+    </div>
+    @*<div class="wrapper">
             <div class="container">
                 <input type="text" class="input" placeholder="Search">
                 <i class="fa fa-search" aria-hidden="true"></i>
             </div>
         </div>*@
+
     <button class="OK" onclick="document.getElementById('filter').style.display='block'">Фильтр</button>
-        <div style="overflow-x:auto;">
-            <table>
-                @*<caption>Выполненные работы</caption>*@
-                <tr>
-                    <th>ID</th>
-                    <th>ФИО мастера</th>
-                    <th>Услуга</th>
-                    <th>Стоимость</th>
-                    <th>Дата</th>
-                    <th>ФИО клиента</th>
-                    <th></th>
-                </tr>
+    <div style="overflow-x:auto;">
+        <table>
+            @*<caption>Выполненные работы</caption>*@
+            <tr>
+                <th>ID</th>
+                <th>ФИО мастера</th>
+                <th>Услуга</th>
+                <th>Стоимость</th>
+                <th>Дата</th>
+                <th>ФИО клиента</th>
+                <th></th>
+            </tr>
 
-                <tbody>
-                    @foreach (var item in Model.Orders)
-                    {
-                        <tr style="padding-top: 8px; ">
-                            <td>
-                                @Html.DisplayFor(modelItem => item.ID)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Master.Surname) @Html.DisplayFor(modelItem => item.Master.Name) @Html.DisplayFor(modelItem => item.Master.Patronymic)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Service.Name)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Service.Price) BYN
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Date)
-                                @*@Html.DisplayFor(modelItem => item.Date.ToString("D"))*@
-                            </td>
-                            <td>
+            <tbody>
+                @foreach (var item in Model.Orders)
+                {
+                    <tr style="padding-top: 8px; ">
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ID)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Master.Surname) @Html.DisplayFor(modelItem => item.Master.Name) @Html.DisplayFor(modelItem => item.Master.Patronymic)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Service.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Service.Price) BYN
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Date)
+                            @*@Html.DisplayFor(modelItem => item.Date.ToString("D"))*@
+                        </td>
+                        <td>
 
-                                @Html.DisplayFor(modelItem => item.User.Surname) @Html.DisplayFor(modelItem => item.User.Name) @Html.DisplayFor(modelItem => item.User.Patronymic)
-                            </td>
+                            @Html.DisplayFor(modelItem => item.User.Surname) @Html.DisplayFor(modelItem => item.User.Name) @Html.DisplayFor(modelItem => item.User.Patronymic)
+                        </td>
 
-                            <td>
-                                <a asp-action="Edit" asp-route-id="@item.ID">Редактирование</a><br />
-                                @*<a asp-action="Details" asp-route-id="@item.ID">Подробности</a> | <br />*@
-                                <a asp-action="Delete" asp-route-id="@item.ID">Удаление</a>
-                            </td>
-                        </tr>
-                    }
-                </tbody>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.ID">Редактирование</a><br />
+                            @*<a asp-action="Details" asp-route-id="@item.ID">Подробности</a> | <br />*@
+                            <a asp-action="Delete" asp-route-id="@item.ID">Удаление</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
 
-            </table>
-        </div>
+        </table>
+    </div>
 
 </body>
 </html>
