@@ -14,6 +14,7 @@
     <link rel="stylesheet" type="text/css" href="~/css/navbar.css">
     <link rel="stylesheet" type="text/css" href="~/css/popup.css">
     <link rel="stylesheet" type="text/css" href="~/css/TextStyle.css">
+    <link rel="stylesheet" type="text/css" href="~/css/filter.css">
 
     <!-- Load an icon library to show a hamburger menu (bars) on small screens -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -24,7 +25,7 @@
 <body>
     <div class="topnav" id="myTopnav">
         <a asp-action="Allmasters" class="active">Мастера</a>
-        <a asp-controller="Order" asp-action="DoneWorks">Выполненные работы</a>        
+        <a asp-controller="Order" asp-action="DoneWorks">Выполненные работы</a>
         <a href="#contact">Услуги</a>
         <a href="#about">Клиенты</a>
         <a asp-controller="Account" asp-action="Login">Вход</a>
@@ -32,12 +33,45 @@
             <i class="fa fa-bars"></i>
         </a>
     </div>
-    <p>
-        <a asp-action="Create">Create New</a>
-    </p>
+    
+        <button onclick="document.getElementById('addMaster').style.display='block'"  class="OK">Добавить мастера</button>
+   
+
+    <!-- POPUP -->
+    <div id="addMaster" class="modalRegister" style="height: 100%;padding-top: 50px;">
+        <!-- Modal Content -->
+        <form class="modal-content animate" asp-action="Create" method="post">
+            <div class="containerLogin">
+                <h3 class="title">Добавление мастера<span></span></h3>
+                <input type="hidden" name="ID" />
+                <label class="text">Фамилия: </label>
+                <input name="Surname" maxlength="50" type="text" placeholder="Введите фамилию" required>
+
+                <label class="text">Имя: </label>
+                <input name="Name" maxlength="50" type="text" placeholder="Введите имя" required>
+
+                <label class="text">Отчество: </label>
+                <input name="Patronymic" maxlength="50" type="text" placeholder="Введите отчество" required>
+
+                <label class="text">Дата рождения: </label>
+                <p><input name="Date" id="datePicker" type="date" placeholder="Введите дату рождения" required=""></p>
+
+                <label>Телефон:</label>
+                <input name="Phone" type="text" onkeyup="this.value = this.value.replace(/[^0-9+]/g, '')" maxlength="13" placeholder="Введите номер телефона" required>
+
+
+                <button class="OK" type="submit">Добавить мастера</button>
+            </div>
+
+            <div class="containerLogin" style="background-color:#f1f1f1">
+                <a class="cancelbtn" asp-action="Allmasters">Cancel</a>
+            </div>
+        </form>
+    </div>
+
     <div style="overflow-x:auto;">
-        <table  >
-            
+        <table>
+
             <tr>
                 <th>ID</th>
                 <th>Фамилия </th>
@@ -67,7 +101,7 @@
                         <td style="text-align:center;">
                             @Html.DisplayFor(modelItem => item.Date)
                         </td>
-                        <td  style="text-align:center;">
+                        <td style="text-align:center;">
                             @Html.DisplayFor(modelItem => item.Phone)
                         </td>
                         <td>
@@ -80,6 +114,6 @@
             </tbody>
         </table>
     </div>
-  
+
 </body>
 </html>

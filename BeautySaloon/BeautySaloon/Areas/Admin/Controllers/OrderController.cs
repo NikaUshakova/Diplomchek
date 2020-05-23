@@ -24,16 +24,28 @@ namespace BeautySaloon.Controllers.Admin
 
         // GET: Order
         [Microsoft.AspNetCore.Mvc.Route("admin/doneworks")]
-        public IActionResult DoneWorks(int? service, string master, string user)
+        public IActionResult DoneWorks(int? service, string master, string user, DateTime? begindate, DateTime? enddate )
         {
             IQueryable<Order> orders = db.Orders.Include(o => o.Master).Include(o => o.Service).Include(o => o.User);
+            if (begindate != null && enddate != null)
+            {
+                orders = orders.Where(o => o.Date >= begindate && o.Date <= enddate);
+            }
+            else if (begindate != null)
+            {
+                orders = orders.Where(o => o.Date >= begindate);
+            }
+            else if (enddate != null)
+            {
+                orders = orders.Where(o => o.Date <= enddate);
+            }
             if (service != null && service != 0)
             {
                 orders = orders.Where(o => o.ServiceID == service);
             }
             if (!String.IsNullOrEmpty(master) && !master.Equals("Все"))
             {
-                orders = orders.Where(o => (o.Master.Surname+" "+o.Master.Name + " " + o.Master.Patronymic).Contains(master));
+                orders = orders.Where(o => (o.Master.Surname+" "+ o.Master.Name + " " + o.Master.Patronymic).Contains(master));
             }
             if (!String.IsNullOrEmpty(user) && !user.Equals("Все"))
             {
@@ -46,9 +58,8 @@ namespace BeautySaloon.Controllers.Admin
             services.Insert(0, new Service { Name = "Все", ID = 0 });
             masters.Insert(0, new Master { Surname = "Все", ID = 0 });
             users.Insert(0, new User { Surname = "Все", ID = 0 });
+           // begindate = '01.01.2000 00.00.00';
 
-            //string ID =masters.Select(m => m.ID).ToString();
-            //string FIO = masters.Select(m => m.Surname + m.Name + m.Patronymic).ToString();
             doneWorks DW = new doneWorks
             {
                 Orders = orders.ToList(),               
@@ -65,6 +76,8 @@ namespace BeautySaloon.Controllers.Admin
                                     Value = (a.Surname + " " + a.Name + " " + a.Patronymic).Trim(),
                                     Text = a.Surname + " " + a.Name + " " + a.Patronymic
                                 }).ToList(),
+                //beginDate = begindate,
+                //endDate = enddate
             };
               
             //ViewBag.Masters = db.Masters.Select(a =>

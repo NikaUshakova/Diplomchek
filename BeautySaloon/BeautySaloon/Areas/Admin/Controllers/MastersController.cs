@@ -24,8 +24,7 @@ namespace BeautySaloon.Areas.Admin.Controllers
         public async Task<IActionResult> Allmasters()
         {
             //IEnumerable<Master> masters = db.Masters;
-            //ViewBag.Masters = masters;
-           
+            //ViewBag.Masters = masters;           
             return View(await db.Masters.ToListAsync());
         }
 
@@ -48,6 +47,7 @@ namespace BeautySaloon.Areas.Admin.Controllers
         }
 
         // GET: Admin/Masters/Create
+        //[Route("admin/add")]
         public IActionResult Create()
         {
             return View();
@@ -56,17 +56,33 @@ namespace BeautySaloon.Areas.Admin.Controllers
         // POST: Admin/Masters/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> Create([Bind("ID,Name,Surname,Patronymic,Date,Phone")] Master master)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        db.Add(master);
+        //        await db.SaveChangesAsync();
+        //        return RedirectToAction(nameof(Allmasters));
+        //    }
+        //    return View(master);
+        //}
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,Name,Surname,Patronymic,Date,Phone")] Master master)
+        [ValidateAntiForgeryToken]        
+        public async Task<IActionResult> Create(int ID, string Surname, string Name, string Patronymic, DateTime Date, string Phone)
         {
-            if (ModelState.IsValid)
+            db.Add(new Master
             {
-                db.Add(master);
-                await db.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(master);
+                ID = ID,
+                Surname = Surname,
+                Name = Name,
+                Patronymic = Patronymic,
+                Date = Date,
+                Phone = Phone
+            });
+            await db.SaveChangesAsync();
+            return RedirectToAction(nameof(Allmasters));
         }
 
         // GET: Admin/Masters/Edit/5

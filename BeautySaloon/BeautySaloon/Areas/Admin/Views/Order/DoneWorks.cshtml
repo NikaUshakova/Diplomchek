@@ -48,20 +48,25 @@
 
     <div id="filter" class="modalFilter">
         <form method="get">
-            <div class="filter">               
-                    @*<h3 class="title">Фильтры</h3>*@
-                    <label class="text">Выберите мастера: </label>
-                    @Html.DropDownList("master", Model.Masters as List<SelectListItem>,
-                   htmlAttributes: new { @class = "view" })                    
+            <div class="filter">
+                @*<h3 class="title">Фильтры</h3>*@
+                <label class="text">Выберите мастера: </label>
+                @Html.DropDownList("master", Model.Masters as List<SelectListItem>,
+               htmlAttributes: new { @class = "view" })
 
-                    <label class="text">Выберите услугу: </label>
-                    @*<select  asp-items="Model.Services" class="view form-control"></select>*@
-                    @Html.DropDownList("service", Model.Services as SelectList,
-                       htmlAttributes: new { @class = "view" })                   
-                
-                    <label class="text">Выберите клиента: </label>
-                    @Html.DropDownList("user", Model.Users as List<SelectListItem>,
-                   htmlAttributes: new { @class = "view" })               
+                <label class="text">Выберите услугу: </label>
+                @*<select  asp-items="Model.Services" class="view form-control"></select>*@
+                @Html.DropDownList("service", Model.Services as SelectList,
+                   htmlAttributes: new { @class = "view" })
+
+                <label class="text">Выберите клиента: </label>
+                @Html.DropDownList("user", Model.Users as  List<SelectListItem>,
+               htmlAttributes: new { @class = "view" })
+
+                <label class="text">Выберите дату:  от</label>
+                <input name="begindate" id="datePicker" type="date">
+                <label class="text">  до</label>
+                <input name="enddate" id="datePicker" type="date">
                 <button class="OK" type="submit">Применить фильтр</button>
             </div>
         </form>
