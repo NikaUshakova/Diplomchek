@@ -1,4 +1,4 @@
-﻿@model BeautySaloon.Models.Master
+﻿@model BeautySaloon.Models.Service
 
 @{
     Layout = null;
@@ -32,27 +32,21 @@
         <!-- Modal Content -->
         <form class="modal-content animate" asp-action="Delete" method="post">
             <div class="containerLogin">
-                <h3 class="title">Удаление мастера<span></span></h3>
+                <h3 class="title">Удаление услуги<span></span></h3>
                 <input type="hidden" asp-for="ID" />
-                <label class="text">Фамилия: </label>
-                <input asp-for="Surname" maxlength="50" type="text" readonly>
+                <label class="text">Название: </label>
+                <input asp-for="Name"  type="text" readonly>
 
-                <label class="text">Имя: </label>
-                <input asp-for="Name" maxlength="50" type="text"  readonly>
+                <label class="text">Стоимость (BYN): </label>
+                <input asp-for="Price" type="text" readonly>
 
-                <label class="text">Отчество: </label>
-                <input asp-for="Patronymic" maxlength="50" type="text" readonly>
-
-                <label class="text">Дата рождения: </label>
-                <p><input asp-for="Date" id="datePicker" type="date"  readonly=""></p>
-
-                <label>Телефон:</label>
-                <input asp-for="Phone" type="text"  maxlength="13" readonly>
-
-                <button class="OK" style="background-color :firebrick" type="submit">Удалить мастера</button>
+                <label class="text">Категория: </label>
+                <input asp-for="Category" type="text" readonly>
+                               
+                <button class="OK" style="background-color :firebrick" type="submit">Удалить услугу</button>
             </div>
             <div class="containerLogin" style="background-color:#f1f1f1">
-                <a class="cancelbtn" asp-action="Allmasters">Cancel</a>
+                <a class="cancelbtn" asp-action="Allservices">Cancel</a>
             </div>
         </form>
     </div>

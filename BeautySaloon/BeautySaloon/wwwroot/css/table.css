@@ -34,14 +34,14 @@ tr {
 th {
     font-size: 18px;
     padding: 5px 25px 15px 25px;
-    text-align: left;
     /*  border-right: 2px solid rgb(150, 150, 150);*/
 }
 
 td {
     font-size: 16px;
-    padding: 10px 7px;
+    padding: 10px 12px;
     /* border: 2px solid rgb(150, 150, 150);*/
 }
 
-@media screen and (max)
+
+/*@media screen and (max)*/

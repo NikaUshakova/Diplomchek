@@ -1,4 +1,4 @@
-﻿@model BeautySaloon.Models.Order
+﻿@model BeautySaloon.Models.Service
 
 @{
     Layout = null;
@@ -22,49 +22,39 @@
 
     <script>
         window.onload = function () {
-            document.getElementById('editorder').style.display = 'block'
-    }
+            document.getElementById('editpopup').style.display = 'block'
+        }
     </script>
 </head>
 <body>
-
-    <!-- POPUP -->
-    <div id="editorder" class="modalLogin" style="height: 100%;padding-top: 100px;">
+    <div id="editpopup" class="modalRegister" style="height: 100%;">
         <!-- Modal Content -->
         <form class="modal-content animate" asp-action="Edit" method="post">
             <div class="containerLogin">
-                <h3 class="title">Редактирование заказа<span></span></h3>
 
-                <label class="text">Мастер: </label>
+                <h3 class="title">Редактирование услуги<span></span></h3>
+                <input type="hidden" asp-for="ID" />
+                <label class="text">Название: </label>
+                <input asp-for="Name" maxlength="200" type="text" placeholder="Введите навзание" required>
+
+                <label class="text">Стоимость (BYN): </label>
+                <input asp-for="Price" maxlength="3" onkeyup="this.value = this.value.replace(/[^0-9]/g, '')" type="text" placeholder="Введите стоимость" required>
+
+                <label class="text">Категория:</label>
                 <div>
-                    <select class="view" asp-for="MasterID" asp-items="ViewBag.Masters"></select>
+                    <select class="view" asp-for="Category" asp-items="ViewBag.Categories"></select>
                 </div>
-
-                <label class="text">Услуга: </label>
-                <div>
-                    <select class="view" asp-for="ServiceID" asp-items="ViewBag.Services"></select>
-                </div>
-
-                <label class="text">Дата: </label>
-                <input asp-for="Date" id="datePicker" type="datetime" onkeyup="this.value = this.value.replace(/[^0-9:. ]/g, '')" maxlength="16" placeholder="dd.mm.yyyy hh:mm"  required="">
-
-                <label class="text">Клиент: </label>
-                <div>
-                    <select class="view" asp-for="UserID" asp-items="ViewBag.Users"></select>
-                </div>
-
-                <button class="OK" type="submit">Редактировать</button>
+                <button class="Add" type="submit">Изменить данные</button>
             </div>
-
             <div class="containerLogin" style="background-color:#f1f1f1">
-                <a class="cancelbtn" asp-action="DoneWorks">Cancel</a>
+                <a class="cancelbtn" asp-action="Allservices">Cancel</a>
             </div>
         </form>
     </div>
-
 
     @section Scripts {
         @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
     }
 </body>
 </html>
+

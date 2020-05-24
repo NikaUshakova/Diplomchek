@@ -20,7 +20,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-
     <script>
         window.onload = function () {
             document.getElementById('editpopup').style.display = 'block'
@@ -28,7 +27,7 @@
     </script>
 </head>
 <body>
-    <div id="editpopup" class="modalRegister" >
+    <div id="editpopup" class="modalRegister" style="height: 100%;" >
         <!-- Modal Content -->
         <form class="modal-content animate" asp-action="Edit" method="post">
             <div class="containerLogin">
@@ -45,12 +44,12 @@
                     <input asp-for="Patronymic" maxlength="50" type="text" placeholder="Введите отчество" required>
 
                     <label class="text">Дата рождения: </label>
-                    <p><input asp-for="Date" id="datePicker" type="date" placeholder="Введите дату рождения" required=""></p>
+                    <input asp-for="Date" id="datePicker" type="date" placeholder="Введите дату рождения" required="">
 
-                    <label>Телефон:</label>
-                    <input asp-for="Phone" type="text" onkeyup="this.value = this.value.replace(/[^0-9+]/g, '')" maxlength="13" placeholder="Введите номер телефона" required>
+                    <label >Телефон:</label>
+                    <input asp-for="Phone" type="text" onkeyup="this.value = this.value.replace(/[^0-9+.]/g, '')" maxlength="13" placeholder="Введите номер телефона" required>
                 
-                <button class="OK" type="submit">Изменить данные</button>
+                <button class="Add" type="submit">Изменить данные</button>
             </div>
             <div class="containerLogin" style="background-color:#f1f1f1">
                 <a class="cancelbtn" asp-action="Allmasters">Cancel</a>

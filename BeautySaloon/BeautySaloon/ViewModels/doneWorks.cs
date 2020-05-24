@@ -13,7 +13,5 @@ namespace BeautySaloon.ViewModels
         public SelectList Services { get; set; }
         public List<SelectListItem> Masters { get; set; }
         public List<SelectListItem> Users { get; set; }
-        public DateTime beginDate { get; set; }
-        public DateTime endDate { get; set; }
     }
 }

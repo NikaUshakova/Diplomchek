@@ -64,6 +64,7 @@
             
             select,
             input[type=date],
+            input[type=datetime],
             input[type=text],
             input[type=email],
             input#Email,
@@ -90,7 +91,24 @@
     margin-left: 30px;
     padding-left: 12px;
 } */
+            
+            label {
+                /*display: block;*/
+                font-size: 16px;
+                font-family: Poppins-Regular, sans-serif;
+                font-weight: bold;
+            }
             /* Set a style for all buttons */
+            
+            button.Add {
+                background-color: #4CAF50;
+                color: white;
+                padding: 14px 20px;
+                margin: 8px 0;
+                border: none;
+                cursor: pointer;
+                width: 100%;
+            }
             
             button.OK {
                 background-color: #4CAF50;

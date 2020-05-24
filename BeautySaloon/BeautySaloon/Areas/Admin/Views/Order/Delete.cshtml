@@ -9,7 +9,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Edit</title>
+    <title>Delete</title>
     <link rel="stylesheet" type="text/css" href="~/css/table.css">
     <link rel="stylesheet" type="text/css" href="~/css/navbar.css">
     <link rel="stylesheet" type="text/css" href="~/css/popup.css">
@@ -20,51 +20,47 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+
     <script>
         window.onload = function () {
-            document.getElementById('editorder').style.display = 'block'
-    }
+            document.getElementById('deleteorder').style.display = 'block'
+        }
     </script>
 </head>
 <body>
-
-    <!-- POPUP -->
-    <div id="editorder" class="modalLogin" style="height: 100%;padding-top: 100px;">
+    <div id="deleteorder" class="modalRegister" style="height: 100%;">
         <!-- Modal Content -->
-        <form class="modal-content animate" asp-action="Edit" method="post">
+        <form class="modal-content animate" asp-action="Delete" method="post">
             <div class="containerLogin">
-                <h3 class="title">Редактирование заказа<span></span></h3>
-
+                <h3 class="title">Удаление мастера<span></span></h3>
+                <input type="hidden" asp-for="ID" />
                 <label class="text">Мастер: </label>
                 <div>
-                    <select class="view" asp-for="MasterID" asp-items="ViewBag.Masters"></select>
+                    <select class="view" asp-for="MasterID" asp-items="ViewBag.Masters" disabled></select>
                 </div>
 
                 <label class="text">Услуга: </label>
                 <div>
-                    <select class="view" asp-for="ServiceID" asp-items="ViewBag.Services"></select>
+                    <select class="view" asp-for="ServiceID" asp-items="ViewBag.Services" disabled></select>
                 </div>
 
                 <label class="text">Дата: </label>
-                <input asp-for="Date" id="datePicker" type="datetime" onkeyup="this.value = this.value.replace(/[^0-9:. ]/g, '')" maxlength="16" placeholder="dd.mm.yyyy hh:mm"  required="">
+                <input asp-for="Date" id="datePicker" type="datetime" maxlength="16"  readonly>
+
+                <label class="text">Стоимость (BYN): </label>
+                <input asp-for="Service.Price" maxlength="3" type="text"  readonly>
 
                 <label class="text">Клиент: </label>
                 <div>
-                    <select class="view" asp-for="UserID" asp-items="ViewBag.Users"></select>
+                    <select class="view" asp-for="UserID" asp-items="ViewBag.Users" disabled></select>
                 </div>
 
-                <button class="OK" type="submit">Редактировать</button>
+                <button class="OK" style="background-color :firebrick" type="submit">Удалить заказ</button>
             </div>
-
             <div class="containerLogin" style="background-color:#f1f1f1">
                 <a class="cancelbtn" asp-action="DoneWorks">Cancel</a>
             </div>
         </form>
     </div>
-
-
-    @section Scripts {
-        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-    }
 </body>
 </html>

@@ -38,7 +38,7 @@
     <div class="topnav" id="myTopnav">
         <a asp-action="DoneWorks" class="active">Выполненные работы</a>
         <a asp-controller="Masters" asp-action="Allmasters">Мастера</a>
-        <a href="#contact">Услуги</a>
+        <a asp-controller="Service" asp-action="Allservices">Услуги</a>
         <a href="#about">Клиенты</a>
         <a asp-area="" asp-controller="Account" asp-action="Login">Вход</a>
         <a href="javascript:void(0);" class="icon" onclick="topnavHamburger()">
@@ -62,7 +62,7 @@
                 <label class="text">Выберите клиента: </label>
                 @Html.DropDownList("user", Model.Users as  List<SelectListItem>,
                htmlAttributes: new { @class = "view" })
-
+                <br />
                 <label class="text">Выберите дату:  от</label>
                 <input name="begindate" id="datePicker" type="date">
                 <label class="text">  до</label>
@@ -86,7 +86,7 @@
                 <th>ID</th>
                 <th>ФИО мастера</th>
                 <th>Услуга</th>
-                <th>Стоимость</th>
+                <th style="padding: 5px 15px 15px 15px;">Стоимость</th>
                 <th>Дата</th>
                 <th>ФИО клиента</th>
                 <th></th>
@@ -96,24 +96,23 @@
                 @foreach (var item in Model.Orders)
                 {
                     <tr style="padding-top: 8px; ">
-                        <td>
+                        <td style="text-align:center;">
                             @Html.DisplayFor(modelItem => item.ID)
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.Master.Surname) @Html.DisplayFor(modelItem => item.Master.Name) @Html.DisplayFor(modelItem => item.Master.Patronymic)
                         </td>
-                        <td>
+                        <td style="padding: 10px 10px;">
                             @Html.DisplayFor(modelItem => item.Service.Name)
                         </td>
-                        <td>
+                        <td style="text-align:center;">
                             @Html.DisplayFor(modelItem => item.Service.Price) BYN
                         </td>
-                        <td>
+                        <td style="text-align:center;">
                             @Html.DisplayFor(modelItem => item.Date)
                             @*@Html.DisplayFor(modelItem => item.Date.ToString("D"))*@
                         </td>
                         <td>
-
                             @Html.DisplayFor(modelItem => item.User.Surname) @Html.DisplayFor(modelItem => item.User.Name) @Html.DisplayFor(modelItem => item.User.Patronymic)
                         </td>
 

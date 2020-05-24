@@ -9,6 +9,7 @@ using BeautySaloon.Models;
 using Microsoft.AspNetCore.Components;
 using BeautySaloon.ViewModels;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using RouteAttribute = Microsoft.AspNetCore.Mvc.RouteAttribute;
 
 namespace BeautySaloon.Controllers.Admin
 {
@@ -23,7 +24,7 @@ namespace BeautySaloon.Controllers.Admin
         }
 
         // GET: Order
-        [Microsoft.AspNetCore.Mvc.Route("admin/doneworks")]
+        [Route("admin/doneworks")]
         public IActionResult DoneWorks(int? service, string master, string user, DateTime? begindate, DateTime? enddate )
         {
             IQueryable<Order> orders = db.Orders.Include(o => o.Master).Include(o => o.Service).Include(o => o.User);
@@ -58,8 +59,7 @@ namespace BeautySaloon.Controllers.Admin
             services.Insert(0, new Service { Name = "Все", ID = 0 });
             masters.Insert(0, new Master { Surname = "Все", ID = 0 });
             users.Insert(0, new User { Surname = "Все", ID = 0 });
-           // begindate = '01.01.2000 00.00.00';
-
+           
             doneWorks DW = new doneWorks
             {
                 Orders = orders.ToList(),               
@@ -75,47 +75,16 @@ namespace BeautySaloon.Controllers.Admin
                                 {
                                     Value = (a.Surname + " " + a.Name + " " + a.Patronymic).Trim(),
                                     Text = a.Surname + " " + a.Name + " " + a.Patronymic
-                                }).ToList(),
-                //beginDate = begindate,
-                //endDate = enddate
+                                }).ToList()              
             };
-              
-            //ViewBag.Masters = db.Masters.Select(a =>
-            //                     new SelectListItem
-            //                     {
-            //                         Value = a.ID.ToString(),
-            //                         Text = a.Surname + " " + a.Name + " " + a.Patronymic
-            //                     }).ToList();
-
-        //ViewBag.Services = new SelectList(db.Services, "ID", "Name");
+             
             return View(DW);
         }
 
 
-        // GET: Order/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
 
-            var order = await db.Orders
-                .Include(o => o.Master)
-                .Include(o => o.Service)
-                .Include(o => o.User)
-                .FirstOrDefaultAsync(m => m.ID == id);
-            if (order == null)
-            {
-                return NotFound();
-            }
-
-            return View(order);
-        }
-
-
-
-        //GET: Order/Edit/5
+        ////GET: Order/Edit/5
+        [Route("admin/doneworks/edit/{id?}")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -128,51 +97,72 @@ namespace BeautySaloon.Controllers.Admin
             {
                 return NotFound();
             }
-            ViewData["MasterID"] = new SelectList(db.Masters, "ID", "ID", order.MasterID);
-            ViewData["ServiceID"] = new SelectList(db.Services, "ID", "ID", order.ServiceID);
-            ViewData["UserID"] = new SelectList(db.Users, "ID", "ID", order.UserID);
+            ViewBag.Masters = db.Masters.Select(a =>
+                                 new SelectListItem
+                                 {
+                                     Value = a.ID.ToString(),
+                                     Text = a.Surname + " " + a.Name + " " + a.Patronymic
+                                 }).ToList();
+            ViewBag.Users = db.Users.Select(a =>
+                                 new SelectListItem
+                                 {
+                                     Value = a.ID.ToString(),
+                                     Text = a.Surname + " " + a.Name + " " + a.Patronymic
+                                 }).ToList();
+            ViewBag.Services = new SelectList(db.Services, "ID", "Name");
+            
             return View(order);
         }
 
-        //// POST: Order/Edit/5
-        //// To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        //// more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> Edit(int id, [Bind("ID,Date,MasterID,UserID,ServiceID")] Order order)
-        //{
-        //    if (id != order.ID)
-        //    {
-        //        return NotFound();
-        //    }
+        // POST: Order/Edit/5
+          [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Route("admin/doneworks/edit/{id?}")]
+        public async Task<IActionResult> Edit(int id, [Bind("ID,Date,MasterID,UserID,ServiceID")] Order order)
+        {
+            if (id != order.ID)
+            {
+                return NotFound();
+            }
 
-        //    if (ModelState.IsValid)
-        //    {
-        //        try
-        //        {
-        //            db.Update(order);
-        //            await db.SaveChangesAsync();
-        //        }
-        //        catch (DbUpdateConcurrencyException)
-        //        {
-        //            if (!OrderExists(order.ID))
-        //            {
-        //                return NotFound();
-        //            }
-        //            else
-        //            {
-        //                throw;
-        //            }
-        //        }
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    ViewData["MasterID"] = new SelectList(db.Masters, "ID", "ID", order.MasterID);
-        //    ViewData["ServiceID"] = new SelectList(db.Services, "ID", "ID", order.ServiceID);
-        //    ViewData["UserID"] = new SelectList(db.Users, "ID", "ID", order.UserID);
-        //    return View(order);
-        //}
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    db.Update(order);
+                    await db.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!OrderExists(order.ID))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(DoneWorks));
+            }
+            ViewBag.Masters = db.Masters.Select(a =>
+                              new SelectListItem
+                              {
+                                  Value = a.ID.ToString(),
+                                  Text = a.Surname + " " + a.Name + " " + a.Patronymic
+                              }).ToList();
+            ViewBag.Users = db.Users.Select(a =>
+                                 new SelectListItem
+                                 {
+                                     Value = a.ID.ToString(),
+                                     Text = a.Surname + " " + a.Name + " " + a.Patronymic
+                                 }).ToList();
+            ViewBag.Services = new SelectList(db.Services, "ID", "Name");
+            return RedirectToAction(nameof(DoneWorks));
+        }
 
         // GET: Order/Delete/5
+        [Route("admin/doneworks/delete/{id?}")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -189,6 +179,19 @@ namespace BeautySaloon.Controllers.Admin
             {
                 return NotFound();
             }
+            ViewBag.Masters = db.Masters.Select(a =>
+                              new SelectListItem
+                              {
+                                  Value = a.ID.ToString(),
+                                  Text = a.Surname + " " + a.Name + " " + a.Patronymic
+                              }).ToList();
+            ViewBag.Users = db.Users.Select(a =>
+                                 new SelectListItem
+                                 {
+                                     Value = a.ID.ToString(),
+                                     Text = a.Surname + " " + a.Name + " " + a.Patronymic
+                                 }).ToList();
+            ViewBag.Services = new SelectList(db.Services, "ID", "Name");
 
             return View(order);
         }
@@ -196,6 +199,7 @@ namespace BeautySaloon.Controllers.Admin
         // POST: Order/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Route("admin/doneworks/delete/{id?}")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var order = await db.Orders.FindAsync(id);

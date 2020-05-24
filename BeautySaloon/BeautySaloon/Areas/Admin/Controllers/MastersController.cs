@@ -22,36 +22,17 @@ namespace BeautySaloon.Areas.Admin.Controllers
         // GET: Admin/Masters
         [Route("admin/masters")]
         public async Task<IActionResult> Allmasters()
-        {
-            //IEnumerable<Master> masters = db.Masters;
-            //ViewBag.Masters = masters;           
+        {          
             return View(await db.Masters.ToListAsync());
         }
 
-        // GET: Admin/Masters/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
 
-            var master = await db.Masters
-                .FirstOrDefaultAsync(m => m.ID == id);
-            if (master == null)
-            {
-                return NotFound();
-            }
-
-            return View(master);
-        }
-
-        // GET: Admin/Masters/Create
-        //[Route("admin/add")]
-        public IActionResult Create()
-        {
-            return View();
-        }
+       //// GET: Admin/Masters/Create
+       //[Route("admin/masters/add")]
+       // public IActionResult Create()
+       // {
+       //     return View();
+       // }
 
         // POST: Admin/Masters/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
@@ -69,7 +50,7 @@ namespace BeautySaloon.Areas.Admin.Controllers
         //    return View(master);
         //}
         [HttpPost]
-        [ValidateAntiForgeryToken]        
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(int ID, string Surname, string Name, string Patronymic, DateTime Date, string Phone)
         {
             db.Add(new Master
@@ -86,6 +67,7 @@ namespace BeautySaloon.Areas.Admin.Controllers
         }
 
         // GET: Admin/Masters/Edit/5
+        [Route("admin/masters/edit/{id?}")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -138,6 +120,7 @@ namespace BeautySaloon.Areas.Admin.Controllers
         }
 
         // GET: Admin/Masters/Delete/5
+        [Route("admin/masters/delete/{id?}")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -163,7 +146,7 @@ namespace BeautySaloon.Areas.Admin.Controllers
             var master = await db.Masters.FindAsync(id);
             db.Masters.Remove(master);
             await db.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(Allmasters));
         }
 
         private bool MasterExists(int id)
