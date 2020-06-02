@@ -39,7 +39,7 @@
         <a asp-action="DoneWorks" class="active">Выполненные работы</a>
         <a asp-controller="Masters" asp-action="Allmasters">Мастера</a>
         <a asp-controller="Service" asp-action="Allservices">Услуги</a>
-        <a href="#about">Клиенты</a>
+        <a asp-controller="Users" asp-action="Allusers">Клиенты</a>
         <a asp-area="" asp-controller="Account" asp-action="Login">Вход</a>
         <a href="javascript:void(0);" class="icon" onclick="topnavHamburger()">
             <i class="fa fa-bars"></i>
@@ -60,7 +60,7 @@
                    htmlAttributes: new { @class = "view" })
 
                 <label class="text">Выберите клиента: </label>
-                @Html.DropDownList("user", Model.Users as  List<SelectListItem>,
+                @Html.DropDownList("user", Model.Users as List<SelectListItem>,
                htmlAttributes: new { @class = "view" })
                 <br />
                 <label class="text">Выберите дату:  от</label>
@@ -79,11 +79,25 @@
         </div>*@
 
     <button class="OK" onclick="document.getElementById('filter').style.display='block'">Фильтр</button>
+    <br />
+    <div>
+        @using (Html.BeginForm("Export", "Order", FormMethod.Post))
+        {
+            <button class="OK" type="submit">Export to EXCEL</button>
+            <label class="text">Выберите дату:  от</label>
+            <input name="begindate" id="datePicker" type="date">
+            <label class="text">  до</label>
+            <input name="enddate" id="datePicker" type="date">
+        }
+    </div>
+
     <div style="overflow-x:auto;">
         <table>
-            @*<caption>Выполненные работы</caption>*@
             <tr>
-                <th>ID</th>
+                <th>
+                    ID<br />
+                    <i style="font-size: 11px; ">(дата бронирования)</i>
+                </th>
                 <th>ФИО мастера</th>
                 <th>Услуга</th>
                 <th style="padding: 5px 15px 15px 15px;">Стоимость</th>
@@ -97,7 +111,8 @@
                 {
                     <tr style="padding-top: 8px; ">
                         <td style="text-align:center;">
-                            @Html.DisplayFor(modelItem => item.ID)
+                            @Html.DisplayFor(modelItem => item.ID) <br />
+                            <i style="font-size: 11px; ">(@Html.DisplayFor(modelItem => item.OrderDate))</i>
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.Master.Surname) @Html.DisplayFor(modelItem => item.Master.Name) @Html.DisplayFor(modelItem => item.Master.Patronymic)
@@ -121,6 +136,9 @@
                             @*<a asp-action="Details" asp-route-id="@item.ID">Подробности</a> | <br />*@
                             <a asp-action="Delete" asp-route-id="@item.ID">Удаление</a>
                         </td>
+
+
+
                     </tr>
                 }
             </tbody>

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<BeautySaloon.Models.Master>
+﻿@model IEnumerable<BeautySaloon.Models.User>
 
 @{
     Layout = null;
@@ -9,7 +9,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Masters</title>
+    <title>Clients</title>
     <link rel="stylesheet" type="text/css" href="~/css/table.css">
     <link rel="stylesheet" type="text/css" href="~/css/navbar.css">
     <link rel="stylesheet" type="text/css" href="~/css/popup.css">
@@ -24,25 +24,23 @@
 </head>
 <body>
     <div class="topnav" id="myTopnav">
-        <a asp-action="Allmasters" class="active">Мастера</a>
+        <a asp-action="Allusers" class="active">Клиенты</a>
         <a asp-controller="Order" asp-action="DoneWorks">Выполненные работы</a>
         <a asp-controller="Service" asp-action="Allservices">Услуги</a>
-        <a asp-controller="Users" asp-action="Allusers">Клиенты</a>
+        <a asp-controller="Masters" asp-action="Allmasters">Мастера</a>
         <a asp-area="" asp-controller="Account" asp-action="Login">Вход</a>
         <a href="javascript:void(0);" class="icon" onclick="topnavHamburger()">
             <i class="fa fa-bars"></i>
         </a>
     </div>
-
-    <button onclick="document.getElementById('addMaster').style.display='block'" class="OK">Добавить мастера</button>
-   
-
+    <button onclick="document.getElementById('adduser').style.display='block'" class="OK">Добавить клиента</button>
     <!-- POPUP -->
-    <div id="addMaster" class="modalRegister" style="height: 100%;padding-top: 50px;">
+    <div id="adduser" class="modalRegister" style="height: 100%;padding-top: 50px;">
         <!-- Modal Content -->
         <form class="modal-content animate" asp-action="Create" method="post">
+
             <div class="containerLogin">
-                <h3 class="title">Добавление мастера<span></span></h3>
+                <h3 class="title">Добавление клиента<span></span></h3>
                 <input type="hidden" name="ID" />
                 <label class="text">Фамилия: </label>
                 <input name="Surname" maxlength="50" type="text" placeholder="Введите фамилию" required>
@@ -59,11 +57,15 @@
                 <label>Телефон:</label>
                 <input name="Phone" type="text" onkeyup="this.value = this.value.replace(/[^0-9+]/g, '')" maxlength="13" placeholder="Введите номер телефона" required>
 
-                <button class="Add" type="submit" >Добавить мастера</button>
+                <label>Email</label>
+                <input name="Email" type="email" maxlength="100" placeholder="Введите email">
+
+
+                <button class="Add" type="submit">Добавить клиента</button>
             </div>
 
             <div class="containerLogin" style="background-color:#f1f1f1">
-                <a class="cancelbtn" asp-action="Allmasters">Cancel</a>
+                <a class="cancelbtn" asp-action="Allusers">Cancel</a>
             </div>
         </form>
     </div>
@@ -78,13 +80,13 @@
                 <th>Отчество</th>
                 <th>Дата рождения</th>
                 <th>Контактный телефон</th>
-                <th></th>
+                <th>Email</th>
             </tr>
 
             <tbody>
                 @foreach (var item in Model)
                 {
-                    <tr >
+                    <tr>
                         <td style="text-align:center;">
                             @Html.DisplayFor(modelItem => item.ID)
                         </td>
@@ -104,14 +106,13 @@
                             @Html.DisplayFor(modelItem => item.Phone)
                         </td>
                         <td>
-                            <a asp-action="Edit" asp-route-id="@item.ID">Редактирование</a> |
-                            <a asp-action="Delete" asp-route-id="@item.ID">Удаление</a>
+                            @Html.DisplayFor(modelItem => item.Email)
                         </td>
+
                     </tr>
                 }
             </tbody>
         </table>
     </div>
-
 </body>
 </html>

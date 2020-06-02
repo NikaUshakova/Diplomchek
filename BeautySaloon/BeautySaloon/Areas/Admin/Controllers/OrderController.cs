@@ -10,6 +10,11 @@ using Microsoft.AspNetCore.Components;
 using BeautySaloon.ViewModels;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using RouteAttribute = Microsoft.AspNetCore.Mvc.RouteAttribute;
+using System.ComponentModel;
+using System.IO;
+using System.Xml;
+using ClosedXML.Excel;
+using System.Data;
 
 namespace BeautySaloon.Controllers.Admin
 {
@@ -118,7 +123,7 @@ namespace BeautySaloon.Controllers.Admin
           [HttpPost]
         [ValidateAntiForgeryToken]
         [Route("admin/doneworks/edit/{id?}")]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,Date,MasterID,UserID,ServiceID")] Order order)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,OrderDate, Date,MasterID,UserID,ServiceID")] Order order)
         {
             if (id != order.ID)
             {
@@ -208,7 +213,72 @@ namespace BeautySaloon.Controllers.Admin
             return RedirectToAction(nameof(DoneWorks));
         }
 
-        private bool OrderExists(int id)
+        [HttpPost]
+        public FileResult Export(DateTime? begindate, DateTime? enddate)
+        {
+            IEnumerable<Order> orders = db.Orders.Include(o => o.Master).Include(o => o.Service).Include(o => o.User);
+            if (begindate != null && enddate != null)
+            {
+                orders = orders.Where(o => o.Date >= begindate && o.Date <= enddate);
+            }
+            else if (begindate != null)
+            {
+                orders = orders.Where(o => o.Date >= begindate);
+            }
+            else if (enddate != null)
+            {
+                orders = orders.Where(o => o.Date <= enddate);
+            }
+            DataTable dt = new DataTable("Выполненные работы");
+            dt.Columns.AddRange(new DataColumn[10] { 
+                                            new DataColumn("ID"),
+                                            new DataColumn("Фамилия мастера"),
+                                            new DataColumn("Имя мастера"),
+                                            new DataColumn("Отчество мастера"),
+                                            new DataColumn("Услуга"),
+                                            new DataColumn("Стоимость(BYN)"),
+                                            new DataColumn("Дата проведения"),
+                                            new DataColumn("Фамилия клиента"),
+                                            new DataColumn("Имя клиента"),
+                                            new DataColumn("Отчество клиента")
+                                                    });            
+
+            foreach (var dw in orders)
+            {
+                dt.Rows.Add(dw.ID, dw.Master.Surname,dw.Master.Name, dw.Master.Patronymic, dw.Service.Name, dw.Service.Price, dw.Date, dw.User.Surname, dw.User.Name, dw.User.Patronymic);
+            }
+
+            using (XLWorkbook workbook = new XLWorkbook())
+            {               
+                var ws =  workbook.Worksheets.Add(dt);
+                var A = ws.Column("A").Width = 5;
+                var B = ws.Column("B").Width = 17;
+                var C = ws.Column("C").Width = 17;
+                var D = ws.Column("D").Width = 17;
+                var E = ws.Column("E").Width = 36;
+                var F = ws.Column("F").Width = 13;
+                var G = ws.Column("G").Width = 20;
+                var H = ws.Column("H").Width = 17;
+                var I = ws.Column("I").Width = 17;
+                var J = ws.Column("J").Width = 17;
+                //A.Width = 5;
+                //B.Width = 17;
+                //C.Width = 17;
+                //D.Width = 17;
+                //E.Width = 36;
+               // F.Style.NumberFormat = 10;
+                //G.Width = 20;
+                //H.Width = 17;
+                //I.Width = 17;
+                //J.Width = 17;
+                using (MemoryStream stream = new MemoryStream())
+                {
+                    workbook.SaveAs(stream);
+                    return File(stream.ToArray(), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "Doneworks.xlsx");
+                }
+            }
+        }
+            private bool OrderExists(int id)
         {
             return db.Orders.Any(e => e.ID == id);
         }

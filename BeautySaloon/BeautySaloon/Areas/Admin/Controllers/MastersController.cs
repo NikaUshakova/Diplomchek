@@ -34,21 +34,6 @@ namespace BeautySaloon.Areas.Admin.Controllers
        //     return View();
        // }
 
-        // POST: Admin/Masters/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> Create([Bind("ID,Name,Surname,Patronymic,Date,Phone")] Master master)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        db.Add(master);
-        //        await db.SaveChangesAsync();
-        //        return RedirectToAction(nameof(Allmasters));
-        //    }
-        //    return View(master);
-        //}
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(int ID, string Surname, string Name, string Patronymic, DateTime Date, string Phone)
@@ -67,7 +52,7 @@ namespace BeautySaloon.Areas.Admin.Controllers
         }
 
         // GET: Admin/Masters/Edit/5
-        [Route("admin/masters/edit/{id?}")]
+       // [Route("admin/masters/edit/{id?}")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -85,8 +70,6 @@ namespace BeautySaloon.Areas.Admin.Controllers
         }
 
         // POST: Admin/Masters/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("ID,Name,Surname,Patronymic,Date,Phone")] Master master)

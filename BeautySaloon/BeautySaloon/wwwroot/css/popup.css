@@ -67,6 +67,7 @@
             input[type=datetime],
             input[type=text],
             input[type=email],
+            input[type=hidden],
             input#Email,
             input[type=password] {
                 width: 100%;

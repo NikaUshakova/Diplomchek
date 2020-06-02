@@ -68,8 +68,9 @@ namespace BeautySaloon.Controllers
                         Date = modelorder.Date,
                         MasterID = modelorder.MasterID,
                         ServiceID = modelorder.ServiceID,
-                        UserID = user.ID
-                    });
+                        UserID = user.ID,
+                        OrderDate = DateTime.Now
+                    }); ;
                     await db.SaveChangesAsync();
 
 

@@ -35,6 +35,7 @@
             <div class="containerLogin">
                 <h3 class="title">Редактирование заказа<span></span></h3>
 
+                <input type="hidden"  asp-for="OrderDate" />
                 <label class="text">Мастер: </label>
                 <div>
                     <select class="view" asp-for="MasterID" asp-items="ViewBag.Masters"></select>
@@ -46,7 +47,7 @@
                 </div>
 
                 <label class="text">Дата: </label>
-                <input asp-for="Date" id="datePicker" type="datetime" onkeyup="this.value = this.value.replace(/[^0-9:. ]/g, '')" maxlength="16" placeholder="dd.mm.yyyy hh:mm"  required="">
+                <input asp-for="Date" id="datePicker" type="datetime" onkeyup="this.value = this.value.replace(/[^0-9:. ]/g, '')" maxlength="16" placeholder="dd.mm.yyyy hh:mm" required="">
 
                 <label class="text">Клиент: </label>
                 <div>
