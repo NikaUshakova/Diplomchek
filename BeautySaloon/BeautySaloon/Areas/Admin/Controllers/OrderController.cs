@@ -33,6 +33,10 @@ namespace BeautySaloon.Controllers.Admin
         public IActionResult DoneWorks(int? service, string master, string user, DateTime? begindate, DateTime? enddate )
         {
             IQueryable<Order> orders = db.Orders.Include(o => o.Master).Include(o => o.Service).Include(o => o.User);
+            //if ((begindate != null && enddate != null)&&(enddate < begindate))
+            //{
+            //    orders = orders.Where(o => o.Date == begindate);
+            //} else
             if (begindate != null && enddate != null)
             {
                 orders = orders.Where(o => o.Date >= begindate && o.Date <= enddate);
@@ -86,7 +90,10 @@ namespace BeautySaloon.Controllers.Admin
             return View(DW);
         }
 
-
+        public IActionResult Reset()
+        {
+            return RedirectToAction(nameof(DoneWorks));
+        }
 
         ////GET: Order/Edit/5
         [Route("admin/doneworks/edit/{id?}")]
@@ -217,19 +224,30 @@ namespace BeautySaloon.Controllers.Admin
         public FileResult Export(DateTime? begindate, DateTime? enddate)
         {
             IEnumerable<Order> orders = db.Orders.Include(o => o.Master).Include(o => o.Service).Include(o => o.User);
+            DataTable dt = new DataTable("Выполненные работы");
             if (begindate != null && enddate != null)
             {
-                orders = orders.Where(o => o.Date >= begindate && o.Date <= enddate);
+                    orders = orders.Where(o => o.Date >= begindate && o.Date <= enddate);
+                dt.Columns.Add("Отчет за промежуток");
+                dt.Rows.Add(" C " + begindate.Value.ToShortDateString() + " ПО " + enddate.Value.ToShortDateString());
             }
             else if (begindate != null)
             {
                 orders = orders.Where(o => o.Date >= begindate);
+                dt.Columns.Add("Отчет за промежуток");
+                dt.Rows.Add(" C " + begindate.Value.ToShortDateString());
             }
             else if (enddate != null)
             {
                 orders = orders.Where(o => o.Date <= enddate);
+                dt.Columns.Add("Отчет за промежуток");
+                dt.Rows.Add(" ДО " + enddate.Value.ToShortDateString());
             }
-            DataTable dt = new DataTable("Выполненные работы");
+            else
+            {
+                dt.Columns.Add("Отчет за промежуток");
+                dt.Rows.Add(" За все время ");
+            }
             dt.Columns.AddRange(new DataColumn[10] { 
                                             new DataColumn("ID"),
                                             new DataColumn("Фамилия мастера"),
@@ -242,31 +260,31 @@ namespace BeautySaloon.Controllers.Admin
                                             new DataColumn("Имя клиента"),
                                             new DataColumn("Отчество клиента")
                                                     });            
-
             foreach (var dw in orders)
             {
-                dt.Rows.Add(dw.ID, dw.Master.Surname,dw.Master.Name, dw.Master.Patronymic, dw.Service.Name, dw.Service.Price, dw.Date, dw.User.Surname, dw.User.Name, dw.User.Patronymic);
+                dt.Rows.Add("",dw.ID, dw.Master.Surname,dw.Master.Name, dw.Master.Patronymic, dw.Service.Name, dw.Service.Price, dw.Date, dw.User.Surname, dw.User.Name, dw.User.Patronymic);
             }
 
             using (XLWorkbook workbook = new XLWorkbook())
             {               
                 var ws =  workbook.Worksheets.Add(dt);
-                var A = ws.Column("A").Width = 5;
-                var B = ws.Column("B").Width = 17;
+                var A = ws.Column("A").Width = 24;
+                var B = ws.Column("B").Width = 5;
                 var C = ws.Column("C").Width = 17;
                 var D = ws.Column("D").Width = 17;
-                var E = ws.Column("E").Width = 36;
-                var F = ws.Column("F").Width = 13;
-                var G = ws.Column("G").Width = 20;
-                var H = ws.Column("H").Width = 17;
+                var E = ws.Column("E").Width = 17;
+                var F = ws.Column("F").Width = 36;
+                var G = ws.Column("G").Width = 13;
+                var H = ws.Column("H").Width = 20;
                 var I = ws.Column("I").Width = 17;
                 var J = ws.Column("J").Width = 17;
+                var K = ws.Column("K").Width = 17;
                 //A.Width = 5;
                 //B.Width = 17;
                 //C.Width = 17;
                 //D.Width = 17;
                 //E.Width = 36;
-               // F.Style.NumberFormat = 10;
+                // F.Style.NumberFormat = 10;
                 //G.Width = 20;
                 //H.Width = 17;
                 //I.Width = 17;
@@ -278,7 +296,7 @@ namespace BeautySaloon.Controllers.Admin
                 }
             }
         }
-            private bool OrderExists(int id)
+        private bool OrderExists(int id)
         {
             return db.Orders.Any(e => e.ID == id);
         }

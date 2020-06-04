@@ -1,13 +1,12 @@
-﻿
-@model BeautySaloon.ViewModels.LoginModel
-@{    
+﻿@model BeautySaloon.ViewModels.ForgotModel
+@{
     Layout = null;
 }
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Login</title>
+    <title>Forgot Password</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
@@ -37,7 +36,7 @@
 
     <script>
         window.onload = function () {
-            document.getElementById('login').style.display = 'block'
+            document.getElementById('forgot').style.display = 'block'
         }
     </script>
 
@@ -45,32 +44,24 @@
 </head>
 <body>
     <!-- POPUP -->
-    <div id="login" class="modalLogin" style="height: 100%;">
+    <div id="forgot" class="modalLogin" style="height: 100%;">
 
-        <form class="modal-content animate" asp-action="Login">
+        <form class="modal-content animate" asp-action="Forgot" method="post">
             <div class="imgcontainer">
-                <img src="~/Index/images/login.png" class="avatar">
+                <img src="~/images/f.jpg" class="avatar">
             </div>
 
             <div class="containerLogin">
 
-                <label>Email</label>
+                <label>Введите свой Email</label>
                 <input asp-for="Email" maxlength="100" placeholder="Введите email" required>
 
-                <label>Password</label>
-                <input asp-for="Password" type="password" id="Pass" maxlength="100" placeholder="Введите пароль" required>
-
-                <input type="checkbox" onclick="checkLogin()" style="transform: scale(1.4);">
-                <span class="Pass">Показать пароль</span>
-
-                <button class="OK" type="submit">Login</button>
-                <a class="cancelbtn"  style="float:right" asp-controller="Account" asp-action="Register"> Регистрация  </a>
+                <button class="OK" type="submit">Отправить новый пароль</button>
 
             </div>
 
-            <div class="containerLogin" style="padding-bottom: 5px; padding-top: 15px; background-color:#f1f1f1">
-                <a class="cancelbtn" asp-controller="Menu" asp-action="Home">Cancel</a>
-                <span class="psw"> Forgot <a asp-action="Forgot">password? </a></span>
+            <div class="containerLogin" style="padding-bottom: 10px; padding-top: 10px; background-color:#f1f1f1">
+                <a class="cancelbtn" asp-controller="Account" asp-action="Login">Cancel</a>
             </div>
         </form>
     </div>

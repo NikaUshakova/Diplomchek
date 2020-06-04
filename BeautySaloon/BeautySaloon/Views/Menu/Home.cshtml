@@ -1,5 +1,5 @@
 ﻿
-@model BeautySaloon.Models.Order
+@model BeautySaloon.ViewModels.CreateOrderModel
 @{
     Layout = null;
 }
@@ -73,7 +73,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             });
         });
     </script>
-    
+
     <script type="text/javascript" src="~/Index/js/jquery.flexisel.js"></script>
     <!---start-date-piker---->
     <script src="~/Index/js/jquery-ui.js"></script>
@@ -86,6 +86,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         new WOW().init();
     </script>
     <!--//end-animate-->
+    <script language="C#" runat="server">
+        void SubmitBtn_Click(Object sender, EventArgs e)
+        {
+           Message.Text="Hello World!!";
+        }
+
+    </script>
 
 </head>
 <body>
@@ -173,24 +180,48 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             var month = d.getMonth();
             var year = d.getFullYear();
             $document.getElementById('datePicker').setAttribute("minDate", year + "-" + month + "-" + day)
-            
+
         });
     </script>
 
     <!-- POPUP -->
     <div id="online" class="modalLogin" style="height: 100%;padding-top: 100px;">
         <!-- Modal Content -->
-        <form class="modal-content animate" asp-action="CreateOrder" method="post">
+        <form class="modal-content animate" asp-action="CreateOrder" method="post" runat="server">
             <div class="containerLogin">
                 <h3 class="title">Онлайн запись<span></span></h3>
+                @*@using (Html.BeginForm("GetDateTime", "Menu", FormMethod.Post))
+        {*@
                 <label class="text">Выберите дату: </label>
-                <p><input id="datePicker" asp-for="Date" type="date" required=""></p>
+                <p><input name="day" id="datePicker" min="@ViewData["NowDate"]" asp-for="Date" type="date" required=""></p>
 
                 <label class="text">Выберите мастера: </label>
                 <div>
-                    <select class="view" asp-for="MasterID" asp-items="ViewBag.Masters"></select>
+                    <select name="master" class="view" asp-for="MasterID" asp-items="ViewBag.Masters"></select>
                 </div>
+                <button class="OK" asp-action="GetDateTime" type="submit">Выберите время</button>
+                <asp:Button id="Button1"
+                            Text="Submit"
+                            OnClick="SubmitBtn_Click"
+                            runat="server" />
 
+                <br />
+
+                <asp:label id="Message" runat="server"></asp:label>
+
+
+                @*<a asp-action="GetDateTime" class="text">Выберите время: </a>*@
+                <div>
+                    @*<label asp-for="Time" class="text">09:00</label>
+            <label asp-for="Time" class="text">10:00</label>*@
+
+                    <select asp-for="Time">
+                        @foreach (string time in ViewBag.Time)
+                        {
+                            <option value="@time">@time</option>
+                        }
+                    </select>
+                </div>
                 <label class="text">Выберите услугу: </label>
                 <div>
                     <select class="view" asp-for="ServiceID" asp-items="ViewBag.Services"></select>

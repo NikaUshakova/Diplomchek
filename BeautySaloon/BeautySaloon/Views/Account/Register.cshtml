@@ -61,7 +61,7 @@
                     <input asp-for="Patronymic" type="text" maxlength="50" placeholder="Введите отчество" required>
 
                     <label>Дата рождения</label>
-                    <input asp-for="Date" type="date" placeholder="Введите дату рождения" required>
+                    <input asp-for="Date" max="@ViewData["NowDate"]" type="date" placeholder="Введите дату рождения" required>
 
                     <label>Телефон</label>
                     <input asp-for="Phone" onkeyup="this.value = this.value.replace(/[^0-9+]/g, '')" maxlength="13" placeholder="Введите номер телефона" required>

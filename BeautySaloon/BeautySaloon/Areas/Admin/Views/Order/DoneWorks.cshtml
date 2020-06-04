@@ -14,13 +14,14 @@
     <link rel="stylesheet" type="text/css" href="~/css/navbar.css">
     <link rel="stylesheet" type="text/css" href="~/css/filter.css">
     <link rel="stylesheet" type="text/css" href="~/css/search.css">
-    
+    <link rel="stylesheet" type="text/css" href="~/css/footer.css">
+
     <!-- Load an icon library to show a hamburger menu (bars) on small screens -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!--===JS===========================================================================-->
     <script src="~/js/site.js"></script>
-    
+
 </head>
 <body>
     <script>
@@ -40,15 +41,26 @@
         <a asp-controller="Masters" asp-action="Allmasters">Мастера</a>
         <a asp-controller="Service" asp-action="Allservices">Услуги</a>
         <a asp-controller="Users" asp-action="Allusers">Клиенты</a>
+        <a asp-controller="Statistic" asp-action="Index">Статистика</a>
         <a asp-area="" asp-controller="Account" asp-action="Login">Вход</a>
         <a href="javascript:void(0);" class="icon" onclick="topnavHamburger()">
             <i class="fa fa-bars"></i>
         </a>
     </div>
-
+    <div style="outline: 1px solid #666;">
+        @using (Html.BeginForm("Export", "Order", FormMethod.Post))
+        {
+            <button class="OK" type="submit">Export to EXCEL</button>
+            <label class="text">Выберите дату:  от</label>
+            <input name="begindate" id="datePicker" type="date">
+            <label class="text">  до</label>
+            <input name="enddate" id="datePicker" type="date">
+        }
+    </div>
     <div id="filter" class="modalFilter">
         <form method="get">
             <div class="filter">
+                <button onclick="document.getElementById('filter').style.display='none'" style="float:right">X</button>
                 @*<h3 class="title">Фильтры</h3>*@
                 <label class="text">Выберите мастера: </label>
                 @Html.DropDownList("master", Model.Masters as List<SelectListItem>,
@@ -68,6 +80,7 @@
                 <label class="text">  до</label>
                 <input name="enddate" id="datePicker" type="date">
                 <button class="OK" type="submit">Применить фильтр</button>
+                <button class="OK" asp-action="Reset" style="background-color :firebrick" onclick="document.getElementById('filter').style.display='none'">Сбросить фильтр</button>
             </div>
         </form>
     </div>
@@ -80,19 +93,11 @@
 
     <button class="OK" onclick="document.getElementById('filter').style.display='block'">Фильтр</button>
     <br />
-    <div>
-        @using (Html.BeginForm("Export", "Order", FormMethod.Post))
-        {
-            <button class="OK" type="submit">Export to EXCEL</button>
-            <label class="text">Выберите дату:  от</label>
-            <input name="begindate" id="datePicker" type="date">
-            <label class="text">  до</label>
-            <input name="enddate" id="datePicker" type="date">
-        }
-    </div>
+
 
     <div style="overflow-x:auto;">
         <table>
+
             <tr>
                 <th>
                     ID<br />
@@ -141,10 +146,14 @@
 
                     </tr>
                 }
+                
             </tbody>
 
         </table>
-    </div>
 
+    </div>
+    <div class="footer">
+        <p >Всего выполнено работ: @Model.Orders.ToList().Count</p>        
+    </div>
 </body>
 </html>

@@ -14,7 +14,6 @@
     <link rel="stylesheet" type="text/css" href="~/css/navbar.css">
     <link rel="stylesheet" type="text/css" href="~/css/popup.css">
     <link rel="stylesheet" type="text/css" href="~/css/TextStyle.css">
-    <link rel="stylesheet" type="text/css" href="~/css/filter.css">
 
     <!-- Load an icon library to show a hamburger menu (bars) on small screens -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -28,13 +27,20 @@
         <a asp-controller="Order" asp-action="DoneWorks">Выполненные работы</a>
         <a asp-controller="Service" asp-action="Allservices">Услуги</a>
         <a asp-controller="Users" asp-action="Allusers">Клиенты</a>
+        <a asp-controller="Statistic" asp-action="Index">Статистика</a>
         <a asp-area="" asp-controller="Account" asp-action="Login">Вход</a>
         <a href="javascript:void(0);" class="icon" onclick="topnavHamburger()">
             <i class="fa fa-bars"></i>
         </a>
     </div>
 
-    <button onclick="document.getElementById('addMaster').style.display='block'" class="OK">Добавить мастера</button>
+    <button style="
+        padding: 7px 20px;
+        margin: 8px 20px;
+        border: none;
+        cursor: pointer;
+        width: 191px;
+        font-size: 16px;" onclick="document.getElementById('addMaster').style.display='block'" class="OK">Добавить мастера</button>
    
 
     <!-- POPUP -->

@@ -80,6 +80,7 @@ namespace BeautySaloon.Controllers
         [HttpGet]
         public IActionResult Register()
         {
+            ViewData["NowDate"] = DateTime.Now.AddYears(-5).ToString("yyyy-MM-dd");
             return View();
         }
         [HttpPost]
@@ -152,6 +153,57 @@ namespace BeautySaloon.Controllers
                 hash += string.Format("{0:x2}", b);
 
             return hash;
+        }
+        [HttpGet]
+        public IActionResult Forgot()
+        {
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> Forgot(ForgotModel model)
+        {
+            StringBuilder builder = new StringBuilder();
+            Random random = new Random();
+            char ch;
+            for (int i = 0; i < 8; i++)
+            {
+                ch = Convert.ToChar(Convert.ToInt32(Math.Floor(26 * random.NextDouble() + 65)));
+                builder.Append(ch);
+            }            
+            EmailService emailService = new EmailService();
+            if (ModelState.IsValid)
+            {
+                string URL = "https://beautysaloonnika.azurewebsites.net/";
+                string message = @"<html>
+                                   <body>
+                <h3> Восстановление пароля учетной записи в салоне красоты 'Ника'⠀</h3>
+                    <br>
+                    <p>Ваш логин: " + model.Email + @"  <br>
+                   Ваш новый пароль: " + builder.ToString() + @" </p>
+                   <br>
+                <p>Изменить свой пароль вы можете в личном кабинете. Перейти на сайт можно по <a href='" + URL + @"'>ссылке</a> <br>           
+                    Будем рады видеть Вас в салоне красоты 'Nika'! </p>
+                    
+                   С уважением, администрация салона красоты 'Nika'!
+                   </body>
+                   </html>
+                    ";
+                User user = await db.Users.FirstOrDefaultAsync(cl => cl.Email == model.Email);
+                if (user != null)
+                {
+                    await emailService.SendEmailAsync(model.Email, "Password recovery", message);
+
+                    // апдэйт пользователя в бд
+                    user.Password = GetHashString(builder.ToString());
+                    await db.SaveChangesAsync();
+
+                    return RedirectToAction("Login", "Account");
+                }
+                else
+
+                    ModelState.AddModelError(model.Email, "Пользователя нет в системе");
+            }
+            return View(model);
         }
 
         private async Task Authenticate(string userName)

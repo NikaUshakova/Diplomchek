@@ -6,15 +6,16 @@ table {
     color: #0C213B;
     margin-top: 20px;
     margin-left: 20px;
+    height: 90%;
     /*float: right;*/
 }
 
 caption {
-    font-family: annabelle, cursive;
-    font-weight: bold;
+    font-family: "Gabriela", sans-serif;
     font-size: 2em;
+    float: left;
     padding: 10px;
-    color: #F3CD26;
+    color: rgb(0, 0, 0);
     text-shadow: 1px 1px 0 rgba(0, 0, 0, .3);
 }
 
