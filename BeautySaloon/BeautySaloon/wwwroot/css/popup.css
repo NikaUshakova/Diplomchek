@@ -1,89 +1,107 @@
-            .modalDialog {
-                position: fixed;
-                font-family: Arial, Helvetica, sans-serif;
-                top: 0;
-                right: 0;
-                bottom: 0;
-                left: 0;
-                background: rgba(0, 0, 0, 0.8);
-                z-index: 99999;
-                -webkit-transition: opacity 400ms ease-in;
-                -moz-transition: opacity 400ms ease-in;
-                transition: opacity 400ms ease-in;
-                display: none;
-                pointer-events: none;
-            }
-            
-            .modalDialog:target {
-                display: block;
-                pointer-events: auto;
-            }
-            
-            .modalDialog>div {
-                width: 600px;
-                position: relative;
-                margin: 10% auto;
-                padding: 15px 50px 13px 20px;
-                border-radius: 10px;
-                background: #fff;
-                background: -moz-linear-gradient(#fff, #999);
-                background: -webkit-linear-gradient(#fff, #999);
-                background: -o-linear-gradient(#fff, #999);
-            }
-            
-            .close {
-                background: #606061;
-                color: #FFFFFF;
-                line-height: 30px;
-                position: absolute;
-                right: -23px;
-                text-align: center;
-                top: -20px;
-                width: 38px;
-                text-decoration: none;
-                font-weight: bold;
-                -webkit-border-radius: 12px;
-                -moz-border-radius: 12px;
-                border-radius: 12px;
-                -moz-box-shadow: 1px 1px 3px #000;
-                -webkit-box-shadow: 1px 1px 3px #000;
-                box-shadow: 1px 1px 3px #000;
-            }
-            
-            .close:hover {
-                background: #00d9ff;
-            }
-            /*//////////////////////////////////////////////  LOGIN /////////////////////*/
-            
-            span.Pass {
-                font-family: Poppins-Regular;
-                font-size: 16px;
-                color: #000000;
-            }
-            /* Full-width input fields */
-            
-            select,
-            input[type=date],
-            input[type=datetime],
-            input[type=text],
-            input[type=email],
-            input[type=hidden],
-            input#Email,
-            input[type=password] {
-                width: 100%;
-                padding: 6px 15px;
-                margin: 2px 0 5px 0;
-                display: inline-block;
-                border: 1px solid #ccc;
-                box-sizing: border-box;
-                font-size: 16px;
-                font-family: Gabriela, sans-serif;
-            }
-            
-            .focus {
-                border: 1px solid #ccc;
-            }
-            /* select.view {
+.timebtn {
+    width: 100px;
+    height: 55px;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: #000;
+    font-size: 18px;
+    border: 1px solid;
+    text-align: center;
+    margin: 15px;
+}
+
+.modalDialog {
+    position: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 99999;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    display: none;
+    pointer-events: none;
+}
+
+.modalDialog:target {
+    display: block;
+    pointer-events: auto;
+}
+
+.modalDialog>div {
+    width: 600px;
+    position: relative;
+    margin: 10% auto;
+    padding: 15px 50px 13px 20px;
+    border-radius: 10px;
+    background: #fff;
+    background: -moz-linear-gradient(#fff, #999);
+    background: -webkit-linear-gradient(#fff, #999);
+    background: -o-linear-gradient(#fff, #999);
+}
+
+.close {
+    background: #606061;
+    color: #FFFFFF;
+    line-height: 30px;
+    position: absolute;
+    right: -23px;
+    text-align: center;
+    top: -20px;
+    width: 38px;
+    text-decoration: none;
+    font-weight: bold;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
+    -moz-box-shadow: 1px 1px 3px #000;
+    -webkit-box-shadow: 1px 1px 3px #000;
+    box-shadow: 1px 1px 3px #000;
+}
+
+.close:hover {
+    background: #00d9ff;
+}
+
+
+/*//////////////////////////////////////////////  LOGIN /////////////////////*/
+
+span.Pass {
+    font-family: Poppins-Regular;
+    font-size: 16px;
+    color: #000000;
+}
+
+
+/* Full-width input fields */
+
+select,
+input[type=date],
+input[type=datetime],
+input[type=text],
+input[type=email],
+input[type=hidden],
+input#Email,
+input[type=password] {
+    width: 100%;
+    padding: 6px 15px;
+    margin: 2px 0 5px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: 16px;
+    font-family: Gabriela, sans-serif;
+}
+
+.focus {
+    border: 1px solid #ccc;
+}
+
+
+/* select.view {
     width: 350px;
     height: 40px;
     font-size: 16px;
@@ -92,271 +110,351 @@
     margin-left: 30px;
     padding-left: 12px;
 } */
-            
-            label {
-                /*display: block;*/
-                font-size: 16px;
-                font-family: Poppins-Regular, sans-serif;
-                font-weight: bold;
-            }
-            /* Set a style for all buttons */
-            
-            button.Add {
-                background-color: #4CAF50;
-                color: white;
-                padding: 14px 20px;
-                margin: 8px 0;
-                border: none;
-                cursor: pointer;
-                width: 100%;
-            }
-            
-            button.OK {
-                background-color: #4CAF50;
-                color: white;
-                padding: 14px 20px;
-                margin: 8px 0;
-                border: none;
-                cursor: pointer;
-                width: 100%;
-            }
-            
-            button.OK:hover {
-                opacity: 0.8;
-            }
-            /* Extra styles for the cancel button */
-            
-            .cancelbtn {
-                width: auto;
-                padding: 10px 18px;
-                background-color: #fd9f3e;
-                color: #000;
-                font-size: 15px;
-                border: 1px solid;
-            }
-            /* Center the image and position the close button */
-            
-            .imgcontainer {
-                text-align: center;
-                margin: 3px 0 3px 0;
-                position: relative;
-            }
-            
-            img.avatar {
-                border-radius: 50%;
-            }
-            
-            img.logo {
-                border-radius: 20%;
-            }
-            
-            .containerLogin {
-                padding: 10px 16px 10px 16px;
-            }
-            
-            span.psw {
-                float: right;
-                padding-top: 16px;
-            }
-            /* The Modal (background) */
-            
-            .modalLogin {
-                display: none;
-                /* Hidden by default */
-                position: fixed;
-                /* Sit on top */
-                left: 0;
-                top: 0;
-                width: 100%;
-                /* Full width */
-                /* Full height */
-                /* Enable scroll if needed */
-                background-color: rgb(0, 0, 0);
-                /* Fallback color */
-                background-color: rgba(0, 0, 0, 0.4);
-                /* Black w/ opacity */
-                padding-top: 10px;
-                z-index: 2;
-            }
-            
-            .modalRegister {
-                display: none;
-                /* Hidden by default */
-                position: absolute;
-                /* Sit on top */
-                left: 0;
-                top: 0;
-                width: 100%;
-                /* Full width */
-                /* Enable scroll if needed */
-                background-color: rgb(0, 0, 0);
-                /* Fallback color */
-                background-color: rgba(0, 0, 0, 0.4);
-                /* Black w/ opacity */
-                padding-top: 10px;
-                z-index: 2;
-            }
-            /* Modal Content/Box */
-            
-            .modal-content {
-                background-color: #fefefe;
-                margin: 2% 25% 2% 25%;
-                /* 5% from the top, 15% from the bottom and centered */
-                border: 1px solid #888;
-                width: 50%;
-                /* Could be more or less, depending on screen size */
-            }
-            
-            .close:hover,
-            .close:focus {
-                color: red;
-                cursor: pointer;
-            }
-            /* Add Zoom Animation */
-            
-            .animate {
-                -webkit-animation: animatezoom 0.6s;
-                animation: animatezoom 0.6s
-            }
-            
-            @-webkit-keyframes animatezoom {
-                from {
-                    -webkit-transform: scale(0)
-                }
-                to {
-                    -webkit-transform: scale(1)
-                }
-            }
-            
-            @keyframes animatezoom {
-                from {
-                    transform: scale(0)
-                }
-                to {
-                    transform: scale(1)
-                }
-            }
-            /* Change styles for span and cancel button on extra small screens */
-            
-            @media screen and (max-width: 1000px) {
-                .cancelbtn {
-                    width: 100%;
-                }
-                .modal-content {
-                    background-color: #fefefe;
-                    margin: 2% 10% 2% 10%;
-                    /* 5% from the top, 15% from the bottom and centered */
-                    border: 1px solid #888;
-                    width: 80%;
-                    /* Could be more or less, depending on screen size */
-                }
-            }
-            
-            @media screen and (max-width: 700px) {
-                .cancelbtn {
-                    width: 100%;
-                }
-                img.logo {
-                    border-radius: 20%;
-                    width: 450px;
-                }
-                .modal-content {
-                    background-color: #fefefe;
-                    margin: 2% 5% 2% 5%;
-                    /* 5% from the top, 15% from the bottom and centered */
-                    border: 1px solid #888;
-                    width: 90%;
-                    /* Could be more or less, depending on screen size */
-                }
-                input[type=text],
-                input[type=date],
-                input[type=email],
-                input#Email,
-                input[type=password] {
-                    width: 100%;
-                    padding: 5px 10px;
-                    margin: 3px 0;
-                    display: inline-block;
-                    border: 1px solid #ccc;
-                    box-sizing: border-box;
-                }
-            }
-            
-            @media screen and (max-width: 525px) {
-                img.logo {
-                    border-radius: 20%;
-                    width: 350px;
-                }
-            }
-            
-            @media screen and (max-width: 410px) {
-                .cancelbtn {
-                    width: 100%;
-                }
-                img.logo {
-                    border-radius: 20%;
-                    width: 250px;
-                }
-                .modal-content {
-                    background-color: #fefefe;
-                    margin: 5% 5% 5% 5%;
-                    /* 5% from the top, 15% from the bottom and centered */
-                    border: 1px solid #888;
-                    width: 90%;
-                    /* Could be more or less, depending on screen size */
-                }
-                .modalLogin {
-                    display: none;
-                    /* Hidden by default */
-                    position: absolute;
-                    /* Sit on top */
-                    left: 0;
-                    top: 0;
-                    width: 100%;
-                    /* Full width */
-                    /* Enable scroll if needed */
-                    background-color: rgb(0, 0, 0);
-                    /* Fallback color */
-                    background-color: rgba(0, 0, 0, 0.4);
-                    /* Black w/ opacity */
-                    padding-top: 5px;
-                    z-index: 2;
-                }
-                .modalRegister {
-                    display: none;
-                    /* Hidden by default */
-                    position: absolute;
-                    /* Sit on top */
-                    left: 0;
-                    top: 0;
-                    width: 100%;
-                    /* Full width */
-                    /* Full height */
-                    /* Enable scroll if needed */
-                    background-color: rgb(0, 0, 0);
-                    /* Fallback color */
-                    background-color: rgba(0, 0, 0, 0.4);
-                    /* Black w/ opacity */
-                    padding-top: 10px;
-                    z-index: 2;
-                }
-                input[type=text],
-                input[type=date],
-                input[type=email],
-                input#Email,
-                input[type=password] {
-                    width: 100%;
-                    padding: 5px 10px;
-                    margin: 3px 0;
-                    display: inline-block;
-                    border: 1px solid #ccc;
-                    box-sizing: border-box;
-                }
-            }
-            
-            @media screen and (max-width: 300px) {
-                img.logo {
-                    border-radius: 20%;
-                    width: 180px;
-                }
-            }
+
+label {
+    /*display: block;*/
+    font-size: 16px;
+    font-family: Poppins-Regular, sans-serif;
+    font-weight: bold;
+}
+
+
+/* Set a style for all buttons */
+
+button.Add {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+button.OK {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+button.OK:hover {
+    opacity: 0.8;
+}
+
+
+/* Extra styles for the cancel button */
+
+.cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #fd9f3e;
+    color: #000;
+    font-size: 15px;
+    border: 1px solid;
+}
+
+
+/* Center the image and position the close button */
+
+.imgcontainer {
+    text-align: center;
+    margin: 3px 0 3px 0;
+    position: relative;
+}
+
+img.avatar {
+    border-radius: 50%;
+}
+
+img.logo {
+    border-radius: 20%;
+}
+
+.containerLogin {
+    padding: 10px 16px 10px 16px;
+}
+
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+
+/* The Modal (background) */
+
+.modalLogin {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    /* Full height */
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+    padding-top: 10px;
+    z-index: 2;
+}
+
+.modalRegister {
+    display: none;
+    /* Hidden by default */
+    position: absolute;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+    padding-top: 10px;
+    z-index: 2;
+}
+
+
+/* Modal Content/Box */
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 2% 25% 2% 25%;
+    /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 50%;
+    /* Could be more or less, depending on screen size */
+}
+
+.modal-content-time {
+    background-color: #fefefe;
+    margin: 2% 30% 2% 30%;
+    /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 40%;
+    /* Could be more or less, depending on screen size */
+}
+
+.close:hover,
+.close:focus {
+    color: red;
+    cursor: pointer;
+}
+
+
+/* Add Zoom Animation */
+
+.animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+    from {
+        -webkit-transform: scale(0)
+    }
+    to {
+        -webkit-transform: scale(1)
+    }
+}
+
+@keyframes animatezoom {
+    from {
+        transform: scale(0)
+    }
+    to {
+        transform: scale(1)
+    }
+}
+
+
+/* Change styles for span and cancel button on extra small screens */
+
+@media screen and (max-width: 1000px) {
+    .cancelbtn {
+        width: 100%;
+    }
+    .modal-content {
+        background-color: #fefefe;
+        margin: 2% 10% 2% 10%;
+        /* 5% from the top, 15% from the bottom and centered */
+        border: 1px solid #888;
+        width: 80%;
+        /* Could be more or less, depending on screen size */
+    }
+    .modal-content-time {
+        background-color: #fefefe;
+        margin: 2% 5% 2% 5%;
+        /* 5% from the top, 15% from the bottom and centered */
+        border: 1px solid #888;
+        width: 90%;
+        /* Could be more or less, depending on screen size */
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .cancelbtn {
+        width: 100%;
+    }
+    img.logo {
+        border-radius: 20%;
+        width: 450px;
+    }
+    .modal-content {
+        background-color: #fefefe;
+        margin: 2% 5% 2% 5%;
+        /* 5% from the top, 15% from the bottom and centered */
+        border: 1px solid #888;
+        width: 90%;
+        /* Could be more or less, depending on screen size */
+    }
+    .modal-content-time {
+        background-color: #fefefe;
+        margin: 2% 5% 2% 5%;
+        /* 5% from the top, 15% from the bottom and centered */
+        border: 1px solid #888;
+        width: 90%;
+        /* Could be more or less, depending on screen size */
+    }
+    input[type=text],
+    input[type=date],
+    input[type=email],
+    input#Email,
+    input[type=password] {
+        width: 100%;
+        padding: 5px 10px;
+        margin: 3px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }
+}
+
+@media screen and (max-width: 525px) {
+    img.logo {
+        border-radius: 20%;
+        width: 350px;
+    }
+    .timebtn {
+        width: 76px;
+        height: 45px;
+        padding: 10px;
+        background-color: #4CAF50;
+        color: #000;
+        font-size: 18px;
+        border: 1px solid;
+        text-align: center;
+        margin: 10px;
+    }
+}
+
+@media screen and (max-width: 410px) {
+    .timebtn {
+        width: 76px;
+        height: 45px;
+        padding: 10px;
+        background-color: #4CAF50;
+        color: #000;
+        font-size: 18px;
+        border: 1px solid;
+        text-align: center;
+        margin: 10px;
+    }
+    .cancelbtn {
+        width: 100%;
+    }
+    img.logo {
+        border-radius: 20%;
+        width: 250px;
+    }
+    .modal-content {
+        background-color: #fefefe;
+        margin: 5% 5% 5% 5%;
+        /* 5% from the top, 15% from the bottom and centered */
+        border: 1px solid #888;
+        width: 90%;
+        /* Could be more or less, depending on screen size */
+    }
+    .modal-content-time {
+        background-color: #fefefe;
+        margin: 2% 5% 2% 5%;
+        /* 5% from the top, 15% from the bottom and centered */
+        border: 1px solid #888;
+        width: 90%;
+        /* Could be more or less, depending on screen size */
+    }
+    .modalLogin {
+        display: none;
+        /* Hidden by default */
+        position: absolute;
+        /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%;
+        /* Full width */
+        /* Enable scroll if needed */
+        background-color: rgb(0, 0, 0);
+        /* Fallback color */
+        background-color: rgba(0, 0, 0, 0.4);
+        /* Black w/ opacity */
+        padding-top: 5px;
+        z-index: 2;
+    }
+    .modalRegister {
+        display: none;
+        /* Hidden by default */
+        position: absolute;
+        /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%;
+        /* Full width */
+        /* Full height */
+        /* Enable scroll if needed */
+        background-color: rgb(0, 0, 0);
+        /* Fallback color */
+        background-color: rgba(0, 0, 0, 0.4);
+        /* Black w/ opacity */
+        padding-top: 10px;
+        z-index: 2;
+    }
+    input[type=text],
+    input[type=date],
+    input[type=email],
+    input#Email,
+    input[type=password] {
+        width: 100%;
+        padding: 5px 10px;
+        margin: 3px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }
+}
+
+@media screen and (max-width: 300px) {
+    img.logo {
+        border-radius: 20%;
+        width: 180px;
+    }
+    .timebtn {
+        width: 76px;
+        height: 45px;
+        padding: 10px;
+        background-color: #4CAF50;
+        color: #000;
+        font-size: 18px;
+        border: 1px solid;
+        text-align: center;
+        margin: 10px;
+    }
+}

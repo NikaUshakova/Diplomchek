@@ -14,6 +14,7 @@
     <link rel="stylesheet" type="text/css" href="~/css/navbar.css">
     <link rel="stylesheet" type="text/css" href="~/css/popup.css">
     <link rel="stylesheet" type="text/css" href="~/css/TextStyle.css">
+    <link rel="stylesheet" type="text/css" href="~/css/footer.css">
 
     <!-- Load an icon library to show a hamburger menu (bars) on small screens -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -52,7 +53,9 @@
         border: none;
         cursor: pointer;
         width: 191px;
-        font-size: 16px;" onclick="document.getElementById('addService').style.display='block'" class="OK">Добавить услугу</button>
+        font-size: 16px;" onclick="document.getElementById('addService').style.display='block'" class="OK">
+        Добавить услугу
+    </button>
 
     <!-- POPUP -->
     <div id="addService" class="modalRegister" style="height: 100%;padding-top: 50px;">
@@ -82,7 +85,7 @@
         </form>
     </div>
 
-    <div style="overflow-x:auto;">
+    <div style="overflow-x: auto;  margin-bottom: 32px;">
         <table>
 
             <tr>
@@ -96,7 +99,7 @@
             <tbody>
                 @foreach (var item in Model)
                 {
-                    <tr >
+                    <tr>
                         <td style="text-align:center;">
                             @Html.DisplayFor(modelItem => item.ID)
                         </td>
@@ -118,6 +121,8 @@
             </tbody>
         </table>
     </div>
-
+    <div class="footer">
+        <p>Общее количество услуг: @Model.ToList().Count</p>
+    </div>
 </body>
 </html>

@@ -14,6 +14,7 @@
     <link rel="stylesheet" type="text/css" href="~/css/navbar.css">
     <link rel="stylesheet" type="text/css" href="~/css/popup.css">
     <link rel="stylesheet" type="text/css" href="~/css/TextStyle.css">
+    <link rel="stylesheet" type="text/css" href="~/css/footer.css">
 
     <!-- Load an icon library to show a hamburger menu (bars) on small screens -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -40,8 +41,10 @@
         border: none;
         cursor: pointer;
         width: 191px;
-        font-size: 16px;" onclick="document.getElementById('addMaster').style.display='block'" class="OK">Добавить мастера</button>
-   
+        font-size: 16px;" onclick="document.getElementById('addMaster').style.display='block'" class="OK">
+        Добавить мастера
+    </button>
+
 
     <!-- POPUP -->
     <div id="addMaster" class="modalRegister" style="height: 100%;padding-top: 50px;">
@@ -65,7 +68,7 @@
                 <label>Телефон:</label>
                 <input name="Phone" type="text" onkeyup="this.value = this.value.replace(/[^0-9+]/g, '')" maxlength="13" placeholder="Введите номер телефона" required>
 
-                <button class="Add" type="submit" >Добавить мастера</button>
+                <button class="Add" type="submit">Добавить мастера</button>
             </div>
 
             <div class="containerLogin" style="background-color:#f1f1f1">
@@ -74,7 +77,7 @@
         </form>
     </div>
 
-    <div style="overflow-x:auto;">
+    <div style="overflow-x: auto;  margin-bottom: 32px;">
         <table>
 
             <tr>
@@ -90,7 +93,7 @@
             <tbody>
                 @foreach (var item in Model)
                 {
-                    <tr >
+                    <tr>
                         <td style="text-align:center;">
                             @Html.DisplayFor(modelItem => item.ID)
                         </td>
@@ -118,6 +121,8 @@
             </tbody>
         </table>
     </div>
-
+    <div class="footer">
+        <p>Общее количество мастеров: @Model.ToList().Count</p>
+    </div>
 </body>
 </html>

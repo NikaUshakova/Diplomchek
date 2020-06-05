@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BeautySaloon.ViewModels;
 
 namespace BeautySaloon.Models
 {
@@ -16,5 +17,6 @@ namespace BeautySaloon.Models
         {
             Database.EnsureCreated();   // создаем базу данных при первом обращении
         }
+        public DbSet<BeautySaloon.ViewModels.CreateOrderModel> CreateOrderModel { get; set; }
     }
 }

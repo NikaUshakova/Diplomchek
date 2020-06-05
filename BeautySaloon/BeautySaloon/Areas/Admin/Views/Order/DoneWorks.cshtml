@@ -95,7 +95,7 @@
     <br />
 
 
-    <div style="overflow-x:auto;">
+    <div style="overflow-x: auto; margin-bottom: 32px;">
         <table>
 
             <tr>
@@ -153,7 +153,7 @@
 
     </div>
     <div class="footer">
-        <p >Всего выполнено работ: @Model.Orders.ToList().Count</p>        
+        <p>Общее количество выполненных работ: @Model.Orders.ToList().Count на сумму @Model.Orders.Sum(o => o.Service.Price) BYN</p>        
     </div>
 </body>
 </html>

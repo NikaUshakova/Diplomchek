@@ -80,7 +80,6 @@ namespace BeautySaloon.Controllers
         [HttpGet]
         public IActionResult Register()
         {
-            ViewData["NowDate"] = DateTime.Now.AddYears(-5).ToString("yyyy-MM-dd");
             return View();
         }
         [HttpPost]

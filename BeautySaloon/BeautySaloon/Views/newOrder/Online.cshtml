@@ -1,0 +1,72 @@
+﻿@model BeautySaloon.ViewModels.CreateOrderModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Beauty Center</title>
+    <!-- for-mobile-apps -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- //for-mobile-apps -->
+    <link href="~/Index/css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <!-- Custom Theme files -->
+    <link rel="stylesheet" href="~/Index/css/jquery-ui.css" />
+    <link rel="stylesheet" href="~/Index/css/lightbox.css" type="text/css" media="all" />
+    <link href="~/Index/css/style.css" rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" type="text/css" href="~/css/TextStyle.css">
+    <link rel="stylesheet" type="text/css" href="~/Login/css/main.css">
+    <link rel="stylesheet" type="text/css" href="~/css/popup.css">
+    <link rel="stylesheet" type="text/css" href="~/css/site.css">
+    <link rel="stylesheet" type="text/css" href="~/css/servicelist.css">
+
+    <!-- //js -->
+    <!--===JS===========================================================================-->
+    <script src="~/Index/js/jquery-1.11.1.min.js"></script>
+    <script src="~/js/site.js"></script>
+    <script src="~/Login/js/main.js"></script>
+    <script src="~/Login/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===JS===========================================================================-->
+    <!-- Custom Theme files -->
+    <!--webfont-->
+    <link href='//fonts.googleapis.com/css?family=Gabriela' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <script>
+        window.onload = function () {
+            document.getElementById('online').style.display = 'block'
+        }
+    </script>
+</head>
+<body>
+    <!-- POPUP -->
+    <div id="online" class="modalLogin" style="height: 100%;padding-top: 100px;">
+        <!-- Modal Content -->
+        <form name="onlineForm" class="modal-content animate" asp-action="Time" method="post">
+            <div class="containerLogin">
+                <h3 class="title">Онлайн запись<span></span></h3>
+              
+                <label class="text">Выберите дату: </label>
+                <p><input name="day" id="datePicker" min="@DateTime.Now.ToString("yyyy-MM-dd")" asp-for="Date" type="date" required=""></p>
+
+                <label class="text">Выберите мастера: </label>
+                <div>
+                    <select name="master" class="view" asp-for="MasterID" asp-items="ViewBag.Masters"></select>
+                </div>
+                <label class="text">Выберите услугу: </label>
+                <div>
+                    <select name="service" class="view" asp-for="ServiceID" asp-items="ViewBag.Services"></select>
+                </div>
+
+                <button class="OK" type="submit">Выберите время</button>
+
+            </div>
+
+            <div class="containerLogin" style="background-color:#f1f1f1">
+                <a class="cancelbtn" asp-controller="Menu" asp-action="Home">Cancel</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

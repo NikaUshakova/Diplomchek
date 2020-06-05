@@ -32,7 +32,7 @@ namespace BeautySaloon.Controllers.Admin
         [Route("admin/doneworks")]
         public IActionResult DoneWorks(int? service, string master, string user, DateTime? begindate, DateTime? enddate )
         {
-            IQueryable<Order> orders = db.Orders.Include(o => o.Master).Include(o => o.Service).Include(o => o.User);
+            IQueryable<Order> orders = db.Orders.Include(o => o.Master).Include(o => o.Service).Include(o => o.User).OrderBy(o=>o.Date);
             //if ((begindate != null && enddate != null)&&(enddate < begindate))
             //{
             //    orders = orders.Where(o => o.Date == begindate);

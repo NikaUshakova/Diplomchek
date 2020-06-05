@@ -123,18 +123,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <li class="menu__item"><a href="#about" class="menu__link scroll">О салоне</a></li>
                                 <li class="menu__item"><a href="#services" class="menu__link scroll">Каталог услуг</a></li>
                                 <li class="menu__item"><a href="#team" class="menu__link scroll">Наша команда</a></li>
-                                <li class="menu__item"><a onclick="document.getElementById('online').style.display='block'" class="menu__link scroll">Онлайн запись</a></li>
+                                <li class="menu__item"><a asp-controller="newOrder" asp-action="Online" class="menu__link scroll">Онлайн запись</a></li>
                                 @if (User.Identity.IsAuthenticated)
-                                {@*заменить на ссылку в ЛК*@
-                                <li class="menu__item"><a asp-controller="Account" asp-action="Login" style="padding: 2px 10px !important;"><img src="~/images/lock.png" title="Личный кабинет"></a></li>
-                                <li class="menu__item"><a asp-controller="Account" asp-action="Logout" style="padding: 2px 10px !important;"><img src="~/images/logout.png" title="Logout"></a></li>
+                                {@*заменить на ссылку в ЛК  style="padding: 2px 10px !important;"*@
+                                <li class="menu__item"><a asp-controller="Account" asp-action="Login">@*<img src="~/images/lock.png" title="*@Личный кабинет</a></li>
+                                <li class="menu__item"><a asp-controller="Account" asp-action="Logout">@*<img src="~/images/logout.png" title="*@Выйти</a></li>
                             }
                             else
                             {
-                                <li class="menu__item"><a asp-controller="Account" asp-action="Login" style="padding: 2px 10px !important;"><img src="~/images/lock.png" title="Login"></a></li>
+                                <li class="menu__item"><a asp-controller="Account" asp-action="Login">@*<img src="~/images/lock.png" title="Login">*@ Войти</a></li>
                             }
                                 @*  <li class="menu__item"><a href="#team" class="menu__link scroll">Team</a></li>
-                                    <li class="menu__item"><a href="#contact" class="menu__link scroll">Contact</a></li>*@
+        <li class="menu__item"><a href="#contact" class="menu__link scroll">Contact</a></li>*@
 
                             </ul>
                         </nav>
@@ -172,70 +172,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
         </div>
     </div>
-    <!--Можно выбрать тольо даты, идущие за сегодняшним днем, включая сегодня-->
-    <script type="text/javascript">
-        document.addEventListener('DOMContentLoaded', function () {
-            var d = new Date();
-            var day = d.getDate();
-            var month = d.getMonth();
-            var year = d.getFullYear();
-            $document.getElementById('datePicker').setAttribute("minDate", year + "-" + month + "-" + day)
-
-        });
-    </script>
-
-    <!-- POPUP -->
-    <div id="online" class="modalLogin" style="height: 100%;padding-top: 100px;">
-        <!-- Modal Content -->
-        <form class="modal-content animate" asp-action="CreateOrder" method="post" runat="server">
-            <div class="containerLogin">
-                <h3 class="title">Онлайн запись<span></span></h3>
-                @*@using (Html.BeginForm("GetDateTime", "Menu", FormMethod.Post))
-        {*@
-                <label class="text">Выберите дату: </label>
-                <p><input name="day" id="datePicker" min="@ViewData["NowDate"]" asp-for="Date" type="date" required=""></p>
-
-                <label class="text">Выберите мастера: </label>
-                <div>
-                    <select name="master" class="view" asp-for="MasterID" asp-items="ViewBag.Masters"></select>
-                </div>
-                <button class="OK" asp-action="GetDateTime" type="submit">Выберите время</button>
-                <asp:Button id="Button1"
-                            Text="Submit"
-                            OnClick="SubmitBtn_Click"
-                            runat="server" />
-
-                <br />
-
-                <asp:label id="Message" runat="server"></asp:label>
-
-
-                @*<a asp-action="GetDateTime" class="text">Выберите время: </a>*@
-                <div>
-                    @*<label asp-for="Time" class="text">09:00</label>
-            <label asp-for="Time" class="text">10:00</label>*@
-
-                    <select asp-for="Time">
-                        @foreach (string time in ViewBag.Time)
-                        {
-                            <option value="@time">@time</option>
-                        }
-                    </select>
-                </div>
-                <label class="text">Выберите услугу: </label>
-                <div>
-                    <select class="view" asp-for="ServiceID" asp-items="ViewBag.Services"></select>
-                </div>
-
-                <button class="OK" type="submit">Записаться</button>
-            </div>
-
-            <div class="containerLogin" style="background-color:#f1f1f1">
-                <a class="cancelbtn" asp-action="Home">Cancel</a>
-            </div>
-        </form>
-    </div>
-
 
     <!-- POPUP -->
     <!-- POPUP -->

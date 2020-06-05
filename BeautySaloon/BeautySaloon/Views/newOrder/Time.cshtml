@@ -1,0 +1,73 @@
+﻿@model BeautySaloon.ViewModels.CreateOrderModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Beauty Center</title>
+    <!-- for-mobile-apps -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- //for-mobile-apps -->
+    <link href="~/Index/css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <!-- Custom Theme files -->
+    <link rel="stylesheet" href="~/Index/css/jquery-ui.css" />
+    <link rel="stylesheet" href="~/Index/css/lightbox.css" type="text/css" media="all" />
+    <link href="~/Index/css/style.css" rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" type="text/css" href="~/css/TextStyle.css">
+    <link rel="stylesheet" type="text/css" href="~/Login/css/main.css">
+    <link rel="stylesheet" type="text/css" href="~/css/popup.css">
+    <link rel="stylesheet" type="text/css" href="~/css/site.css">
+    <link rel="stylesheet" type="text/css" href="~/css/servicelist.css">
+
+    <!-- //js -->
+    <!--===JS===========================================================================-->
+    <script src="~/Index/js/jquery-1.11.1.min.js"></script>
+    <script src="~/js/site.js"></script>
+    <script src="~/Login/js/main.js"></script>
+    <script src="~/Login/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===JS===========================================================================-->
+    <!-- Custom Theme files -->
+    <!--webfont-->
+    <link href='//fonts.googleapis.com/css?family=Gabriela' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <script>
+        window.onload = function () {
+            document.getElementById('time').style.display = 'block'
+        }
+    </script>
+</head>
+<body>
+    <!-- ------------------------------------------------------------------------POPUP -------------------------->
+    <div id="time" class="modalLogin" style="height: 100%;">
+        <!-- Modal Content -->
+        <form name="createForm" class="modal-content-time animate" asp-action="CreateOrder" method="post">
+            <div class="containerLogin">
+                <h3 class="title">Онлайн запись<span></span></h3>
+                <label class="text" style="font-size: 18px;   margin-left: 15px;">Выберите время:</label>
+             
+               <br />
+               <div style="align-content:center">
+                   @foreach (string time in ViewBag.Time)
+                    {
+                          <button asp-for= "Time" name = "time" class="timebtn" value="@time" type="submit">@time</button>     
+                    }
+                   </div>
+
+
+            <p><input name="day" type="hidden" id="datePicker" value="@ViewBag.Day" asp-for="Date" required=""></p>
+                <input name="master" type="hidden" value="@ViewBag.Master" class="view" asp-for="MasterID">
+                <input class="view" name="service" type="hidden" value="@ViewBag.Service" asp-for="ServiceID">
+
+            </div>
+            <div class="containerLogin" style="background-color:#f1f1f1">
+                <a href='javascript:history.go(-1)' class="cancelbtn">Cancel</a>
+                <span class="psw">  <a asp-controller="Menu" asp-action="Home">Вернуться на главную</a></span>
+            </div>
+          
+        </form>
+    </div>
+</body>
+</html>
