@@ -36,23 +36,7 @@ namespace BeautySaloon.Controllers
         [ValidateAntiForgeryToken]
         
         public async Task<IActionResult> Login(LoginModel model)
-        {
-            //EmailService emailService = new EmailService();
-            //string URL = "https://beautysaloonnika.azurewebsites.net/";
-            //string message = @"<html>
-            //                       <body>
-            //    <h3> Тестовый , добро пожаловать в салон красоты 'Nika'! ⠀</h3>
-            //    <p>⠀⠀⠀⠀Мы рады Вас приветствовать на <a href='"+URL+@"'>сайте</a> нашего салона красоты красоты! <br>
-            //Наши высококвалифицированные специалисты помогут Вам с вопросами в сфере красоты.  <br><br>
-            //        Будем рады видеть Вас в салоне красоты 'Nika'! </p>
-            //        <br>
-            //        <p>Ваш логин: " + model.Email + @"  <br>
-            //       Ваш пароль: " + model.Password + @" </p>
-            //       <br>
-            //       С уважением, администрация салона красоты 'Nika'!
-            //       </body>
-            //       </html>
-            //        ";
+        {           
             var login = "Admin";
             var pass = "123qwe";
             if (ModelState.IsValid)
@@ -67,7 +51,6 @@ namespace BeautySaloon.Controllers
                     if (user != null)
                     {
                         await Authenticate(model.Email); // аутентификация
-                       // await emailService.SendEmailAsync(model.Email, "Welcome to your account", message);
 
                         return RedirectToAction("Home", "Menu");
                     }

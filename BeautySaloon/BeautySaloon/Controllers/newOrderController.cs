@@ -33,30 +33,45 @@ namespace BeautySaloon.Controllers
             ViewBag.Time = "";
             return View();
         }
+        public IActionResult Combo()
+        {
+            ViewBag.Masters = db.Masters.Select(a =>
+                                  new SelectListItem
+                                  {
+                                      Value = a.ID.ToString(),
+                                      Text = a.Surname + " " + a.Name + " " + a.Patronymic
+                                  }).ToList();
+            var serv = db.Services.Where(s => s.Category == "Комплекс");
+            ViewBag.Services = new SelectList(serv, "ID", "Name");
+            ViewBag.Time = "";
+            return View("Online");
+        }
 
         [Route("home/neworders/time")]
         public IActionResult Time(DateTime day, int? master, int? service)
         {
             List<string> numbers = new List<string>() { "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00" };
-            var datetime = db.Orders.Where(o => o.MasterID == master).Select(o => o.Date).ToList(); //все даты с бд заказов (без времени)
-
-            string sday = day.ToShortDateString();  //короткая дата с календаря
-            foreach (var item in datetime)
-            {
-                if (item.ToShortDateString().Equals(sday))  //если датa в заказах равна датe с кландаря
+           // var category = db.Services.Where(s => s.ID == service).Select(s => s.Category).ToString(); //получили категорию выбранной услуги
+            var datetime = db.Orders.ToList().Where(o => o.MasterID == master && o.Date.ToShortDateString()==day.ToShortDateString()).Select(o => o.Date).ToList(); //все даты с бд заказов 
+           
+            //string sday = day.ToShortDateString();  //короткая дата с календаря
+                foreach (var item in datetime)
                 {
                     for (int i = 0; i < numbers.Count; i++)
-                    {
-                        if (item.ToShortTimeString().Contains(numbers[i]))
-                        {
-                            numbers.Remove(numbers[i]);
-                            i--;
-                            if (numbers.Count == 0) numbers.Add("Свободных мест нет");
+                    {                        
+                        if (item.ToString("HH:mm").Equals(numbers[i]))
+                        {                        
+                            numbers.RemoveAt(i);
+                            break;
                         }
 
                     }
+               
                 }
-            }
+            if (numbers.Count == 0) 
+            {
+                ViewBag.Null = "Свободных мест нет";
+            } 
             ViewBag.Time = numbers;
             ViewBag.Master = master;
             ViewBag.Service = service;
@@ -70,7 +85,6 @@ namespace BeautySaloon.Controllers
         }
 
         // POST: Clients/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> CreateOrder(DateTime day, int? master, int? service, string time)

@@ -46,18 +46,26 @@
         <form name="createForm" class="modal-content-time animate" asp-action="CreateOrder" method="post">
             <div class="containerLogin">
                 <h3 class="title">Онлайн запись<span></span></h3>
-                <label class="text" style="font-size: 18px;   margin-left: 15px;">Выберите время:</label>
-             
-               <br />
-               <div style="align-content:center">
-                   @foreach (string time in ViewBag.Time)
-                    {
-                          <button asp-for= "Time" name = "time" class="timebtn" value="@time" type="submit">@time</button>     
-                    }
-                   </div>
 
+                @if (ViewBag.Null == "Свободных мест нет")
+                {
+                    <label class="text" style="font-size: 20px; text-align:center; margin-left: 15px;">@ViewBag.Null:(</label>
+                }
+                else
+                {
 
-            <p><input name="day" type="hidden" id="datePicker" value="@ViewBag.Day" asp-for="Date" required=""></p>
+                    <label class="text" style="font-size: 18px;   margin-left: 15px;">Выберите время:</label>
+                    <br />
+                    <div style="align-content:center">
+                        @foreach (var time in ViewBag.Time)
+                        {
+                            <button asp-for="Time" name="time" class="timebtn" value="@time" type="submit">@time</button>
+                        }
+                    </div>
+
+                }
+
+                <p><input name="day" type="hidden" id="datePicker" value="@ViewBag.Day" asp-for="Date" required=""></p>
                 <input name="master" type="hidden" value="@ViewBag.Master" class="view" asp-for="MasterID">
                 <input class="view" name="service" type="hidden" value="@ViewBag.Service" asp-for="ServiceID">
 

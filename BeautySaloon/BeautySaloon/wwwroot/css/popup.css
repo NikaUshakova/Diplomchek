@@ -427,17 +427,22 @@ span.psw {
         padding-top: 10px;
         z-index: 2;
     }
-    input[type=text],
+    select,
     input[type=date],
+    input[type=datetime],
+    input[type=text],
     input[type=email],
+    input[type=hidden],
     input#Email,
     input[type=password] {
         width: 100%;
-        padding: 5px 10px;
-        margin: 3px 0;
+        padding: 6px 15px;
+        margin: 2px 0 5px 0;
         display: inline-block;
         border: 1px solid #ccc;
         box-sizing: border-box;
+        font-size: 12px;
+        font-family: Gabriela, sans-serif;
     }
 }
 
@@ -456,5 +461,22 @@ span.psw {
         border: 1px solid;
         text-align: center;
         margin: 10px;
+    }
+    select,
+    input[type=date],
+    input[type=datetime],
+    input[type=text],
+    input[type=email],
+    input[type=hidden],
+    input#Email,
+    input[type=password] {
+        width: 100%;
+        padding: 6px 15px;
+        margin: 2px 0 5px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+        font-size: 12px;
+        font-family: Gabriela, sans-serif;
     }
 }

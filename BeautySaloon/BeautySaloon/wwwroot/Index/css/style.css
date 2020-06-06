@@ -572,7 +572,7 @@ li.menu__item.menu__item--current a.menu__link {
 
 .navbar-default .navbar-nav>li>a {
     color: #000;
-    font-size: 14px;
+    font-size: 12px;
 }
 
 .link {
@@ -638,7 +638,7 @@ li.menu__item.menu__item--current a.menu__link {
 .nav>li>a {
     text-transform: uppercase;
     font-size: 14px;
-    padding: 10px 20px !important;
+    padding: 10px 8px !important;
 }
 
 .menu__link:hover,
@@ -663,7 +663,7 @@ li.menu__item.menu__item--current a.menu__link {
 /*-- bottom --*/
 
 .all_pad {
-    padding: 4em 0;
+    padding: 1.5em 0;
 }
 
 .con-left {
@@ -1192,7 +1192,7 @@ p.copy-right {
     text-align: center;
     margin-top: 60px;
     border-top: 1px solid #ccc;
-    padding-top: 62px;
+    padding-top: 32px;
     font-size: 15px;
     color: #464646;
 }
@@ -1275,7 +1275,7 @@ p.copy-right a:hover {
     border-bottom: 1px solid #ccc;
     font-size: 15px;
     color: #464646;
-    text-indent: 2.3em;
+    text-indent: 0.5em;
 }
 
 .price-back ul li a {
@@ -1297,10 +1297,10 @@ p.copy-right a:hover {
     font-size: 21px;
     color: #fff;
     background: #08538c;
-    width: 75px;
-    height: 75px;
+    width: 90px;
+    height: 90px;
     margin: 21px auto;
-    line-height: 3.5em;
+    line-height: 4.1em;
     border-radius: 100%;
 }
 
@@ -1952,7 +1952,7 @@ select option {
 
 @media (max-width: 1080px) {
     .nav>li>a {
-        padding: 8px 13px !important;
+        padding: 8px 6px !important;
     }
     .navbar-collapse {
         padding-right: 0;
@@ -2076,7 +2076,7 @@ select option {
         font-size: 12px;
     }
     .nav>li>a {
-        padding: 6px 9px !important;
+        padding: 6px 6px !important;
     }
     .banner-text p {
         width: 75%;
@@ -2152,7 +2152,7 @@ select option {
     }
     .price-back ul li {
         font-size: 14px;
-        text-indent: 0.9em;
+        text-indent: 0em;
     }
     .hexagon_box:after {
         border-left: 112px solid transparent;
@@ -2167,7 +2167,7 @@ select option {
         width: 75%;
     }
     .price-back ul li {
-        text-indent: 0.6em;
+        text-indent: 0em;
     }
     .team-gd {
         float: left;
@@ -2226,7 +2226,7 @@ select option {
     p.copy-right {
         font-size: 14px;
         margin-top: 45px;
-        padding-top: 40px;
+        padding-top: 32px;
     }
     .treatments p {
         font-size: 14px;
@@ -2269,8 +2269,8 @@ select option {
     }
     .price-back p {
         font-size: 19px;
-        width: 67px;
-        height: 67px;
+        width: 75px;
+        height: 75px;
     }
     .ui-datepicker .ui-datepicker-header {
         padding: 8px 0;
@@ -2422,8 +2422,8 @@ select option {
     }
     .price-back p {
         font-size: 17px;
-        width: 59px;
-        height: 59px;
+        width: 70px;
+        height: 70px;
         margin: 13px auto;
     }
     .price-book a {
@@ -2437,7 +2437,7 @@ select option {
         font-size: 30px;
     }
     .all_pad {
-        padding: 3em 0;
+        padding: 1.6em 0;
     }
     .pets-info-slid p {
         line-height: 2em;
@@ -2648,8 +2648,8 @@ select option {
         text-indent: 1.7em;
     }
     .hexagon_box:after {
-        border-left: 122px solid transparent;
-        border-right: 122px solid transparent;
+        border-left: 128px solid transparent;
+        border-right: 126px solid transparent;
         bottom: -24px;
         border-top: 25px solid #fd9f3e;
     }
@@ -2885,7 +2885,7 @@ select option {
         width: 81%;
     }
     .price-back ul li {
-        text-indent: 1.9em;
+        text-indent: 0.5em;
     }
     .reg ul li.text-info {
         font-size: 14px;

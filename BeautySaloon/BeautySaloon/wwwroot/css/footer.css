@@ -12,7 +12,7 @@
     display: block;
     color: #f2f2f2;
     text-align: center;
-    padding: 5px 5px;
+    padding: 2px 5px;
     text-decoration: none;
     font-size: 17px;
     font-family: "Gabriela", sans-serif;
@@ -27,4 +27,17 @@
 .footer p.active {
     background-color: #4CAF50;
     color: white;
+}
+
+@media (max-width: 410px) {
+    .footer p {
+        float: left;
+        display: block;
+        color: #f2f2f2;
+        text-align: center;
+        text-decoration: none;
+        font-size: 12px;
+        font-family: "Gabriela", sans-serif;
+        margin: 0px 10px 10px 10px;
+    }
 }
