@@ -116,6 +116,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <li class="menu__item"><a href="#services" class="menu__link scroll">Каталог услуг</a></li>
                                 <li class="menu__item"><a href="#sale" class="menu__link scroll">Выгодные предложения</a></li>
                                 <li class="menu__item"><a href="#team" class="menu__link scroll">Наша команда</a></li>
+                                <li class="menu__item"><a href="#photo" class="menu__link scroll">Фотогалерея</a></li>
                                 <li class="menu__item"><a href="#contact" class="menu__link scroll">Контакты</a></li>
                                 <li class="menu__item"><a asp-controller="newOrder" asp-action="Online" class="menu__link scroll">Онлайн запись</a></li>
                                 @if (User.Identity.IsAuthenticated)
@@ -167,42 +168,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </div>
     </div>
 
-
-    @*<div id="about" class="feature all_pad wthree">
-            <div class="container">
-                <h3 class="title">О салоне<span></span></h3>
-                <p class="para">
-                    О салоне
-                </p>
-                <div class="about-grids">
-                    <div class="col-md-6 feature-grid-one wow bounceInUp" data-wow-duration="1.5s" data-wow-delay="0s">
-                        <div class="port-8 effect-3">
-                            <div class="image-box">
-                                <img src="~/Index/images/p8.jpg" alt="Image-3">
-                            </div>
-                            <div class="text-desc">
-                                <h4>Hair Styles</h4>
-                                <p>TEXT</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 feature-grid wow bounceInUp" data-wow-duration="1.5s" data-wow-delay="0s">
-                        <h4><span>Makeup & Hair Designs</span></h4>
-                        <p>
-                            Большой текст
-                        </p>
-                        <p>
-                            текст
-                        </p>
-                        <a href="#small-dialog" class="play-icon popup-with-zoom-anim hvr-rectangle-out button">Записаться</a>
-                        <a href="#treatments" class="hvr-rectangle-in button red scroll">OUR TREATMENTS</a>
-
-
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
-            </div>
-        </div>*@
     <!-------------------------------------------------------------------->
     <div id="services">
         <h3 class="title">Услуги в салоне красоты<span></span></h3>
@@ -330,111 +295,69 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <div id="team" class="team-content all_pad agileits wow fadeInUp animated" data-wow-delay=".5s">
         <div class="container">
             <h3 class="title">Наша команда <span></span></h3>
-            <p class="para">
+            @*<p class="para">
                 Cras in risus vitae leo feugiat lobortis euismod quis dui. Integer tempor
                 urna quis quam volutpat, non consequat augue iaculis. Proin malesuada sem
                 sagittis imperdiet rutrum.
-            </p>
+            </p>*@
             <div class="team-grids">
-                <div class="col-md-4 team-gd">
+                <div class="col-md team-gd">
                     <div class="team-left">
                         <div class="team-top">
 
                         </div>
                         <div class="team-bottom">
-                            <h4>Jessica</h4>
-                            <p>Beautician</p>
-                            <ul>
-                                <li>
-                                    <a href="#">
-                                        <div class="morph pic fb_icon1">
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <div class="morph pic fb_icon2">
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <div class="morph pic fb_icon3">
-                                        </div>
-                                    </a>
-                                </li>
-                            </ul>
+                            <h4>Александра</h4>
+                            <p>Nail специалист</p>
+
                         </div>
                         <div class="t-img">
-                            <img src="~/Index/images/team1.jpg" alt=" " />
+                            <img src="~/Index/images/t1.jpg" alt=" " />
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 team-gd">
+                <div class="col-md team-gd">
                     <div class="team-left">
                         <div class="team-top">
 
                         </div>
                         <div class="team-bottom">
-                            <h4>Victoria</h4>
-                            <p>Specialist</p>
-                            <ul>
-                                <li>
-                                    <a href="#">
-                                        <div class="morph pic fb_icon1">
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <div class="morph pic fb_icon2">
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <div class="morph pic fb_icon3">
-                                        </div>
-                                    </a>
-                                </li>
-                            </ul>
+                            <h4>Ника</h4>
+                            <p>Специалист по прическам</p>
+
                         </div>
                         <div class="t-img">
-                            <img src="~/Index/images/team4.jpg" alt=" " />
+                            <img src="~/Index/images/t2.jpg" alt=" " />
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 team-gd">
+                <div class="col-md team-gd">
                     <div class="team-left">
                         <div class="team-top">
 
                         </div>
                         <div class="team-bottom">
-                            <h4>Federica</h4>
-                            <p>Therapist</p>
-                            <ul>
-                                <li>
-                                    <a href="#">
-                                        <div class="morph pic fb_icon1">
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <div class="morph pic fb_icon2">
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <div class="morph pic fb_icon3">
-                                        </div>
-                                    </a>
-                                </li>
-                            </ul>
+                            <h4>Андрей</h4>
+                            <p>Специалист - парикмахер</p>
+
                         </div>
                         <div class="t-img">
-                            <img src="~/Index/images/team3.jpg" alt=" " />
+                            <img src="~/Index/images/t3.jpg" alt=" " />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md team-gd" style="margin-top: 35px;">
+                    <div class="team-left">
+                        <div class="team-top">
+
+                        </div>
+                        <div class="team-bottom">
+                            <h4>Глеб</h4>
+                            <p>Специалист - парикмахер</p>
+
+                        </div>
+                        <div class="t-img">
+                            <img src="~/Index/images/t4.jpg" alt=" " />
                         </div>
                     </div>
                 </div>
@@ -443,126 +366,162 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </div>
     </div>
 
-
     <!-- Photo gallery -->
-    <div id="Photo" class="team-content all_pad agileits wow fadeInUp animated" data-wow-delay="0.8s">
+    <div id="photo" class="photo team-content all_pad agileits wow fadeInUp animated" data-wow-delay="0.8 s">
         <div class="container">
             <h3 class="title">Фотогалерея<span></span></h3>
-            <p class="para">
+            @*<p class="para">
                 Cras in risus vitae leo feugiat lobortis euismod quis dui. Integer tempor
                 urna quis quam volutpat, non consequat augue iaculis. Proin malesuada sem
                 sagittis imperdiet rutrum.
-            </p>
+            </p>*@        
             <div class="slideshow-container">
-                <!-- отображение картинок -->
+                @*отображение картинок*@
                 <div class="mySlides fade">
-                    <div class="numbertext">1 / 3</div>
+                    <div class="numbertext">1 / 6</div>
                     <img src="~/images/1.jpg" style="width:100%">
-                    <div class="text">Caption Text</div>
+                    <div class="text">Нижний фактурный пучок</div>
                 </div>
 
                 <div class="mySlides fade">
-                    <div class="numbertext">2 / 3</div>
+                    <div class="numbertext">2 / 6</div>
                     <img src="~/images/2.jpg" style="width:100%">
-                    <div class="text">Caption Two</div>
+                    <div class="text">Создание объемных локонов</div>
                 </div>
 
                 <div class="mySlides fade">
-                    <div class="numbertext">3 / 3</div>
+                    <div class="numbertext">3 / 6</div>
                     <img src="~/images/3.jpg" style="width:100%">
-                    <div class="text">Caption Three</div>
+                    <div class="text">Высокий фактурный хвост</div>
+                </div>
+                <div class="mySlides fade">
+                    <div class="numbertext">4 / 6</div>
+                    <img src="~/images/4.jpg" style="width:100%">
+                    <div class="text">Прическа для невесты</div>
                 </div>
 
-                <!-- next/back photo -->
+                <div class="mySlides fade">
+                    <div class="numbertext">5 / 6</div>
+                    <img src="~/images/5.jpg" style="width:100%">
+                    <div class="text">Гладкий низкий пучок</div>
+                </div>
+
+                <div class="mySlides fade">
+                    <div class="numbertext">6 / 9</div>
+                    <img src="~/images/6.jpg" style="width:100%">
+                    <div class="text">Фактурный хвост с элементами косоплетения</div>
+                </div>
+                <div class="mySlides fade">
+                    <div class="numbertext">7 / 9</div>
+                    <img src="~/images/12.jpg" style="width:100%">
+                    <div class="text">Греческая коса</div>
+                </div>
+
+                <div class="mySlides fade">
+                    <div class="numbertext">8 / 9</div>
+                    <img src="~/images/10.jpg" style="width:100%">
+                    <div class="text">Гладкий низкий пучок</div>
+                </div>
+
+                <div class="mySlides fade">
+                    <div class="numbertext">9 / 9</div>
+                    <img src="~/images/11.jpg" style="width:100%">
+                    <div class="text">Нижний пучок</div>
+                </div>
+
+                @*next/back photo*@
                 <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
                 <a class="next" onclick="plusSlides(1)">&#10095;</a>
             </div>
-            <br>
+                <br>
 
-            <!-- The dots/circles -->
-            <div style="text-align:center">
-                <span class="dot" onclick="currentSlide(1)"></span>
-                <span class="dot" onclick="currentSlide(2)"></span>
-                <span class="dot" onclick="currentSlide(3)"></span>
-            </div>
+                 @*The dots/circles*@
+        <div style="text-align:center">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+            <span class="dot" onclick="currentSlide(5)"></span>
+            <span class="dot" onclick="currentSlide(6)"></span>
+        </div>
         </div>
     </div>
-    
-            <!--------------end photogallery------------------------>
-            <script>
-                var slideIndex = 1;
-                showSlides(slideIndex);
+       
+    <!--------------end photogallery------------------------>
+    <script>
+            var slideIndex = 1;
+            showSlides(slideIndex);
 
-                function plusSlides(n) {
-                    showSlides(slideIndex += n);
+            function plusSlides(n) {
+                showSlides(slideIndex += n);
+            }
+
+            function currentSlide(n) {
+                showSlides(slideIndex = n);
+            }
+
+            function showSlides(n) {
+                var i;
+                var slides = document.getElementsByClassName("mySlides");
+                var dots = document.getElementsByClassName("dot");
+                if (n > slides.length) { slideIndex = 1 }
+                if (n < 1) { slideIndex = slides.length }
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
                 }
-
-                function currentSlide(n) {
-                    showSlides(slideIndex = n);
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
                 }
+                slides[slideIndex - 1].style.display = "block";
+                dots[slideIndex - 1].className += " active";
+            }
 
-                function showSlides(n) {
-                    var i;
-                    var slides = document.getElementsByClassName("mySlides");
-                    var dots = document.getElementsByClassName("dot");
-                    if (n > slides.length) { slideIndex = 1 }
-                    if (n < 1) { slideIndex = slides.length }
-                    for (i = 0; i < slides.length; i++) {
-                        slides[i].style.display = "none";
-                    }
-                    for (i = 0; i < dots.length; i++) {
-                        dots[i].className = dots[i].className.replace(" active", "");
-                    }
-                    slides[slideIndex - 1].style.display = "block";
-                    dots[slideIndex - 1].className += " active";
-                }
+        </script>
 
-            </script>
+    <!--Контакты-->
+    <div id="contact" class="contact all_pad w3agile  fadeInUp" data-wow-delay=".5s">
+        <div class="container">
+            <h3 class="title">Контакты<span></span></h3>
 
-            <!--Контакты-->
-            <div id="contact" class="contact all_pad w3agile  fadeInUp" data-wow-delay=".5s">
-                <div class="container">
-                    <h3 class="title">Контакты<span></span></h3>
-
-                    <div class="col-md-7 contact-left">
-                        <h4>Обратная связь</h4>
-                        <form asp-action="SendMessage" method="post">
-                            <div class="form-left">
-                                <input type="text" value="Имя" name="Name" onfocus="this.value='';" placeholder="Имя" required>
-                            </div>
-                            <div class="form-right">
-                                <input type="email" name="Emailsend" placeholder="Email">
-                            </div>
-                            <div class="clearfix"></div>
-                            <textarea name="Message" onfocus="this.value = '';" placeholder="Текст сообщения" required></textarea>
-                            <input type="submit" value="Отправить">
-                        </form>
-
+            <div class="col-md-7 contact-left">
+                <h4>Обратная связь</h4>
+                <form asp-action="SendMessage" method="post">
+                    <div class="form-left">
+                        <input type="text" value="Имя" name="Name" onfocus="this.value='';" placeholder="Имя" required>
                     </div>
-                    <div class="col-md-5 contact-right">
-
-                        <div class="map-grid">
-                            <h6>Свяжитесь с нами</h6>
-                        </div>
-                        <div class="map-grid">
-                            <h5>Beauty Center Nika</h5>
-                            <p>Телефон : +375(29)650-17-72</p>
-                        </div>
-                        <div class="clearfix"></div>
+                    <div class="form-right">
+                        <input type="email" name="Emailsend" placeholder="Email">
                     </div>
                     <div class="clearfix"></div>
-                    <p style="font-family: inherit;" class="copy-right agileinfo">
-                        &copy; 2020 Beauty Center Nika <br /> Developer: Ushakova Nika  |  MSC of Electronics <br />
-                        Программа для автоматизации процесса учета выполненных работ мастерами салона красоты "Ника"
-                    </p>
-                </div>
+                    <textarea name="Message" onfocus="this.value = '';" placeholder="Текст сообщения" required></textarea>
+                    <input type="submit" value="Отправить">
+                </form>
+
             </div>
+            <div class="col-md-5 contact-right">
 
-            <a href="#bs-example-navbar-collapse-1" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
-            @*//smooth scrolling*@
+                <div class="map-grid">
+                    <h6>Свяжитесь с нами</h6>
+                </div>
+                <div class="map-grid">
+                    <h5>Beauty Center Nika</h5>
+                    <p>Телефон : +375(29)650-17-72</p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="clearfix"></div>
+            <p style="font-family: inherit;" class="copy-right agileinfo">
+                &copy; 2020 Beauty Center Nika <br /> Developer: Ushakova Nika  |  MSC of Electronics <br />
+                Программа для автоматизации процесса учета выполненных работ мастерами салона красоты "Ника"
+            </p>
+        </div>
+    </div>
 
-            <script src="~/Index/js/bootstrap.js"></script>
-            @*//for bootstrap working*@
+    <a href="#bs-example-navbar-collapse-1" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+    @*//smooth scrolling*@
+
+    <script src="~/Index/js/bootstrap.js"></script>
+    @*//for bootstrap working*@
 </body>
 </html>
 

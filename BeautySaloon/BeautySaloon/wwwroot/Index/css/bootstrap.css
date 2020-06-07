@@ -347,6 +347,8 @@ figure {
 
 img {
     vertical-align: middle;
+    border-radius: 3%;
+    box-shadow: 2px 2px 4px #8a8787;
 }
 
 .img-responsive,
@@ -903,6 +905,7 @@ pre code {
 .col-xs-4,
 .col-sm-4,
 .col-md-4,
+.col-md,
 .col-lg-4,
 .col-xs-5,
 .col-sm-5,
@@ -1336,6 +1339,7 @@ pre code {
     .col-md-2,
     .col-md-3,
     .col-md-4,
+    .col-md,
     .col-md-5,
     .col-md-6,
     .col-md-7,
@@ -1371,7 +1375,10 @@ pre code {
         width: 41.66666667%;
     }
     .col-md-4 {
-        width: 33.33333333%;
+        width: 33.333333%;
+    }
+    .col-md {
+        width: 25%;
     }
     .col-md-3 {
         width: 25%;

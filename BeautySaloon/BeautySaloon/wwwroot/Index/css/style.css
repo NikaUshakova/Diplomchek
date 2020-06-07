@@ -1221,6 +1221,15 @@ p.copy-right a:hover {
     -moz-background-size: cover;
 }
 
+.photo {
+    background: url(../images/back1.jpg) no-repeat fixed;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    -ms-background-size: cover;
+    -moz-background-size: cover;
+}
+
 .prices h3 {
     color: #fff;
 }

@@ -103,7 +103,6 @@ namespace BeautySaloon.Areas.Admin.Controllers
         }
 
         // GET: Admin/Masters/Delete/5
-        [Route("admin/masters/delete/{id?}")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
