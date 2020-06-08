@@ -1,0 +1,15 @@
+.d1 {
+    margin: 15px 20%;
+    height: 470px;
+    width: 60%;
+    z-index: 1;
+}
+
+@media (max-width: 500px) {
+    .d1 {
+        margin: 15px 5%;
+        height: 470px;
+        width: 90%;
+        z-index: 1;
+    }
+}

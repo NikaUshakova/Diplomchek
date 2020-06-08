@@ -1,5 +1,4 @@
-﻿@using System.Web.Helpers;
-@model List<BeautySaloon.ViewModels.CountServ>
+﻿
 
 @{
     Layout = null;
@@ -16,6 +15,7 @@
     <link rel="stylesheet" type="text/css" href="~/css/filter.css">
     <link rel="stylesheet" type="text/css" href="~/css/search.css">
     <link rel="stylesheet" type="text/css" href="~/css/footer.css">
+    <link rel="stylesheet" type="text/css" href="~/css/diagramms.css">
 
     <!-- Load an icon library to show a hamburger menu (bars) on small screens -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -30,9 +30,9 @@ var chart = new CanvasJS.Chart("chartContainer", {
 	animationEnabled: true,
 	theme: "light1",
 	title: {
-		text: "Продуктивность мастеров"
+		text: "ТОП самых продуктивных мастеров"
 	},
-  
+
 	axisY: {
         title: "Количество выполненных работ",
         gridThickness: 1,
@@ -52,8 +52,61 @@ var chart = new CanvasJS.Chart("chartContainer", {
 });
 chart.render();
 
+var chart1 = new CanvasJS.Chart("chartContainer1", {
+	animationEnabled: true,
+	theme: "light1",
+	title: {
+		text: "ТОП 5 самых востребуемых услуг"
+	},
+
+	axisY: {
+        title: "Количество ",
+        gridThickness: 1,
+        lineThickness: 1
+	},
+	toolTip: {
+		shared: true
+	},
+
+	data: [{
+		type: "column",
+		name: "Количество заказов",
+		//showInLegend: true,
+		//xValueType: "string",
+		dataPoints:  @Html.Raw(ViewBag.DataPoints1)
+	}]
+});
+chart1.render();
+
+    var chart2 = new CanvasJS.Chart("chartContainer2", {
+	animationEnabled: true,
+	theme: "light1",
+	title: {
+		text: "ТОП 5 самых частых клиентов"
+	},
+
+	axisY: {
+        title: "Количество ",
+        gridThickness: 1,
+        lineThickness: 1
+	},
+	toolTip: {
+		shared: true
+	},
+
+	data: [{
+		type: "column",
+		name: "Количество заказов",
+		//showInLegend: true,
+		//xValueType: "string",
+		dataPoints:  @Html.Raw(ViewBag.DataPoints2)
+	}]
+});
+chart2.render();
+
 }
     </script>
+<!------------------------------------------------------>
 
 </head>
 <body>
@@ -81,22 +134,21 @@ chart.render();
         </a>
     </div>
 
-    <div id="filter" class="modalFilter">
-        <form method="get">
-            <div class="filter">
-                <label class="text">Выберите дату:  от</label>
-                <input name="begindate" id="datePicker" type="date">
-                <label class="text">  до</label>
-                <input name="enddate" id="datePicker" type="date">
-                <button class="OK" type="submit">Применить фильтр</button>
+    <form method="get" asp-action="Index">
+        <label class="text">Выберите дату:  от</label>
+        <input name="begindate" type="date" value="@ViewBag.BeginDate">
+        <label class="text">  до</label>
+        <input name="enddate" type="date" value="@ViewBag.EndDate">
+        <button class="OK" type="submit">Применить</button>
 
-            </div>
-        </form>
-    </div>
-    <div id="chartContainer" style="margin:5% 15%; height: 470px; width: 70%;"></div>
+    </form>
+
+    <div id="chartContainer" class="d1"></div>
+    <div id="chartContainer1" class="d1"></div>
+    <div id="chartContainer2" class="d1"></div>
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-    <div class="footer">
-        <p> </p>
-    </div>
+    @*<div class="footer">
+            <p> </p>
+        </div>*@
 </body>
 </html>
