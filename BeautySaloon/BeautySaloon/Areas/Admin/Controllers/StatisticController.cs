@@ -63,14 +63,40 @@ namespace BeautySaloon.Areas.Admin.Controllers
 				dataPoints.Add(new DataPoint(item.Master.ToString(), Convert.ToInt32(item.TotalService)));
 			}			
 			ViewBag.DataPoints = JsonConvert.SerializeObject(dataPoints);
-    /////////////////
-    ////////////////
-            var top = db.Orders.Include(m => m.Service).GroupBy(l => l.Service.Name).Select(l => new CountServ
+            ///////////////// ТОП УСЛУГИ //////////////////
+            var top = new List<CountServ>();
+            if (begindate == null && enddate == null)
+            {
+                top = db.Orders.Include(m => m.Service).GroupBy(l => l.Service.Name).Select(l => new CountServ
                 {
                     Service = l.Key,
                     Total = l.Count()
-                }).OrderByDescending(l=>l.Total).Take(5).ToList();
-       
+                }).OrderByDescending(l => l.Total).Take(5).ToList();
+            }
+            else if (begindate != null && enddate != null)
+            {
+                top = db.Orders.Include(m => m.Service).Where(o => o.Date >= begindate && o.Date <= enddate).GroupBy(l => l.Service.Name).Select(l => new CountServ
+                {
+                    Service = l.Key,
+                    Total = l.Count()
+                }).OrderByDescending(l => l.Total).Take(5).ToList();
+            }
+            else if (begindate != null)
+            {
+                top = db.Orders.Include(m => m.Service).Where(o => o.Date >= begindate).GroupBy(l => l.Service.Name).Select(l => new CountServ
+                {
+                    Service = l.Key,
+                    Total = l.Count()
+                }).OrderByDescending(l => l.Total).Take(5).ToList();
+            }
+            else if (enddate != null)
+            {
+                top = db.Orders.Include(m => m.Service).Where(o => o.Date <= enddate).GroupBy(l => l.Service.Name).Select(l => new CountServ
+                {
+                    Service = l.Key,
+                    Total = l.Count()
+                }).OrderByDescending(l => l.Total).Take(5).ToList();
+            }
             List<DataPoint> dataPoints1 = new List<DataPoint>();
             foreach (var item in top)
             {
@@ -78,8 +104,7 @@ namespace BeautySaloon.Areas.Admin.Controllers
             }
             ViewBag.DataPoints1 = JsonConvert.SerializeObject(dataPoints1);
 
-     ////////////////////
-       ////////////////////
+     //////////////////// ТОП КЛИЕНТЫ   ////////////////////
             var topClient = new List<CountClient>();
             if (begindate == null && enddate == null)
             {

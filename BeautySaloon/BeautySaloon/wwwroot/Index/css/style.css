@@ -1265,8 +1265,8 @@ p.copy-right a:hover {
     left: 0;
     width: 82%;
     height: 0;
-    border-left: 155px solid transparent;
-    border-right: 155px solid transparent;
+    border-left: 175px solid transparent;
+    border-right: 175px solid transparent;
     border-top: 37px solid #fd9f3e;
 }
 
@@ -1949,19 +1949,62 @@ select option {
 
 /*-- responsive media queries --*/
 
-@media (max-width: 1440px) {}
+@media (min-width: 1310px) {
+    .hexagon_box:after {
+        content: "";
+        position: absolute;
+        bottom: -36px;
+        left: 0;
+        width: 82%;
+        height: 0;
+        border-left: 212px solid transparent;
+        border-right: 210px solid transparent;
+        border-top: 37px solid #fd9f3e;
+    }
+}
 
-@media (max-width: 1366px) {}
+@media (max-width: 1440px) {}
 
 @media (max-width: 1280px) {
     .banner {
         min-height: 722px;
     }
+    .navbar-default .navbar-nav>li>a {
+        font-size: 12px;
+    }
+    .hexagon_box:after {
+        content: "";
+        position: absolute;
+        bottom: -36px;
+        left: 0;
+        width: 82%;
+        height: 0;
+        border-left: 160px solid transparent;
+        border-right: 160px solid transparent;
+        border-top: 37px solid #fd9f3e;
+    }
+}
+
+@media (max-width: 1206px) {
+    .navbar-default .navbar-nav>li>a {
+        font-size: 10px;
+    }
 }
 
 @media (max-width: 1080px) {
+    .hexagon_box:after {
+        content: "";
+        position: absolute;
+        bottom: -36px;
+        left: 0;
+        width: 82%;
+        height: 0;
+        border-left: 160px solid transparent;
+        border-right: 160px solid transparent;
+        border-top: 37px solid #fd9f3e;
+    }
     .nav>li>a {
-        padding: 8px 6px !important;
+        padding: 8px 4px !important;
     }
     .navbar-collapse {
         padding-right: 0;
@@ -2069,14 +2112,18 @@ select option {
     }
 }
 
-@media (max-width: 1024px) {}
+@media (max-width: 1024px) {
+    .navbar-default .navbar-nav>li>a {
+        font-size: 10px;
+    }
+}
 
 @media (max-width: 991px) {
     .menu--horatio .menu__item {
         margin: 0 3px;
     }
     .navbar-default .navbar-nav>li>a {
-        font-size: 12px;
+        font-size: 9px;
     }
     .link--nukun {
         font-size: 30px !important;
@@ -2254,7 +2301,7 @@ select option {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 770px) {
     .link--nukun {
         font-size: 28px !important;
     }
@@ -2283,6 +2330,13 @@ select option {
     }
     .ui-datepicker .ui-datepicker-header {
         padding: 8px 0;
+    }
+    .navbar-nav {
+        width: 100%;
+        text-align: center;
+    }
+    .navbar-default .navbar-nav>li>a {
+        font-size: 11px;
     }
 }
 
@@ -2321,7 +2375,7 @@ select option {
         content: initial;
     }
     .navbar-default .navbar-nav>li>a {
-        font-size: 13px;
+        font-size: 11px;
         border: 2px solid transparent;
         text-align: center;
     }
@@ -2657,8 +2711,8 @@ select option {
         text-indent: 1.7em;
     }
     .hexagon_box:after {
-        border-left: 128px solid transparent;
-        border-right: 126px solid transparent;
+        border-left: 138px solid transparent;
+        border-right: 138px solid transparent;
         bottom: -24px;
         border-top: 25px solid #fd9f3e;
     }

@@ -93,7 +93,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="container">
                 <nav class="navbar navbar-default">
                     <!-- mobile navbar-->
-                    <div class="navbar-header">
+                    <div id="nav" class="navbar-header">
                         <button type="button" class="navbar-toggle collapsed" data-target="#bs-example-navbar-collapse-1" data-toggle="collapse">
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar"></span>
@@ -296,10 +296,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div class="container">
             <h3 class="title">Наша команда <span></span></h3>
             @*<p class="para">
-                Cras in risus vitae leo feugiat lobortis euismod quis dui. Integer tempor
-                urna quis quam volutpat, non consequat augue iaculis. Proin malesuada sem
-                sagittis imperdiet rutrum.
-            </p>*@
+                    Cras in risus vitae leo feugiat lobortis euismod quis dui. Integer tempor
+                    urna quis quam volutpat, non consequat augue iaculis. Proin malesuada sem
+                    sagittis imperdiet rutrum.
+                </p>*@
             <div class="team-grids">
                 <div class="col-md team-gd">
                     <div class="team-left">
@@ -331,7 +331,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         </div>
                     </div>
                 </div>
-                <div class="col-md team-gd">
+                <div class="col-md team-gd" style="margin-bottom: 35px;">
                     <div class="team-left">
                         <div class="team-top">
 
@@ -346,7 +346,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         </div>
                     </div>
                 </div>
-                <div class="col-md team-gd" style="margin-top: 35px;">
+                <div class="col-md team-gd">
                     <div class="team-left">
                         <div class="team-top">
 
@@ -371,10 +371,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div class="container">
             <h3 class="title">Фотогалерея<span></span></h3>
             @*<p class="para">
-                Cras in risus vitae leo feugiat lobortis euismod quis dui. Integer tempor
-                urna quis quam volutpat, non consequat augue iaculis. Proin malesuada sem
-                sagittis imperdiet rutrum.
-            </p>*@        
+                    Cras in risus vitae leo feugiat lobortis euismod quis dui. Integer tempor
+                    urna quis quam volutpat, non consequat augue iaculis. Proin malesuada sem
+                    sagittis imperdiet rutrum.
+                </p>*@
             <div class="slideshow-container">
                 @*отображение картинок*@
                 <div class="mySlides fade">
@@ -433,50 +433,50 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
                 <a class="next" onclick="plusSlides(1)">&#10095;</a>
             </div>
-                <br>
+            <br>
 
-                 @*The dots/circles*@
-        <div style="text-align:center">
-            <span class="dot" onclick="currentSlide(1)"></span>
-            <span class="dot" onclick="currentSlide(2)"></span>
-            <span class="dot" onclick="currentSlide(3)"></span>
-            <span class="dot" onclick="currentSlide(4)"></span>
-            <span class="dot" onclick="currentSlide(5)"></span>
-            <span class="dot" onclick="currentSlide(6)"></span>
-        </div>
+            @*The dots/circles*@
+            <div style="text-align:center">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+                <span class="dot" onclick="currentSlide(4)"></span>
+                <span class="dot" onclick="currentSlide(5)"></span>
+                <span class="dot" onclick="currentSlide(6)"></span>
+            </div>
         </div>
     </div>
-       
+
     <!--------------end photogallery------------------------>
     <script>
-            var slideIndex = 1;
-            showSlides(slideIndex);
+        var slideIndex = 1;
+        showSlides(slideIndex);
 
-            function plusSlides(n) {
-                showSlides(slideIndex += n);
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("dot");
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
             }
-
-            function currentSlide(n) {
-                showSlides(slideIndex = n);
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
             }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+        }
 
-            function showSlides(n) {
-                var i;
-                var slides = document.getElementsByClassName("mySlides");
-                var dots = document.getElementsByClassName("dot");
-                if (n > slides.length) { slideIndex = 1 }
-                if (n < 1) { slideIndex = slides.length }
-                for (i = 0; i < slides.length; i++) {
-                    slides[i].style.display = "none";
-                }
-                for (i = 0; i < dots.length; i++) {
-                    dots[i].className = dots[i].className.replace(" active", "");
-                }
-                slides[slideIndex - 1].style.display = "block";
-                dots[slideIndex - 1].className += " active";
-            }
-
-        </script>
+    </script>
 
     <!--Контакты-->
     <div id="contact" class="contact all_pad w3agile  fadeInUp" data-wow-delay=".5s">
@@ -519,7 +519,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
     <a href="#bs-example-navbar-collapse-1" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
     @*//smooth scrolling*@
-
+    <a href="#nav" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
     <script src="~/Index/js/bootstrap.js"></script>
     @*//for bootstrap working*@
 </body>

@@ -167,7 +167,7 @@ button.OK:hover {
 }
 
 img.avatar {
-    border-radius: 50%;
+    border-radius: 20%;
 }
 
 img.logo {
@@ -368,6 +368,10 @@ span.psw {
         border: 1px solid;
         text-align: center;
         margin: 10px;
+    }
+    img.avatar {
+        border-radius: 20%;
+        width: 70%;
     }
     .cancelbtn {
         width: 100%;

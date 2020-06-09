@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BeautySaloon.Models;
-using BeautySaloon.ViewModels;
 
 namespace BeautySaloon.Controllers
 {
@@ -51,18 +50,30 @@ namespace BeautySaloon.Controllers
         public IActionResult Time(DateTime day, int? master, int? service)
         {
             List<string> numbers = new List<string>() { "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00" };
-           // var category = db.Services.Where(s => s.ID == service).Select(s => s.Category).ToString(); //получили категорию выбранной услуги
+            //var category = db.Orders.Include(s=>s.Service).ToList().Where(s => s.Service.ID == service).Select(s => s.Service.Category).ToList(); //получили категорию выбранной услуги
             var datetime = db.Orders.ToList().Where(o => o.MasterID == master && o.Date.ToShortDateString()==day.ToShortDateString()).Select(o => o.Date).ToList(); //все даты с бд заказов 
-           
+     
             //string sday = day.ToShortDateString();  //короткая дата с календаря
                 foreach (var item in datetime)
                 {
                     for (int i = 0; i < numbers.Count; i++)
                     {                        
                         if (item.ToString("HH:mm").Equals(numbers[i]))
-                        {                        
-                            numbers.RemoveAt(i);
-                            break;
+                        {        
+                            //if (category[0] == "Прически")
+                            //{
+                            //    numbers.RemoveRange(i, 2);
+                            //}    
+                            //else if (category[0] == "Парикмахерские услуги")
+                            //{
+                                numbers.RemoveAt(i);
+                            //}
+                            //else if (category[0] == "Ногтевой сервис")
+                            //{
+                            //    numbers.RemoveRange(i,3);
+                            //}
+
+                        break;
                         }
 
                     }
