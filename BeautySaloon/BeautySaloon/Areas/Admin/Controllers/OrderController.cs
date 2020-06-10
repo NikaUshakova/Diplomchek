@@ -279,16 +279,7 @@ namespace BeautySaloon.Controllers.Admin
                 var I = ws.Column("I").Width = 17;
                 var J = ws.Column("J").Width = 17;
                 var K = ws.Column("K").Width = 17;
-                //A.Width = 5;
-                //B.Width = 17;
-                //C.Width = 17;
-                //D.Width = 17;
-                //E.Width = 36;
-                // F.Style.NumberFormat = 10;
-                //G.Width = 20;
-                //H.Width = 17;
-                //I.Width = 17;
-                //J.Width = 17;
+              
                 using (MemoryStream stream = new MemoryStream())
                 {
                     workbook.SaveAs(stream);

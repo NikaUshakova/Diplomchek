@@ -1949,7 +1949,7 @@ select option {
 
 /*-- responsive media queries --*/
 
-@media (min-width: 1310px) {
+@media (min-width: 1510px) {
     .hexagon_box:after {
         content: "";
         position: absolute;
@@ -1957,13 +1957,39 @@ select option {
         left: 0;
         width: 82%;
         height: 0;
-        border-left: 212px solid transparent;
-        border-right: 210px solid transparent;
+        border-left: 240px solid transparent;
+        border-right: 230px solid transparent;
         border-top: 37px solid #fd9f3e;
     }
 }
 
-@media (max-width: 1440px) {}
+@media (max-width: 1405px) {
+    .hexagon_box:after {
+        content: "";
+        position: absolute;
+        bottom: -36px;
+        left: 0;
+        width: 82%;
+        height: 0;
+        border-left: 185px solid transparent;
+        border-right: 175px solid transparent;
+        border-top: 37px solid #fd9f3e;
+    }
+}
+
+@media (max-width: 1350px) {
+    .hexagon_box:after {
+        content: "";
+        position: absolute;
+        bottom: -36px;
+        left: 0;
+        width: 82%;
+        height: 0;
+        border-left: 170px solid transparent;
+        border-right: 170px solid transparent;
+        border-top: 37px solid #fd9f3e;
+    }
+}
 
 @media (max-width: 1280px) {
     .banner {
@@ -1979,8 +2005,8 @@ select option {
         left: 0;
         width: 82%;
         height: 0;
-        border-left: 160px solid transparent;
-        border-right: 160px solid transparent;
+        border-left: 155px solid transparent;
+        border-right: 155px solid transparent;
         border-top: 37px solid #fd9f3e;
     }
 }
@@ -1988,6 +2014,20 @@ select option {
 @media (max-width: 1206px) {
     .navbar-default .navbar-nav>li>a {
         font-size: 10px;
+    }
+}
+
+@media (max-width: 1180px) {
+    .hexagon_box:after {
+        content: "";
+        position: absolute;
+        bottom: -36px;
+        left: 0;
+        width: 82%;
+        height: 0;
+        border-left: 145px solid transparent;
+        border-right: 145px solid transparent;
+        border-top: 37px solid #fd9f3e;
     }
 }
 
@@ -2211,8 +2251,8 @@ select option {
         text-indent: 0em;
     }
     .hexagon_box:after {
-        border-left: 112px solid transparent;
-        border-right: 112px solid transparent;
+        border-left: 135px solid transparent;
+        border-right: 135px solid transparent;
         border-top: 29px solid #fd9f3e;
         bottom: -28px;
     }
@@ -2292,6 +2332,15 @@ select option {
     }
 }
 
+@media (max-width: 900px) {
+    .hexagon_box:after {
+        border-left: 115px solid transparent;
+        border-right: 115px solid transparent;
+        border-top: 29px solid #fd9f3e;
+        bottom: -28px;
+    }
+}
+
 @media (max-width: 800px) {
     .contact-left input[type="text"],
     .contact-left input[type="email address"],
@@ -2299,9 +2348,21 @@ select option {
         padding: 9px 13px;
         font-size: 14px;
     }
+    .hexagon_box:after {
+        border-left: 110px solid transparent;
+        border-right: 110px solid transparent;
+        border-top: 29px solid #fd9f3e;
+        bottom: -28px;
+    }
 }
 
 @media (max-width: 770px) {
+    .hexagon_box:after {
+        border-left: 105px solid transparent;
+        border-right: 105px solid transparent;
+        border-top: 29px solid #fd9f3e;
+        bottom: -28px;
+    }
     .link--nukun {
         font-size: 28px !important;
     }
@@ -2704,15 +2765,15 @@ select option {
     .prices-grd {
         padding: 0 9px;
         float: none;
-        width: 60%;
+        width: 80%;
         margin: 0 auto;
     }
     .price-back ul li {
         text-indent: 1.7em;
     }
     .hexagon_box:after {
-        border-left: 138px solid transparent;
-        border-right: 138px solid transparent;
+        border-left: 155px solid transparent;
+        border-right: 155px solid transparent;
         bottom: -24px;
         border-top: 25px solid #fd9f3e;
     }
@@ -2766,6 +2827,12 @@ select option {
 }
 
 @media (max-width: 414px) {
+    .hexagon_box:after {
+        border-left: 140px solid transparent;
+        border-right: 140px solid transparent;
+        bottom: -24px;
+        border-top: 25px solid #fd9f3e;
+    }
     .banner-text p {
         line-height: 2em;
     }
@@ -2788,7 +2855,7 @@ select option {
     .prices-grd {
         padding: 0 9px;
         float: none;
-        width: 71%;
+        width: 90%;
         margin: 0 auto;
     }
     .team-gd {
@@ -2843,6 +2910,12 @@ select option {
 }
 
 @media (max-width: 384px) {
+    .hexagon_box:after {
+        border-left: 120px solid transparent;
+        border-right: 120px solid transparent;
+        bottom: -24px;
+        border-top: 25px solid #fd9f3e;
+    }
     .banner-text h4 {
         font-size: 13px;
     }
@@ -2868,7 +2941,7 @@ select option {
         padding: 10px 8px;
     }
     .prices-grd {
-        width: 77%;
+        width: 90%;
     }
     .price-back ul li {
         text-indent: 1.3em;
@@ -2945,7 +3018,7 @@ select option {
         padding: 4em 0 1em;
     }
     .prices-grd {
-        width: 81%;
+        width: 90%;
     }
     .price-back ul li {
         text-indent: 0.5em;
@@ -2957,7 +3030,7 @@ select option {
         width: 65%;
     }
     .prices-grd {
-        width: 79%;
+        width: 90%;
     }
 }
 
@@ -3009,7 +3082,7 @@ select option {
         margin-left: 0px;
     }
     .prices-grd {
-        width: 96%;
+        width: 99%;
     }
     .price-back ul li {
         text-indent: 1.3em;
