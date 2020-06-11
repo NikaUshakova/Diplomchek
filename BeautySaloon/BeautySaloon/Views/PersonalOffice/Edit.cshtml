@@ -1,0 +1,75 @@
+﻿@model BeautySaloon.Models.User
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+    <link rel="stylesheet" type="text/css" href="~/css/table.css">
+    <link rel="stylesheet" type="text/css" href="~/css/navbar.css">
+    <link rel="stylesheet" type="text/css" href="~/css/popup.css">
+    <link rel="stylesheet" type="text/css" href="~/css/TextStyle.css">
+    <link rel="stylesheet" type="text/css" href="~/Login/css/main.css">
+
+    <!-- Load an icon library to show a hamburger menu (bars) on small screens -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--===JS===========================================================================-->
+    <script src="~/js/site.js"></script>
+</head>
+<body>
+    <div class="topnav" id="myTopnav">
+        <a asp-action="Edit" class="active">Редактировать профиль</a>
+        <a asp-action="Index" >Общие данные</a>
+        <a asp-action="Orders">История заказов</a>
+
+        <a class="rightuser" asp-controller="Menu" asp-action="Home">Вернуться на сайт</a>
+        <a class="rightuser" asp-controller="Account" asp-action="Logout">Выйти</a>
+        <a href="javascript:void(0);" class="icon" onclick="topnavHamburger()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
+    <div  style="height: 100%; ">
+        <!-- Modal Content -->
+        <form class="modal-content animate" asp-action="Edit" method="post">
+            <div class="containerLogin">
+
+                <h3 class="title" style="margin-bottom: 2px;">Редактирование личной информации<span></span></h3>
+                <input type="hidden" asp-for="ID" />
+                <label class="text">Фамилия: </label>
+                <input asp-for="Surname" maxlength="50" type="text" placeholder="Введите фамилию" required>
+
+                <label class="text">Имя: </label>
+                <input asp-for="Name" maxlength="50" type="text" placeholder="Введите имя" required>
+
+                <label class="text">Отчество: </label>
+                <input asp-for="Patronymic" maxlength="50" type="text" placeholder="Введите отчество" required>
+
+                <label class="text">Дата рождения: </label>
+                <input asp-for="Date" id="datePicker" type="date" placeholder="Введите дату рождения" required="">
+
+                <label>Телефон:</label>
+                <input asp-for="Phone" type="text" onkeyup="this.value = this.value.replace(/[^0-9+.]/g, '')" maxlength="13" placeholder="Введите номер телефона" required>
+
+                @*<label>Email</label>*@
+                <input asp-for="Email" type="hidden">
+                
+                <label>Пароль</label>
+                <input asp-for="Password" type="password" id="Pass" maxlength="100" placeholder="Введите пароль" required>
+                <input type="checkbox" onclick="checkLogin()" style="transform: scale(1.4);">
+                <span class="Pass">Показать пароль</span>
+                <button class="Add" type="submit">Изменить данные</button>
+            </div>
+            
+        </form>
+    </div>
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }
+</body>
+</html>

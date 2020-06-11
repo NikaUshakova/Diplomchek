@@ -115,8 +115,8 @@ namespace BeautySaloon.Controllers
                         MasterID = master,
                         ServiceID = service,
                         UserID = user.ID,
-                        OrderDate = DateTime.Now
-                    }); ;
+                        OrderDate = DateTime.Now.AddHours(3)
+                    });
                     await db.SaveChangesAsync();
 
                     return RedirectToAction("Home", "Menu");

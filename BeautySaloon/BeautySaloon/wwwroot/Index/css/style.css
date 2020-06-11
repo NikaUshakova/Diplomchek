@@ -1319,7 +1319,7 @@ p.copy-right a:hover {
 
 .price-book {
     text-align: center;
-    width: 62%;
+    width: 75%;
     margin: 0 auto;
 }
 
@@ -1341,6 +1341,10 @@ p.copy-right a:hover {
 .price-book a:hover {
     background: #08538c;
     color: #fff;
+}
+
+.prices-grduser {
+    padding: 0 35px;
 }
 
 .prices-grd {
@@ -1786,7 +1790,7 @@ p.copy-right a:hover {
 }
 
 .t-img img {
-    width: 26%;
+    width: 29%;
     position: absolute;
     left: 37%;
     top: 16%;
@@ -2110,6 +2114,9 @@ select option {
     .prices-grd {
         padding: 0 15px;
     }
+    .prices-grduser {
+        padding: 0 15px;
+    }
     .price-head h4 {
         font-size: 22px;
     }
@@ -2124,7 +2131,7 @@ select option {
         height: 77px;
     }
     .t-img img {
-        width: 31%;
+        width: 29%;
         left: 35%;
         top: 12%;
     }
@@ -2238,10 +2245,15 @@ select option {
         width: 56%;
         line-height: 2em;
     }
-    .prices-grd {
-        padding: 0 9px;
+    .prices-grduser {
+        padding: 0 13px;
         float: left;
-        width: 33.333%;
+        width: 43%;
+    }
+    .prices-grd {
+        padding: 0 13px;
+        float: left;
+        width: 33%;
     }
     .price-head h4 {
         font-size: 20px;
@@ -2260,7 +2272,7 @@ select option {
         padding: 8px 0px;
     }
     .price-book {
-        width: 75%;
+        width: 90%;
     }
     .price-back ul li {
         text-indent: 0em;
@@ -2382,7 +2394,7 @@ select option {
         padding: 6px 0px;
     }
     .price-book {
-        width: 67%;
+        width: 90%;
     }
     .price-back p {
         font-size: 19px;
@@ -2699,6 +2711,9 @@ select option {
     .price-head h4 {
         font-size: 18px;
     }
+    .prices-grduser {
+        padding: 0 5px;
+    }
     .prices-grd {
         padding: 0 5px;
     }
@@ -2736,7 +2751,7 @@ select option {
         border-right: 83px solid transparent;
     }
     .price-book {
-        width: 80%;
+        width: 95%;
     }
     .contact-left textarea {
         height: 110px;
@@ -2768,6 +2783,12 @@ select option {
         width: 80%;
         margin: 0 auto;
     }
+    .prices-grduser {
+        padding: 0 9px;
+        float: none;
+        width: 80%;
+        margin: 0 auto;
+    }
     .price-back ul li {
         text-indent: 1.7em;
     }
@@ -2785,6 +2806,9 @@ select option {
         width: 88%;
     }
     .prices-grd:nth-child(2) {
+        margin: 40px auto;
+    }
+    .prices-grduser:nth-child(2) {
         margin: 40px auto;
     }
     .banner-text h4 {
@@ -2853,6 +2877,12 @@ select option {
         padding: 5em 0em 0;
     }
     .prices-grd {
+        padding: 0 9px;
+        float: none;
+        width: 90%;
+        margin: 0 auto;
+    }
+    .prices-grduser {
         padding: 0 9px;
         float: none;
         width: 90%;
@@ -2943,6 +2973,9 @@ select option {
     .prices-grd {
         width: 90%;
     }
+    .prices-grduser {
+        width: 90%;
+    }
     .price-back ul li {
         text-indent: 1.3em;
     }
@@ -3017,7 +3050,7 @@ select option {
     .team-bottom {
         padding: 4em 0 1em;
     }
-    .prices-grd {
+    .prices-grduser {
         width: 90%;
     }
     .price-back ul li {
@@ -3084,11 +3117,14 @@ select option {
     .prices-grd {
         width: 99%;
     }
+    .prices-grduser {
+        width: 99%;
+    }
     .price-back ul li {
         text-indent: 1.3em;
     }
     .price-book {
-        width: 59%;
+        width: 95%;
     }
     .team-gd {
         width: 100%;

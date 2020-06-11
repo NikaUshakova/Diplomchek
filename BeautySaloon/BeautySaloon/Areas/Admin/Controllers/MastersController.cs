@@ -27,13 +27,6 @@ namespace BeautySaloon.Areas.Admin.Controllers
         }
 
 
-       //// GET: Admin/Masters/Create
-       //[Route("admin/masters/add")]
-       // public IActionResult Create()
-       // {
-       //     return View();
-       // }
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(int ID, string Surname, string Name, string Patronymic, DateTime Date, string Phone)

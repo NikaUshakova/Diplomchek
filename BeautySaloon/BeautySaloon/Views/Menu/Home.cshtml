@@ -120,17 +120,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <li class="menu__item"><a href="#contact" class="menu__link scroll">Контакты</a></li>
                                 <li class="menu__item"><a asp-controller="newOrder" asp-action="Online" class="menu__link scroll">Онлайн запись</a></li>
                                 @if (User.Identity.IsAuthenticated)
-                                {@*заменить на ссылку в ЛК  style="padding: 2px 10px !important;"*@
-                                <li class="menu__item"><a asp-controller="Account" asp-action="Login">@*<img src="~/images/lock.png" title="*@Личный кабинет</a></li>
-                                <li class="menu__item"><a asp-controller="Account" asp-action="Logout">@*<img src="~/images/logout.png" title="*@Выйти</a></li>
-                            }
+                                 {
+                                <li class="menu__item"><a asp-controller="PersonalOffice" asp-action="Index">Личный кабинет</a></li>
+                                 }
                             else
                             {
-                                <li class="menu__item"><a asp-controller="Account" asp-action="Login">@*<img src="~/images/lock.png" title="Login">*@ Войти</a></li>
-                            }
-                                @*  <li class="menu__item"><a href="#team" class="menu__link scroll">Team</a></li>
-                                *@
-
+                                <li class="menu__item"><a asp-controller="Account" asp-action="Login">Войти</a></li>
+                            }                               
                             </ul>
                         </nav>
                     </div>
@@ -366,81 +362,89 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <div id="photo" class="photo team-content all_pad agileits wow fadeInUp animated" data-wow-delay="0.8 s">
         <div class="container">
             <h3 class="title">Фотогалерея<span></span></h3>
-            @*<p class="para">
-                    Cras in risus vitae leo feugiat lobortis euismod quis dui. Integer tempor
-                    urna quis quam volutpat, non consequat augue iaculis. Proin malesuada sem
-                    sagittis imperdiet rutrum.
-                </p>*@
-        <div class="slideshow-container">
-            @*отображение картинок*@
-            <div class="mySlides fade">
-                <div class="numbertext">1 / 11</div>
-                <img src="~/images/1.jpg" style="width:100%">
-                <div class="text">Нижний фактурный пучок</div>
-            </div>
+ 
+            <div class="slideshow-container">
+                @*отображение картинок*@
+                <div class="mySlides fade">
+                    <div class="numbertext">1 / 13</div>
+                    <img src="~/images/1.jpg" style="width:100%">
+                    <div class="text">Нижний фактурный пучок</div>
+                </div>
 
-            <div class="mySlides fade">
-                <div class="numbertext">2 / 11</div>
-                <img src="~/images/2.jpg" style="width:100%">
-                <div class="text">Фактурный пучок для невесты</div>
-            </div>
+                <div class="mySlides fade">
+                    <div class="numbertext">2 / 13</div>
+                    <img src="~/images/02.jpg" style="width:100%">
+                    <div class="text"></div>
+                </div>
 
-            <div class="mySlides fade">
-                <div class="numbertext">3 / 11</div>
-                <img src="~/images/3.jpg" style="width:100%">
-                <div class="text"></div>
-            </div>
-            <div class="mySlides fade">
-                <div class="numbertext">4 / 11</div>
-                <img src="~/images/4.jpg" style="width:100%">
-                <div class="text">Гладкий низкий пучок</div>
-            </div>
+                <div class="mySlides fade">
+                    <div class="numbertext">3 / 13</div>
+                    <img src="~/images/2.jpg" style="width:100%">
+                    <div class="text">Фактурный пучок для невесты</div>
+                </div>
 
-            <div class="mySlides fade">
-                <div class="numbertext">5 / 11</div>
-                <img src="~/images/5.jpg" style="width:100%">
-                <div class="text">Фактурный высокий хвост</div>
-            </div>
+                <div class="mySlides fade">
+                    <div class="numbertext">4 / 13</div>
+                    <img src="~/images/3.jpg" style="width:100%">
+                    <div class="text"></div>
+                </div>
+                <div class="mySlides fade">
+                    <div class="numbertext">5 / 13</div>
+                    <img src="~/images/4.jpg" style="width:100%">
+                    <div class="text">Гладкий низкий пучок</div>
+                </div>
 
-            <div class="mySlides fade">
-                <div class="numbertext">6 / 11</div>
-                <img src="~/images/6.jpg" style="width:100%">
-                <div class="text">Свадебная прическа</div>
-            </div>
-            <div class="mySlides fade">
-                <div class="numbertext">7 / 11</div>
-                <img src="~/images/7.jpg" style="width:100%">
-                <div class="text"></div>
-            </div>
+                <div class="mySlides fade">
+                    <div class="numbertext">6 / 13</div>
+                    <img src="~/images/05.jpg" style="width:100%">
+                    <div class="text"></div>
+                </div>
 
-            <div class="mySlides fade">
-                <div class="numbertext">8 / 11</div>
-                <img src="~/images/8.jpg" style="width:100%">
-                <div class="text">Низкий пучок в стиле рустик</div>
-            </div>
+                <div class="mySlides fade">
+                    <div class="numbertext">7 / 13</div>
+                    <img src="~/images/5.jpg" style="width:100%">
+                    <div class="text">Фактурный высокий хвост</div>
+                </div>
 
-            <div class="mySlides fade">
-                <div class="numbertext">9 / 11</div>
-                <img src="~/images/9.jpg" style="width:100%">
-                <div class="text">Фактурный высокий хвост с элементами косоплетения</div>
-            </div>
+                <div class="mySlides fade">
+                    <div class="numbertext">8 / 13</div>
+                    <img src="~/images/6.jpg" style="width:100%">
+                    <div class="text">Свадебная прическа</div>
+                </div>
+                <div class="mySlides fade">
+                    <div class="numbertext">9 / 13</div>
+                    <img src="~/images/7.jpg" style="width:100%">
+                    <div class="text"></div>
+                </div>
 
-            <div class="mySlides fade">
-                <div class="numbertext">10 / 11</div>
-                <img src="~/images/10.jpg" style="width:100%">
-                <div class="text">Греческая коса</div>
-            </div>
+                <div class="mySlides fade">
+                    <div class="numbertext">10 / 13</div>
+                    <img src="~/images/8.jpg" style="width:100%">
+                    <div class="text">Низкий пучок в стиле рустик</div>
+                </div>
 
-            <div class="mySlides fade">
-                <div class="numbertext">11 / 11</div>
-                <img src="~/images/11.jpg" style="width:100%">
-                <div class="text"></div>
-            </div>
+                <div class="mySlides fade">
+                    <div class="numbertext">11 / 13</div>
+                    <img src="~/images/9.jpg" style="width:100%">
+                    <div class="text">Фактурный высокий хвост с элементами косоплетения</div>
+                </div>
 
-            @*next/back photo*@
-            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-            <a class="next" onclick="plusSlides(1)">&#10095;</a>
-        </div>
+                <div class="mySlides fade">
+                    <div class="numbertext">12 / 13</div>
+                    <img src="~/images/10.jpg" style="width:100%">
+                    <div class="text">Греческая коса</div>
+                </div>
+
+                <div class="mySlides fade">
+                    <div class="numbertext">13 / 13</div>
+                    <img src="~/images/11.jpg" style="width:100%">
+                    <div class="text"></div>
+                </div>
+
+                @*next/back photo*@
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
             <br>
 
             @*The dots/circles*@
@@ -456,6 +460,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <span class="dot" onclick="currentSlide(9)"></span>
             <span class="dot" onclick="currentSlide(10)"></span>
             <span class="dot" onclick="currentSlide(11)"></span>
+            <span class="dot" onclick="currentSlide(12)"></span>
+            <span class="dot" onclick="currentSlide(13)"></span>
         </div>
         </div>
     </div>
@@ -524,7 +530,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
             <div class="clearfix"></div>
             <p style="font-family: inherit;" class="copy-right agileinfo">
-                &copy; 2020 Beauty Center Nika <br /> Developer: Ushakova Nika  |  MSC of Electronics <br />
+                &copy; 2020 Beauty Center Nika <br /> Developer: Ushakova Nika, group 29  |  MSC of Electronics <br />
                 Программа для автоматизации процесса учета выполненных работ мастерами салона красоты "Ника"
             </p>
         </div>

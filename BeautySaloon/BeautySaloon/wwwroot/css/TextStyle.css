@@ -76,7 +76,7 @@ input.button {
     padding-right: 25px;
 }
 
-@media (max-width: 450px) {
+@media (max-width: 480px) {
     h3.title {
         font-size: 38px;
         color: #08538c;
@@ -93,6 +93,34 @@ input.button {
 @media screen and (max-width: 370px) {
     h3.title {
         font-size: 32px;
+        color: #08538c;
+        text-align: center;
+        text-transform: none;
+        margin-top: 10px;
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-bottom: 30px;
+        font-family: 'Gabriela', serif;
+    }
+}
+
+@media screen and (max-width: 312px) {
+    h3.title {
+        font-size: 26px;
+        color: #08538c;
+        text-align: center;
+        text-transform: none;
+        margin-top: 10px;
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-bottom: 30px;
+        font-family: 'Gabriela', serif;
+    }
+}
+
+@media screen and (max-width: 248px) {
+    h3.title {
+        font-size: 18px;
         color: #08538c;
         text-align: center;
         text-transform: none;

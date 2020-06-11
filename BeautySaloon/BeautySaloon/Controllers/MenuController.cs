@@ -35,9 +35,10 @@ namespace BeautySaloon.Controllers
         }
        
 
-        public async Task<IActionResult> SendMessage(string Name, string Message, string Emailsend)
+        public async Task<IActionResult> SendMessage(string Name, string Emailsend, string Message)
         {
             EmailService emailService = new EmailService();
+
             await emailService.GetEmailAsync("BeautycenterNika@gmail.com", "Feedback", Message, Emailsend, Name);
             return RedirectToAction(nameof(Home));
         }

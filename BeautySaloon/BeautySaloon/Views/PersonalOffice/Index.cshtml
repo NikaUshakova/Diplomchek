@@ -1,0 +1,68 @@
+﻿@model BeautySaloon.Models.User
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Personal Account</title>
+    <link rel="stylesheet" type="text/css" href="~/css/table.css">
+    <link rel="stylesheet" type="text/css" href="~/css/popup.css">
+    <link rel="stylesheet" type="text/css" href="~/css/TextStyle.css">
+    @*<link rel="stylesheet" type="text/css" href="~/css/footer.css">*@
+    <link rel="stylesheet" type="text/css" href="~/css/navbar.css">
+   
+
+    <!-- Load an icon library to show a hamburger menu (bars) on small screens -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--===JS===========================================================================-->
+    <script src="~/js/site.js"></script>
+    
+</head>
+<body>
+    <div class="topnav" id="myTopnav">
+        <a asp-action="Index" class="active">Общие данные</a>
+        <a asp-action="Orders">История заказов</a>
+        <a asp-action="Edit" >Редактировать профиль</a>
+
+        <a class="rightuser" asp-controller="Menu" asp-action="Home">Вернуться на сайт</a>
+        <a class="rightuser" asp-controller="Account" asp-action="Logout">Выйти</a>
+        <a href="javascript:void(0);" class="icon" onclick="topnavHamburger()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
+    <div style=" height: 100%; ">
+        <!-- Modal Content -->
+        <form class="modal-content animate" >
+            <div class="containerLogin">
+
+                <h3 class="title">Личная информация<span></span></h3>
+                <input type="hidden" asp-for="ID" />
+                <label class="text">Фамилия: </label>
+                <input asp-for="Surname"  readonly>
+
+                <label class="text">Имя: </label>
+                <input asp-for="Name" readonly>
+
+                <label class="text">Отчество: </label>
+                <input asp-for="Patronymic" readonly>
+
+                <label class="text">Дата рождения: </label>
+                <input asp-for="Date"  readonly>
+
+                <label>Телефон:</label>
+                <input asp-for="Phone" type="text" readonly>
+
+            </div>
+            <div class="containerLogin" style="background-color:#f1f1f1; padding: 6px 16px 35px 16px;">  </div>
+        </form>
+    </div>
+    
+
+</body>
+</html>

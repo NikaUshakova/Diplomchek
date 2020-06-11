@@ -34,6 +34,10 @@ body {
     float: right !important;
 }
 
+.rightuser {
+    float: right !important;
+}
+
 
 /* Change the color of links on hover */
 
@@ -76,10 +80,16 @@ body {
     }
 }
 
+@media screen and (max-width: 550px) {
+    .rightuser {
+        float: none !important;
+    }
+}
+
 
 /* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 700px) {
     .topnav.responsive {
         position: sticky;
     }

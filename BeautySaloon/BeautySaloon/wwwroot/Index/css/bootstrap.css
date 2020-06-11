@@ -893,6 +893,7 @@ pre code {
     margin-left: -15px;
 }
 
+.col,
 .col-xs-1,
 .col-sm-1,
 .col-md-1,
@@ -1338,6 +1339,7 @@ pre code {
 }
 
 @media (min-width: 992px) {
+    .col,
     .col-md-1,
     .col-md-2,
     .col-md-3,
@@ -1382,6 +1384,9 @@ pre code {
     }
     .col-md {
         width: 25%;
+    }
+    .col {
+        width: 31%;
     }
     .col-md-3 {
         width: 25%;
