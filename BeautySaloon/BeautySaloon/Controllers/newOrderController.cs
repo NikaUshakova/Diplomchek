@@ -50,35 +50,77 @@ namespace BeautySaloon.Controllers
         public IActionResult Time(DateTime day, int? master, int? service)
         {
             List<string> numbers = new List<string>() { "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00" };
-            //var category = db.Orders.Include(s=>s.Service).ToList().Where(s => s.Service.ID == service).Select(s => s.Service.Category).ToList(); //получили категорию выбранной услуги
-            var datetime = db.Orders.ToList().Where(o => o.MasterID == master && o.Date.ToShortDateString()==day.ToShortDateString()).Select(o => o.Date).ToList(); //все даты с бд заказов 
-     
-            //string sday = day.ToShortDateString();  //короткая дата с календаря
-                foreach (var item in datetime)
+            var datetime = db.Orders.ToList().Where(o => o.MasterID == master && o.Date.ToShortDateString()==day.ToShortDateString()).Select(o => o.Date).ToList(); //даты с бд заказов, равные дате с календаря с выбранным мастером
+            foreach (var item in datetime)
+            {
+                for (int i = 0; i < numbers.Count; i++)
                 {
-                    for (int i = 0; i < numbers.Count; i++)
-                    {                        
-                        if (item.ToString("HH:mm").Equals(numbers[i]))
-                        {        
-                            //if (category[0] == "Прически")
-                            //{
-                            //    numbers.RemoveRange(i, 2);
-                            //}    
-                            //else if (category[0] == "Парикмахерские услуги")
-                            //{
+                    if (item.ToString("HH:mm").Equals(numbers[i]))
+                    {
+                        var category = db.Orders.Include(s => s.Service).ToList().Where(s => s.Date == item).Select(s => s.Service.Category).ToList(); //получили категорию услуги, которая уже есть в этот день
+                                                                                                                                                       // var cat = db.Orders.Include(s => s.Service).ToList().Where(s => s.ServiceID == service).Select(s => s.Service.Category).ToList(); //получили категорию услуги, которую выбрал клиент
+                                                                                                                                                       //if (cat[0] == "Прически")
+                                                                                                                                                       //{
+                                                                                                                                                       //    try
+                                                                                                                                                       //    {
+                                                                                                                                                       //    numbers.RemoveAt(i);
+                                                                                                                                                       //    numbers.RemoveAt(i-1);
+                                                                                                                                                       //}
+                                                                                                                                                       //    catch
+                                                                                                                                                       //    {
+                                                                                                                                                       //        numbers.RemoveAt(i);
+                                                                                                                                                       //    }
+                                                                                                                                                       //}
+                                                                                                                                                       //else if (cat[0] == "Парикмахерские услуги")
+                                                                                                                                                       //{
+                                                                                                                                                       //    numbers.RemoveAt(i);
+                                                                                                                                                       //}
+                                                                                                                                                       //else if (cat[0] == "Ногтевой сервис")
+                                                                                                                                                       //{
+                                                                                                                                                       //    try
+                                                                                                                                                       //    {
+                                                                                                                                                       //    numbers.RemoveAt(i);
+                                                                                                                                                       //    numbers.RemoveAt(i - 1);
+                                                                                                                                                       //    numbers.RemoveAt(i-  2);
+                                                                                                                                                       //}
+                                                                                                                                                       //    catch
+                                                                                                                                                       //    {
+                                                                                                                                                       //        numbers.RemoveAt(i);
+                                                                                                                                                       //    }
+                                                                                                                                                       //}                                                                                                                                                                                                                                                                                                                                                                                                          
+                        if (category[0] == "Прически")
+                        {
+                            try
+                            {
+                                numbers.RemoveRange(i, 2);
+                            }
+                            catch
+                            {
                                 numbers.RemoveAt(i);
-                            //}
-                            //else if (category[0] == "Ногтевой сервис")
-                            //{
-                            //    numbers.RemoveRange(i,3);
-                            //}
-
-                        break;
+                            }
                         }
-
+                        else if (category[0] == "Парикмахерские услуги")
+                        {
+                            numbers.RemoveAt(i);
+                        }
+                        else if (category[0] == "Ногтевой сервис")
+                        {
+                            try
+                            {
+                                numbers.RemoveRange(i, 3);
+                            }
+                            catch
+                            {
+                                numbers.RemoveAt(i);
+                            }
+                        }
+                        break;
                     }
-               
+
                 }
+
+            }
+
             if (numbers.Count == 0) 
             {
                 ViewBag.Null = "Свободных мест нет";
